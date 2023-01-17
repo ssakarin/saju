@@ -3722,13 +3722,13 @@ namespace WindowsFormsApp1
                 if (!bTongi)
                 {
                     //tton1_Click(sender, e);
-                    pictureBox1.Image = Properties.Resources.tongi_raw;
+                    //pictureBox1.Image = Properties.Resources.tongi_raw;
                     pictureBox1.BringToFront();
                     bTongi = true;
                 }
                 else
                 {
-                    pictureBox1.Image = Properties.Resources.tongi;
+                    //pictureBox1.Image = Properties.Resources.tongi;
                     pictureBox1.SendToBack();
                     showTongGido(goong);
                     bTongi = false;
@@ -4051,77 +4051,91 @@ namespace WindowsFormsApp1
 
         private void button2_Click(object sender, EventArgs e)  // 저장
         {
-            string path = AppDomain.CurrentDomain.BaseDirectory;
-            path += "data.txt";
-
-            gimundungab.PerformClick();
-
-            if (radioButton4.Checked) gender = 1;
-            else gender = 0;
-            string temp, line;
-            bool saved = false;
-            if (radioButton1.Checked) temp = "양력";
-            else if (radioButton2.Checked) temp = "음력";
-            else temp = "음력윤달";
-            string data = textBox6.Text + " " + gender +" " + dt.ToString("yyyy_MM_dd_HHmm") + " " + temp; // 입력값 가저오기
-
-            using (StreamReader file = new StreamReader(path))
+            try
             {
-                while ((line = file.ReadLine()) != null)
+                string path = AppDomain.CurrentDomain.BaseDirectory;
+                path += "data.txt";
+
+                gimundungab.PerformClick();
+
+                if (radioButton4.Checked) gender = 1;
+                else gender = 0;
+                string temp, line;
+                bool saved = false;
+                if (radioButton1.Checked) temp = "양력";
+                else if (radioButton2.Checked) temp = "음력";
+                else temp = "음력윤달";
+                string data = textBox6.Text + " " + gender + " " + dt.ToString("yyyy_MM_dd_HHmm") + " " + temp; // 입력값 가저오기
+
+                using (StreamReader file = new StreamReader(path))
                 {
-                    if (line == data)
+                    while ((line = file.ReadLine()) != null)
                     {
-                        saved = true;
-                        goto EXIT;
+                        if (line == data)
+                        {
+                            saved = true;
+                            goto EXIT;
+                        }
                     }
                 }
+
+                if (!saved)
+                {
+                    using (StreamWriter file = File.AppendText(path))
+                        file.WriteLine(data);
+                }
+
+            EXIT:
+                if (saved) MessageBox.Show("이미 저장된 사람입니다");
             }
-
-            if (!saved)
-            {
-                using (StreamWriter file = File.AppendText(path))
-                    file.WriteLine(data);
-            }          
-
-            EXIT: 
-            if(saved) MessageBox.Show("이미 저장된 사람입니다");
-
             //file.Close();
+            catch
+            {
+                MessageBox.Show("저장할 수 없습니다");
+            }
         }
 
         private void button1_Click_1(object sender, EventArgs e)    // 불러오기
         {
-            string path = AppDomain.CurrentDomain.BaseDirectory;
-            path += "data.txt";
-            string line;
+            try
+            {
+                string path = AppDomain.CurrentDomain.BaseDirectory;
+                path += "data.txt";
+                string line;
 
-            Form2 dlg = new Form2(this);
-            dlg.listView1.BeginUpdate();
-            ListViewItem item;
+                Form2 dlg = new Form2(this);
+                dlg.listView1.BeginUpdate();
+                ListViewItem item;
 
-            using (StreamReader file = new StreamReader(path))
-            { 
-                while ((line = file.ReadLine()) != null)
+                using (StreamReader file = new StreamReader(path))
                 {
-                    string[] substr = line.Split(' ');
-                    item = new ListViewItem(substr[0]);
-                    if (substr[1] == "1") item.SubItems.Add("남");
-                    else item.SubItems.Add("녀");
-                    item.SubItems.Add(substr[2]);
-                    if (substr.Length == 3) item.SubItems.Add("양력");
-                    else item.SubItems.Add(substr[3]);
-                    dlg.listView1.Items.Add(item);
+                    while ((line = file.ReadLine()) != null)
+                    {
+                        string[] substr = line.Split(' ');
+                        item = new ListViewItem(substr[0]);
+                        if (substr[1] == "1") item.SubItems.Add("남");
+                        else item.SubItems.Add("녀");
+                        item.SubItems.Add(substr[2]);
+                        if (substr.Length == 3) item.SubItems.Add("양력");
+                        else item.SubItems.Add(substr[3]);
+                        dlg.listView1.Items.Add(item);
+                    }
                 }
+                //file.Close();
+
+                dlg.listView1.Columns[0].Width = -2;
+                dlg.listView1.Columns[1].Width = -2;
+                dlg.listView1.Columns[2].Width = -2;
+                dlg.listView1.Columns[3].Width = -2;
+                dlg.listView1.EndUpdate();
+
+                dlg.ShowDialog();
             }
-            //file.Close();
+            catch
+            {
+                MessageBox.Show("불러올 수 없습니다");
+            }
 
-            dlg.listView1.Columns[0].Width = -2;
-            dlg.listView1.Columns[1].Width = -2;
-            dlg.listView1.Columns[2].Width = -2;
-            dlg.listView1.Columns[3].Width = -2;
-            dlg.listView1.EndUpdate();
-
-            dlg.ShowDialog();
         }
     }
 
