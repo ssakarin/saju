@@ -1270,7 +1270,7 @@
             this.label21.BackColor = System.Drawing.Color.White;
             this.label21.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label21.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label21.Location = new System.Drawing.Point(47, 421);
+            this.label21.Location = new System.Drawing.Point(289, 427);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(21, 17);
             this.label21.TabIndex = 136;
@@ -1283,7 +1283,7 @@
             this.label23.BackColor = System.Drawing.Color.White;
             this.label23.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label23.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label23.Location = new System.Drawing.Point(109, 360);
+            this.label23.Location = new System.Drawing.Point(217, 354);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(21, 17);
             this.label23.TabIndex = 137;
@@ -1296,7 +1296,7 @@
             this.label24.BackColor = System.Drawing.Color.White;
             this.label24.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label24.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label24.Location = new System.Drawing.Point(225, 360);
+            this.label24.Location = new System.Drawing.Point(106, 354);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(37, 17);
             this.label24.TabIndex = 138;
@@ -1309,7 +1309,7 @@
             this.label25.BackColor = System.Drawing.Color.White;
             this.label25.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label25.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label25.Location = new System.Drawing.Point(288, 419);
+            this.label25.Location = new System.Drawing.Point(45, 427);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(21, 17);
             this.label25.TabIndex = 139;
@@ -2131,7 +2131,6 @@
             this.Controls.Add(this.label110);
             this.Controls.Add(this.label111);
             this.Controls.Add(this.label112);
-            this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.label60);
             this.Controls.Add(this.label71);
@@ -2222,6 +2221,7 @@
             this.Controls.Add(this.label15);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.groupBox4);
+            this.Controls.Add(this.pictureBox3);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "Form1";
