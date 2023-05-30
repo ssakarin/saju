@@ -1436,12 +1436,15 @@ namespace WindowsFormsApp1
             {
                 if(i !=4)
                 {
-                    if (goong[i].yooksam[0] == 0 && goong[i].yooksam[1] == 8) goong[i].kyukkuk += "靑龍合靈";
+                    //甲(갑1) 乙(을2) 丙(병3) 丁(정4) 戊(무5) 己(기6) 庚(경7) 辛(신8) 壬(임9) 癸(계10)
+                    //子자1 丑축2 寅인3 卯묘4 辰진5 巳사6 午오7 未미8 申신9 酉유10 戌술11 亥해12
+                    //戊0, 己1, 庚2, 辛3, 壬4, 癸5, 丁6, 丙7, 乙8
+                    if (goong[i].yooksam[0] == 0 && goong[i].yooksam[1] == 8) goong[i].kyukkuk += "靑龍合靈"; 
                     else if (goong[i].yooksam[0] == 0 && goong[i].yooksam[1] == 7) goong[i].kyukkuk += "靑龍回首";
                     else if (goong[i].yooksam[0] == 0 && goong[i].yooksam[1] == 6) goong[i].kyukkuk += "靑龍耀明";
-                    else if (goong[i].yooksam[0] == 0 && goong[i].yooksam[1] == 0) goong[i].kyukkuk += "伏吟";
+                    else if (goong[i].yooksam[0] == 0 && goong[i].yooksam[1] == 0) goong[i].kyukkuk += "伏吟峻山";
                     else if (goong[i].yooksam[0] == 0 && goong[i].yooksam[1] == 1) goong[i].kyukkuk += "貴人入獄";
-                    else if (goong[i].yooksam[0] == 0 && goong[i].yooksam[1] == 2) goong[i].kyukkuk += "吉事不吉";//;"値符飛宮";
+                    else if (goong[i].yooksam[0] == 0 && goong[i].yooksam[1] == 2) goong[i].kyukkuk += "値符飛宮";//;"吉事不吉";
                     else if (goong[i].yooksam[0] == 0 && goong[i].yooksam[1] == 3) goong[i].kyukkuk += "靑龍折足";
                     else if (goong[i].yooksam[0] == 0 && goong[i].yooksam[1] == 4) goong[i].kyukkuk += "山明水秀"; //隻帆漂洋";
                     else if (goong[i].yooksam[0] == 0 && goong[i].yooksam[1] == 5) goong[i].kyukkuk += "岩石浸蝕"; // "靑龍華蓋";
@@ -1469,7 +1472,7 @@ namespace WindowsFormsApp1
                     else if (goong[i].yooksam[0] == 6 && goong[i].yooksam[1] == 8) goong[i].kyukkuk += "燒田種作";
                     else if (goong[i].yooksam[0] == 6 && goong[i].yooksam[1] == 7) goong[i].kyukkuk += "星隨月轉";
                     else if (goong[i].yooksam[0] == 6 && goong[i].yooksam[1] == 6) goong[i].kyukkuk += "兩火成炎";
-                    else if (goong[i].yooksam[0] == 6 && goong[i].yooksam[1] == 0) goong[i].kyukkuk += "平安壽福";//靑龍轉光";
+                    else if (goong[i].yooksam[0] == 6 && goong[i].yooksam[1] == 0) goong[i].kyukkuk += "有爐有火";// "平安壽福" "靑龍轉光";
                     else if (goong[i].yooksam[0] == 6 && goong[i].yooksam[1] == 1) goong[i].kyukkuk += "火入句陳";
                     else if (goong[i].yooksam[0] == 6 && goong[i].yooksam[1] == 2) goong[i].kyukkuk += "火煉眞金";
                     else if (goong[i].yooksam[0] == 6 && goong[i].yooksam[1] == 3) goong[i].kyukkuk += "朱雀入獄";
@@ -1478,12 +1481,12 @@ namespace WindowsFormsApp1
 
                     else if (goong[i].yooksam[0] == 1 && goong[i].yooksam[1] == 8) goong[i].kyukkuk += "柔情密意";
                     else if (goong[i].yooksam[0] == 1 && goong[i].yooksam[1] == 7) goong[i].kyukkuk += "火孛地戶";
-                    else if (goong[i].yooksam[0] == 1 && goong[i].yooksam[1] == 6) goong[i].kyukkuk += "先曲後直";
+                    else if (goong[i].yooksam[0] == 1 && goong[i].yooksam[1] == 6) goong[i].kyukkuk += "朱雀入墓"; //"先曲後直"
                     else if (goong[i].yooksam[0] == 1 && goong[i].yooksam[1] == 0) goong[i].kyukkuk += "犬遇靑龍";
                     else if (goong[i].yooksam[0] == 1 && goong[i].yooksam[1] == 1) goong[i].kyukkuk += "百事不遂";
                     else if (goong[i].yooksam[0] == 1 && goong[i].yooksam[1] == 2) goong[i].kyukkuk += "活鬼廛身"; // "利格返名";
                     else if (goong[i].yooksam[0] == 1 && goong[i].yooksam[1] == 3) goong[i].kyukkuk += "濕泥汚玉"; // "遊魂入墓";
-                    else if (goong[i].yooksam[0] == 1 && goong[i].yooksam[1] == 4) goong[i].kyukkuk += "地網高張";
+                    else if (goong[i].yooksam[0] == 1 && goong[i].yooksam[1] == 4) goong[i].kyukkuk += "反吟濁水"; // "地網高張"
                     else if (goong[i].yooksam[0] == 1 && goong[i].yooksam[1] == 5) goong[i].kyukkuk += "好事必止";
 
                     else if (goong[i].yooksam[0] == 2 && goong[i].yooksam[1] == 8) goong[i].kyukkuk += "太白逢星";
@@ -1502,8 +1505,8 @@ namespace WindowsFormsApp1
                     else if (goong[i].yooksam[0] == 3 && goong[i].yooksam[1] == 0) goong[i].kyukkuk += "妄動禍殃"; // "有頭無尾";
                     else if (goong[i].yooksam[0] == 3 && goong[i].yooksam[1] == 1) goong[i].kyukkuk += "奴僕背主"; // "入獄自刑";
                     else if (goong[i].yooksam[0] == 3 && goong[i].yooksam[1] == 2) goong[i].kyukkuk += "白虎出力";
-                    else if (goong[i].yooksam[0] == 3 && goong[i].yooksam[1] == 3) goong[i].kyukkuk += "伏吟相剋";
-                    else if (goong[i].yooksam[0] == 3 && goong[i].yooksam[1] == 4) goong[i].kyukkuk += "表實內虛";
+                    else if (goong[i].yooksam[0] == 3 && goong[i].yooksam[1] == 3) goong[i].kyukkuk += "白虎兩立"; // "伏吟相剋"
+                    else if (goong[i].yooksam[0] == 3 && goong[i].yooksam[1] == 4) goong[i].kyukkuk += "寒塘月影"; //表實內虛
                     else if (goong[i].yooksam[0] == 3 && goong[i].yooksam[1] == 5) goong[i].kyukkuk += "誤入天網";
 
                     else if (goong[i].yooksam[0] == 4 && goong[i].yooksam[1] == 8) goong[i].kyukkuk += "逐水桃花";
@@ -1517,7 +1520,7 @@ namespace WindowsFormsApp1
                     else if (goong[i].yooksam[0] == 4 && goong[i].yooksam[1] == 5) goong[i].kyukkuk += "幼女奸淫";
 
                     else if (goong[i].yooksam[0] == 5 && goong[i].yooksam[1] == 8) goong[i].kyukkuk += "梨花春雨";
-                    else if (goong[i].yooksam[0] == 5 && goong[i].yooksam[1] == 7) goong[i].kyukkuk += "常人平安"; // "華蓋孛師";
+                    else if (goong[i].yooksam[0] == 5 && goong[i].yooksam[1] == 7) goong[i].kyukkuk += "日出霧散"; // "常人平安" "華蓋孛師";
                     else if (goong[i].yooksam[0] == 5 && goong[i].yooksam[1] == 6) goong[i].kyukkuk += "螣蛇妖嬌";
                     else if (goong[i].yooksam[0] == 5 && goong[i].yooksam[1] == 0) goong[i].kyukkuk += "困時得助"; // "天乙會合";
                     else if (goong[i].yooksam[0] == 5 && goong[i].yooksam[1] == 1) goong[i].kyukkuk += "音信皆阻"; // "華蓋地戶";
@@ -4053,8 +4056,9 @@ namespace WindowsFormsApp1
         {
             try
             {
-                string path = AppDomain.CurrentDomain.BaseDirectory;
-                path += "data.txt";
+                //string path = AppDomain.CurrentDomain.BaseDirectory;
+                //string path = System.Windows.Forms.Application.StartupPath;
+                string path = "data.txt";
 
                 gimundungab.PerformClick();
 
@@ -4099,8 +4103,9 @@ namespace WindowsFormsApp1
         {
             try
             {
-                string path = AppDomain.CurrentDomain.BaseDirectory;
-                path += "data.txt";
+                //string path = AppDomain.CurrentDomain.BaseDirectory;
+                //string path = System.Environment.CurrentDirectory;
+                string path = "data.txt";
                 string line;
 
                 Form2 dlg = new Form2(this);
@@ -4134,6 +4139,7 @@ namespace WindowsFormsApp1
             catch
             {
                 MessageBox.Show("불러올 수 없습니다");
+
             }
 
         }

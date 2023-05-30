@@ -71,7 +71,7 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.listView1);
             this.Name = "Form2";
-            this.Text = "Form2";
+            this.Text = "저장된 명단";
             this.ResumeLayout(false);
 
         }
