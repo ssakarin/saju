@@ -887,17 +887,16 @@ namespace WindowsFormsApp1
             }
 
             //육의삼기 지반
-            String temp = toGan(sjGanzi[2, 0]) + toZi(sjGanzi[2, 1]);
+            String temp = toGan(sjGanzi[2, 0]) + toZi(sjGanzi[2, 1]);  // 日의 간지
             
-            for (i = 0; i < 60 && month[i/20, i%20] != temp; i++) ;
-            for (j = 0; j < 24 &&  dt.CompareTo(terms[j]) >= 0; j++) ;
+            for (i = 0; i < 60 && month[i/20, i%20] != temp; i++) ;   // month는 60갑자 , 여기서 i는 위 temp(日의 간지)가 몇번째 순번인가 카운트
+            for (j = 0; j < 24 &&  dt.CompareTo(terms[j]) >= 0; j++) ; // j는 절기가 어디에 해당하는가 카운트
 
             //if (j == 24 || j <= 10) direction = true;
             start = jeolgi[(j+23)%24,i / 20];   // 지반 戊 시작하는 궁 위치
 
-            label56.Text = toBirthJeolgi(j - 1, i / 20, start);
-            //textBox5.AppendText(hterms[i] + $"{terms[i]}" + Environment.NewLine);
-
+            label56.Text = toBirthJeolgi(j - 1, i / 20, start);  // 절기,  
+                                                                 //textBox5.AppendText(hterms[i] + $"{terms[i]}" + Environment.NewLine);
 
             //Text += toJeolGi((j+23)%24) + Environment.NewLine; 
             //Console.WriteLine("지반 戊 시작하는 궁 위치: " + (start));
@@ -1444,7 +1443,7 @@ namespace WindowsFormsApp1
                     else if (goong[i].yooksam[0] == 0 && goong[i].yooksam[1] == 6) goong[i].kyukkuk += "靑龍耀明";
                     else if (goong[i].yooksam[0] == 0 && goong[i].yooksam[1] == 0) goong[i].kyukkuk += "伏吟峻山";
                     else if (goong[i].yooksam[0] == 0 && goong[i].yooksam[1] == 1) goong[i].kyukkuk += "貴人入獄";
-                    else if (goong[i].yooksam[0] == 0 && goong[i].yooksam[1] == 2) goong[i].kyukkuk += "値符飛宮";//;"吉事不吉";
+                    else if (goong[i].yooksam[0] == 0 && goong[i].yooksam[1] == 2) goong[i].kyukkuk += "直符飛宮";//;"吉事不吉";
                     else if (goong[i].yooksam[0] == 0 && goong[i].yooksam[1] == 3) goong[i].kyukkuk += "靑龍折足";
                     else if (goong[i].yooksam[0] == 0 && goong[i].yooksam[1] == 4) goong[i].kyukkuk += "山明水秀"; //隻帆漂洋";
                     else if (goong[i].yooksam[0] == 0 && goong[i].yooksam[1] == 5) goong[i].kyukkuk += "岩石浸蝕"; // "靑龍華蓋";
@@ -1608,7 +1607,7 @@ namespace WindowsFormsApp1
                         else if (goong[i].yooksam[0] == 3 && goong[i].yooksam[1] == 0) goong[i].kyukkuk += "懷才不運 越下松影";
                         else if (goong[i].yooksam[0] == 4 && goong[i].yooksam[1] == 0) goong[i].kyukkuk += "內外危險 速決爲主";
                         else if (goong[i].yooksam[0] == 5 && goong[i].yooksam[1] == 0) goong[i].kyukkuk += "困時得助";
-                        else if (goong[i].yooksam[0] == 6 && goong[i].yooksam[1] == 0) goong[i].kyukkuk += "平安壽福";//靑龍轉光";
+                        else if (goong[i].yooksam[0] == 6 && goong[i].yooksam[1] == 0) goong[i].kyukkuk += "有爐有火";// "平安壽福" "靑龍轉光";
                         else if (goong[i].yooksam[0] == 7 && goong[i].yooksam[1] == 0) goong[i].kyukkuk += "飛鳥跌穴";
                         else if (goong[i].yooksam[0] == 8 && goong[i].yooksam[1] == 0) goong[i].kyukkuk += "錦上添花";
 
@@ -1617,7 +1616,7 @@ namespace WindowsFormsApp1
                         else if (goong[i].yooksam[0] == 0 && goong[i].yooksam[1] == 7) goong[i].kyukkuk += "靑龍回首";
                         else if (goong[i].yooksam[0] == 0 && goong[i].yooksam[1] == 6) goong[i].kyukkuk += "一拍卽合";
                         else if (goong[i].yooksam[0] == 0 && goong[i].yooksam[1] == 1) goong[i].kyukkuk += "共協互惠";
-                        else if (goong[i].yooksam[0] == 0 && goong[i].yooksam[1] == 2) goong[i].kyukkuk += "飛宮斫伐";
+                        else if (goong[i].yooksam[0] == 0 && goong[i].yooksam[1] == 2) goong[i].kyukkuk += "直符飛宮";//"飛宮斫伐";
                         else if (goong[i].yooksam[0] == 0 && goong[i].yooksam[1] == 3) goong[i].kyukkuk += "木棍碎瓦";
                         else if (goong[i].yooksam[0] == 0 && goong[i].yooksam[1] == 4) goong[i].kyukkuk += "有去無歸";
                         else if (goong[i].yooksam[0] == 0 && goong[i].yooksam[1] == 5) goong[i].kyukkuk += "樹根露水";
@@ -1629,7 +1628,7 @@ namespace WindowsFormsApp1
                         else if (goong[i].yooksam[0] == 3 && goong[i].yooksam[1] == 0) goong[i].kyukkuk += "官司破財";
                         else if (goong[i].yooksam[0] == 4 && goong[i].yooksam[1] == 0) goong[i].kyukkuk += "男人發達 女座金與";
                         else if (goong[i].yooksam[0] == 5 && goong[i].yooksam[1] == 0) goong[i].kyukkuk += "天乙會合 財喜婚姻";
-                        else if (goong[i].yooksam[0] == 6 && goong[i].yooksam[1] == 0) goong[i].kyukkuk += "平安壽福";
+                        else if (goong[i].yooksam[0] == 6 && goong[i].yooksam[1] == 0) goong[i].kyukkuk += "有爐有火";// "平安壽福" "靑龍轉光";
                         else if (goong[i].yooksam[0] == 7 && goong[i].yooksam[1] == 0) goong[i].kyukkuk += "丙奇得使 有利有益";
                         else if (goong[i].yooksam[0] == 8 && goong[i].yooksam[1] == 0) goong[i].kyukkuk += "鮮花名甁";
 
@@ -1637,7 +1636,7 @@ namespace WindowsFormsApp1
                         else if (goong[i].yooksam[0] == 0 && goong[i].yooksam[1] == 7) goong[i].kyukkuk += "日出東山";
                         else if (goong[i].yooksam[0] == 0 && goong[i].yooksam[1] == 6) goong[i].kyukkuk += "以小勝多";
                         else if (goong[i].yooksam[0] == 0 && goong[i].yooksam[1] == 1) goong[i].kyukkuk += "勿以類聚";
-                        else if (goong[i].yooksam[0] == 0 && goong[i].yooksam[1] == 2) goong[i].kyukkuk += "助紂爲虐";
+                        else if (goong[i].yooksam[0] == 0 && goong[i].yooksam[1] == 2) goong[i].kyukkuk += "直符飛宮";//"助紂爲虐";
                         else if (goong[i].yooksam[0] == 0 && goong[i].yooksam[1] == 3) goong[i].kyukkuk += "十事九敗";
                         else if (goong[i].yooksam[0] == 0 && goong[i].yooksam[1] == 4) goong[i].kyukkuk += "山明水秀";
                         else if (goong[i].yooksam[0] == 0 && goong[i].yooksam[1] == 5) goong[i].kyukkuk += "巖石浸蝕";
@@ -1665,11 +1664,11 @@ namespace WindowsFormsApp1
                     else if (goong[i].yooksam[0] == 7 && goong[i].yooksam[1] == 4) goong[i].kyukkuk += "是非頗多";
                     else if (goong[i].yooksam[0] == 7 && goong[i].yooksam[1] == 5) goong[i].kyukkuk += "黑雲遮日";
 
-                    //else if (goong[i].yooksam[0] == 6 && goong[i].yooksam[1] == 0) goong[i].kyukkuk += "平安壽福";//靑龍轉光";
+                    //else if (goong[i].yooksam[0] == 6 && goong[i].yooksam[1] == 0) goong[i].kyukkuk += "有爐有火";// "平安壽福" "靑龍轉光";
                     else if (goong[i].yooksam[0] == 6 && goong[i].yooksam[1] == 8) goong[i].kyukkuk += "可官進祿";
                     else if (goong[i].yooksam[0] == 6 && goong[i].yooksam[1] == 7) goong[i].kyukkuk += "樂極生悲";
                     else if (goong[i].yooksam[0] == 6 && goong[i].yooksam[1] == 6) goong[i].kyukkuk += "文書卽至";
-                    // else if (goong[i].yooksam[0] == 6 && goong[i].yooksam[1] == 0) goong[i].kyukkuk += "平安壽福";
+                    // else if (goong[i].yooksam[0] == 6 && goong[i].yooksam[1] == 0) goong[i].kyukkuk += "有爐有火";// "平安壽福" "靑龍轉光";
                     else if (goong[i].yooksam[0] == 6 && goong[i].yooksam[1] == 1) goong[i].kyukkuk += "奸私仇寃";
                     else if (goong[i].yooksam[0] == 6 && goong[i].yooksam[1] == 2) goong[i].kyukkuk += "火煉眞金";
                     else if (goong[i].yooksam[0] == 6 && goong[i].yooksam[1] == 3) goong[i].kyukkuk += "燒毁珠玉";
@@ -1681,7 +1680,7 @@ namespace WindowsFormsApp1
                     //else if (goong[i].yooksam[0] == 1 && goong[i].yooksam[1] == 0) goong[i].kyukkuk += "永不發芽";
                     else if (goong[i].yooksam[0] == 1 && goong[i].yooksam[1] == 8) goong[i].kyukkuk += "柔情密意";
                     else if (goong[i].yooksam[0] == 1 && goong[i].yooksam[1] == 7) goong[i].kyukkuk += "陽人相害";
-                    else if (goong[i].yooksam[0] == 1 && goong[i].yooksam[1] == 6) goong[i].kyukkuk += "先曲後直";
+                    else if (goong[i].yooksam[0] == 1 && goong[i].yooksam[1] == 6) goong[i].kyukkuk += "朱雀入墓"; //"先曲後直"
                     //else if (goong[i].yooksam[0] == 1 && goong[i].yooksam[1] == 0) goong[i].kyukkuk += "犬遇靑龍";
                     else if (goong[i].yooksam[0] == 1 && goong[i].yooksam[1] == 1) goong[i].kyukkuk += "百事不遂";
                     else if (goong[i].yooksam[0] == 1 && goong[i].yooksam[1] == 2) goong[i].kyukkuk += "活鬼廛身";
@@ -1708,7 +1707,7 @@ namespace WindowsFormsApp1
                     else if (goong[i].yooksam[0] == 3 && goong[i].yooksam[1] == 1) goong[i].kyukkuk += "奴僕背主";
                     else if (goong[i].yooksam[0] == 3 && goong[i].yooksam[1] == 2) goong[i].kyukkuk += "白虎出力";
                     else if (goong[i].yooksam[0] == 3 && goong[i].yooksam[1] == 3) goong[i].kyukkuk += "白虎兩立";
-                    else if (goong[i].yooksam[0] == 3 && goong[i].yooksam[1] == 4) goong[i].kyukkuk += "表實內虛";
+                    else if (goong[i].yooksam[0] == 3 && goong[i].yooksam[1] == 4) goong[i].kyukkuk += "寒塘月影"; //表實內虛
                     else if (goong[i].yooksam[0] == 3 && goong[i].yooksam[1] == 5) goong[i].kyukkuk += "誤入天網";
 
                     //else if (goong[i].yooksam[0] == 4 && goong[i].yooksam[1] == 0) goong[i].kyukkuk += "內外危險";
@@ -1938,7 +1937,7 @@ namespace WindowsFormsApp1
             for (i = 0; i < 4; i++) t_age[i] -= solar_dt.Year;
             for (i = 0, j = 0; i < 4; i++)
             {
-                if (t_age[i] > 0 && t_age[i] < 120)
+                if (t_age[i] > 0 && t_age[i] <= 120)
                 {
                     t_age[j] = t_age[i];
                     j += 1;
@@ -3888,6 +3887,20 @@ namespace WindowsFormsApp1
             {
                 MessageBox.Show("년,월,일,시를 정확히 입력하세요");
             }
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            // 24절기 정시 출력해보기
+            string j_term = "";
+            int j_day_0, j_day_1; // 日의 간지
+            for (int i = 0; i < 24; i++)
+            {
+                ToSajuDay(terms[i], out j_day_0, out j_day_1);
+                j_term += toJeolGi(i) + " " + toGan(j_day_0) + toZi(j_day_1) + " " + terms[i].ToString() + "\n";
+
+            }
+            MessageBox.Show(j_term);
         }
 
         private void button6_Click(object sender, EventArgs e)

@@ -327,7 +327,7 @@
             this.radioButton7.AutoSize = true;
             this.radioButton7.Location = new System.Drawing.Point(50, 15);
             this.radioButton7.Name = "radioButton7";
-            this.radioButton7.Size = new System.Drawing.Size(47, 16);
+            this.radioButton7.Size = new System.Drawing.Size(41, 16);
             this.radioButton7.TabIndex = 78;
             this.radioButton7.TabStop = true;
             this.radioButton7.Text = "단2";
@@ -338,7 +338,7 @@
             this.radioButton8.AutoSize = true;
             this.radioButton8.Location = new System.Drawing.Point(5, 15);
             this.radioButton8.Name = "radioButton8";
-            this.radioButton8.Size = new System.Drawing.Size(47, 16);
+            this.radioButton8.Size = new System.Drawing.Size(41, 16);
             this.radioButton8.TabIndex = 77;
             this.radioButton8.TabStop = true;
             this.radioButton8.Text = "단1";
