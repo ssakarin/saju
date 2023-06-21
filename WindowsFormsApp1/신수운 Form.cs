@@ -359,8 +359,8 @@ namespace WindowsFormsApp1
                 //textBox5.AppendText(hterms[i] + $"{terms[i]}" + Environment.NewLine);
             }
             str += hterms[i];
-            if (j == 0) str += " 上元";
-            else if (j == 1) str += " 中元";
+            if (j/20 == 0) str += " 上元";
+            else if (j/20 == 1) str += " 中元";
             else str += " 下元";
             str += " " + k + "局";
             if (i == 23 || i <= 10) str += " 陽遁";
@@ -770,7 +770,7 @@ namespace WindowsFormsApp1
             goong[i].six_sin[1] = 1; // 세 표시
         }
 
-        public void setHonglvl(Goong[] goong, int month) // 육신 강약 계산
+        public void setHonglvl(Goong[] goong, int month, DateTime dt) // 육신 강약 계산
         {
             for (int i = 0; i < 9; i++)
             {
@@ -780,7 +780,8 @@ namespace WindowsFormsApp1
                         temp[0] = 1;
                     if (getohaeng(goong[i].hongNum[1], 0) == getohaeng(goong[i].hongNum[0], 0) || getohaeng(goong[i].hongNum[1], 0) == (getohaeng(goong[i].hongNum[0], 0) + 1) % 5)
                         temp[1] = 1;
-                    if (getohaeng(goong[i].hongNum[1], 0) == getohaeng(month, 2) || getohaeng(goong[i].hongNum[1], 0) == (getohaeng(month, 2) + 1) % 5)
+                    //if (getohaeng(goong[i].hongNum[1], 0) == getohaeng(month, 2) || getohaeng(goong[i].hongNum[1], 0) == (getohaeng(month, 2) + 1) % 5)
+                    if (getohaeng(goong[i].hongNum[1], 0) == getohaeng_dt(dt) || getohaeng(goong[i].hongNum[1], 0) == (getohaeng_dt(dt) + 1) % 5)
                         temp[2] = 1;
                     goong[i].hongNumlvl[1] = 4 * temp[0] + 2 * temp[1] + temp[2];
 
@@ -789,7 +790,8 @@ namespace WindowsFormsApp1
                         temp[0] = 1;
                     if (getohaeng(goong[i].hongNum[0], 0) == getohaeng(goong[i].hongNum[1], 0) || getohaeng(goong[i].hongNum[0], 0) == (getohaeng(goong[i].hongNum[1], 0) + 1) % 5)
                         temp[1] = 1;
-                    if (getohaeng(goong[i].hongNum[0], 0) == getohaeng(month, 2) || getohaeng(goong[i].hongNum[0], 0) == (getohaeng(month, 2) + 1) % 5)
+                    //if (getohaeng(goong[i].hongNum[0], 0) == getohaeng(month, 2) || getohaeng(goong[i].hongNum[0], 0) == (getohaeng(month, 2) + 1) % 5)
+                    if (getohaeng(goong[i].hongNum[0], 0) == getohaeng_dt(dt) || getohaeng(goong[i].hongNum[0], 0) == (getohaeng_dt(dt) + 1) % 5)
                         temp[2] = 1;
                     goong[i].hongNumlvl[0] = 4 * temp[0] + 2 * temp[1] + temp[2];
                 }
@@ -800,7 +802,7 @@ namespace WindowsFormsApp1
         {
             //type 0 : 숫자 1~10
             //type 1 : 천간 1~10
-            //tyep 2 : 지지 1~12
+            //tyep 2 : 지지 1~12  , 이거 안쓰고 아래  getohaeng_day 사용
             //type 3 : 각 국의 바탕오행
             int ohaeng; // 0:수, 1:목, 2:화, 3:토, 4:금
             if (type == 0)
@@ -838,7 +840,18 @@ namespace WindowsFormsApp1
             return ohaeng;
         }
 
-        public void setYooAge(Goong[] goong, int t1, int t2) // 유년 계산
+        public int getohaeng_dt(DateTime dt) // 날짜의 오행 받아오기
+        {
+            int ohaeng; // 0:수, 1:목, 2:화, 3:토, 4:금
+            if ((dt.Month == 2 && dt.Day >= 4) || dt.Month == 3 || (dt.Month == 4 && dt.Day < 17)) ohaeng = 1;
+            else if ((dt.Month == 5 && dt.Day >= 5) || dt.Month == 6 || (dt.Month == 7 && dt.Day < 20)) ohaeng = 2;
+            else if ((dt.Month == 8 && dt.Day >= 7) || dt.Month == 9 || (dt.Month == 10 && dt.Day < 20)) ohaeng = 4;
+            else if ((dt.Month == 11 && dt.Day >= 7) || dt.Month == 12 || (dt.Month == 1 && dt.Day < 17)) ohaeng = 0;
+            else ohaeng = 3;
+            return ohaeng;
+        }
+
+            public void setYooAge(Goong[] goong, int t1, int t2) // 유년 계산
         {
             int i;
 
@@ -873,6 +886,14 @@ namespace WindowsFormsApp1
                             { "甲辰", "乙巳", "丙午", "丁未", "戊申", "己酉", "庚戌", "辛亥", "壬子", "癸丑" },
                             { "甲寅", "乙卯", "丙辰", "丁巳", "戊午", "己未", "庚申", "辛酉", "壬戌", "癸亥" } };
 
+            String[] gabja_order = {   "甲子", "乙丑", "丙寅", "丁卯", "戊辰", "己巳", "庚午", "辛未", "壬申", "癸酉" ,
+                                        "甲戌", "乙亥", "丙子", "丁丑", "戊寅", "己卯", "庚辰", "辛巳", "壬午", "癸未" ,
+                                        "甲申", "乙酉", "丙戌", "丁亥", "戊子", "己丑", "庚寅", "辛卯", "壬辰", "癸巳" ,
+                                        "甲午", "乙未", "丙申", "丁酉", "戊戌", "己亥", "庚子", "辛丑", "壬寅", "癸卯" ,
+                                        "甲辰", "乙巳", "丙午", "丁未", "戊申", "己酉", "庚戌", "辛亥", "壬子", "癸丑" ,
+                                        "甲寅", "乙卯", "丙辰", "丁巳", "戊午", "己未", "庚申", "辛酉", "壬戌", "癸亥" };
+
+
             int[,] jeolgi = {{2,8,5}, {3,9,6}, {8,5,2}, {9,6,3}, {1,7,4}, {3,9,6}, {4,1,7}, {5,2,8}, {4,1,7}, {5,2,8}, {6,3,9}, {9,3,6},
                             {8,2,5}, {7,1,4}, {2,5,8}, {1,4,7}, {9,3,6}, {7,1,4}, {6,9,3}, {5,8,2}, {6,9,3}, {5,8,2}, {4,7,1}, {1,7,4}};
 
@@ -888,17 +909,41 @@ namespace WindowsFormsApp1
             }
 
             //육의삼기 지반
-            String temp = toGan(sjGanzi[2, 0]) + toZi(sjGanzi[2, 1]);
+            String temp = toGan(sjGanzi[2, 0]) + toZi(sjGanzi[2, 1]); // 日 의 간지
 
-            for (i = 0; i < 60 && month[i / 20, i % 20] != temp; i++) ;
-            for (j = 0; j < 24 && dt.CompareTo(terms[j]) >= 0; j++) ;
+            for (i = 0; i < 60 && month[i / 20, i % 20] != temp; i++) ;// month는 60갑자 , 여기서 i는 위 temp(日의 간지)가 몇번째 순번인가 카운트
+
+            for (j = 0; j < 24 && dt.CompareTo(terms[j]) >= 0; j++) ; // j는 절기가 어디에 해당하는가 카운트
+
+            //생일 전 절기 日의 간지
+            int j_1, j_2;
+            ToSajuDay(terms[j - 1], out j_1, out j_2);
+            string temp2 = toGan(j_1) + toZi(j_2);
+
+            //생일 후 절기 日의 간지
+            ToSajuDay(terms[j], out j_1, out j_2);
+            string temp3 = toGan(j_1) + toZi(j_2);
+
+            // 몇번째인지 카운트
+            int l, m, n;
+            for (l = 0; l < 60 && gabja_order[l] != temp; l++) ;  // 생일
+            for (m = 0; m < 60 && gabja_order[m] != temp2; m++) ; // 생일전 절기입일
+            for (n = 0; n < 60 && gabja_order[n] != temp3; n++) ; // 생일전 절기입일
+
+            //MessageBox.Show(k+temp2 + terms[j-1].ToString());
+            //MessageBox.Show("생일 "+ l + " 전절기 " + m + " 후절기 " + n + " 상원첫날 " + (int)(l/15)*15 + " 차이 " + (n - (int)(l / 15) * 15)) ;
+
+            if (n - (int)(l / 15) * 15 < 10 && n - (int)(l / 15) * 15 >= 0)
+                j++;  // 생일의 절기입일이 생일 다음 절기와 비교해 10일 이내이면 생일은 다음 절기로 간주한다(초신) , 접기의 경우 기존 방식을 사용해도 결과가 같게 나오므로(보국 때문에) 별도로 처리하지 않는다
+
 
             //if (j == 24 || j <= 10) direction = true;
             start = jeolgi[(j + 23) % 24, i / 20];   // 지반 戊 시작하는 궁 위치
 
-            label56.Text = toBirthJeolgi(j-1, i / 20, start);
+            label56.Text = toBirthJeolgi(j-1, i, start);
             //textBox5.AppendText(hterms[i] + $"{terms[i]}" + Environment.NewLine);
 
+            label56.Text = label56.Text + " " + toOhaeng_1(getohaeng_dt(real_dt)) + "月令";
 
             //Text += toJeolGi((j+23)%24) + Environment.NewLine; 
             //Console.WriteLine("지반 戊 시작하는 궁 위치: " + (start));
@@ -992,7 +1037,7 @@ namespace WindowsFormsApp1
             start = jeolgi[(term + 23) % 24, i / 20];   // 지반 戊 시작하는 궁 위치
 
             //if (comboBox9.SelectedIndex != -1)
-                label56.Text = toBirthJeolgi((term + 23) % 24, i / 20, start);
+                label56.Text = toBirthJeolgi((term + 23) % 24, i, start);
             //else label56.Text = "";
             //textBox5.AppendText(hterms[i] + $"{terms[i]}" + Environment.NewLine);
 
@@ -1452,7 +1497,7 @@ namespace WindowsFormsApp1
                     else if (goong[i].yooksam[0] == 8 && goong[i].yooksam[1] == 6) goong[i].kyukkuk += "三奇相佐";
                     else if (goong[i].yooksam[0] == 8 && goong[i].yooksam[1] == 0) goong[i].kyukkuk += "鮮花名甁";
                     else if (goong[i].yooksam[0] == 8 && goong[i].yooksam[1] == 1) goong[i].kyukkuk += "以一當十";// "日奇入霧";
-                    else if (goong[i].yooksam[0] == 8 && goong[i].yooksam[1] == 2) goong[i].kyukkuk += "日奇被刑";
+                    else if (goong[i].yooksam[0] == 8 && goong[i].yooksam[1] == 2) goong[i].kyukkuk += "夫妻懷私"; // "日奇被刑";
                     else if (goong[i].yooksam[0] == 8 && goong[i].yooksam[1] == 3) goong[i].kyukkuk += "靑龍逃走";
                     else if (goong[i].yooksam[0] == 8 && goong[i].yooksam[1] == 4) goong[i].kyukkuk += "日奇入地";
                     else if (goong[i].yooksam[0] == 8 && goong[i].yooksam[1] == 5) goong[i].kyukkuk += "遁跡修道"; //  "華蓋逢星";
@@ -1647,7 +1692,7 @@ namespace WindowsFormsApp1
                     else if (goong[i].yooksam[0] == 8 && goong[i].yooksam[1] == 6) goong[i].kyukkuk += "文書社吉";
                     //else if (goong[i].yooksam[0] == 8 && goong[i].yooksam[1] == 0) goong[i].kyukkuk += "鮮花名甁";
                     else if (goong[i].yooksam[0] == 8 && goong[i].yooksam[1] == 1) goong[i].kyukkuk += "以一當十";
-                    else if (goong[i].yooksam[0] == 8 && goong[i].yooksam[1] == 2) goong[i].kyukkuk += "爭訟財産";
+                    else if (goong[i].yooksam[0] == 8 && goong[i].yooksam[1] == 2) goong[i].kyukkuk += "夫妻懷私"; // "爭訟財産";
                     else if (goong[i].yooksam[0] == 8 && goong[i].yooksam[1] == 3) goong[i].kyukkuk += "靑龍逃走";
                     else if (goong[i].yooksam[0] == 8 && goong[i].yooksam[1] == 4) goong[i].kyukkuk += "男遊天下";
                     else if (goong[i].yooksam[0] == 8 && goong[i].yooksam[1] == 5) goong[i].kyukkuk += "遁跡修道";
@@ -1797,7 +1842,7 @@ namespace WindowsFormsApp1
             else if (goong[4].hongNum[0] == 8 && goong[4].hongNum[1] == 5) return "沖局";
             else if (goong[4].hongNum[0] == 7 && goong[4].hongNum[1] == 5) return "怨嗔局";
             else if (goong[4].hongNum[0] == 5 && goong[4].hongNum[1] == 5) return "刑破害局";
-            else if ((goong[4].hongNum[0] + goong[4].hongNum[1]) % 10 == 4 || (goong[4].hongNum[0] + goong[4].hongNum[1]) % 10 == 9 || (goong[4].hongNum[0] + goong[4].hongNum[1]) % 10 == 10)
+            else if ((goong[4].hongNum[0] + goong[4].hongNum[1]) % 10 == 4 || (goong[4].hongNum[0] + goong[4].hongNum[1]) % 10 == 9 || (goong[4].hongNum[0] + goong[4].hongNum[1]) % 10 == 0)
                 return "和局";
             else if ((goong[4].hongNum[0] + goong[4].hongNum[1]) % 10 == 1 || (goong[4].hongNum[0] + goong[4].hongNum[1]) % 10 == 3 || (goong[4].hongNum[0] + goong[4].hongNum[1]) % 10 == 6)
                 return "戰局";
@@ -3431,7 +3476,7 @@ namespace WindowsFormsApp1
                 setSixSin(goong, sjGanzi);
 
                 //흥국수 강약
-                setHonglvl(goong, sjGanzi[1, 1]);
+                setHonglvl(goong, sjGanzi[1, 1], real_dt);
 
                 //육의삼기 붙이기
                 sisunsoo = setYookSam(goong, sjGanzi, real_dt, terms, direction);

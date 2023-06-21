@@ -135,6 +135,7 @@
             this.radioButton7 = new System.Windows.Forms.RadioButton();
             this.radioButton8 = new System.Windows.Forms.RadioButton();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.button8 = new System.Windows.Forms.Button();
             this.label78 = new WindowsFormsApp1.LabelX();
             this.label79 = new WindowsFormsApp1.LabelX();
             this.label80 = new WindowsFormsApp1.LabelX();
@@ -180,7 +181,6 @@
             this.label42 = new WindowsFormsApp1.LabelX();
             this.label41 = new WindowsFormsApp1.LabelX();
             this.label50 = new WindowsFormsApp1.LabelX();
-            this.button8 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -1517,6 +1517,19 @@
             this.pictureBox3.Visible = false;
             this.pictureBox3.WaitOnLoad = true;
             // 
+            // button8
+            // 
+            this.button8.BackColor = System.Drawing.Color.Khaki;
+            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button8.Location = new System.Drawing.Point(1100, 18);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(23, 33);
+            this.button8.TabIndex = 180;
+            this.button8.Text = "절기";
+            this.button8.UseVisualStyleBackColor = false;
+            this.button8.Visible = false;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
+            // 
             // label78
             // 
             this.label78.AutoSize = true;
@@ -2102,24 +2115,13 @@
             this.label50.Text = "1";
             this.label50.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // button8
-            // 
-            this.button8.BackColor = System.Drawing.Color.Khaki;
-            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button8.Location = new System.Drawing.Point(1100, 18);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(23, 33);
-            this.button8.TabIndex = 180;
-            this.button8.Text = "절기";
-            this.button8.UseVisualStyleBackColor = false;
-            this.button8.Click += new System.EventHandler(this.button8_Click);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1130, 721);
+            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.button8);
             this.Controls.Add(this.label78);
             this.Controls.Add(this.label79);
@@ -2201,7 +2203,6 @@
             this.Controls.Add(this.label43);
             this.Controls.Add(this.label42);
             this.Controls.Add(this.label41);
-            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label40);
             this.Controls.Add(this.textBox6);

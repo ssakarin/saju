@@ -316,16 +316,16 @@
             // 
             this.groupBox5.Controls.Add(this.radioButton7);
             this.groupBox5.Controls.Add(this.radioButton8);
-            this.groupBox5.Location = new System.Drawing.Point(155, 101);
+            this.groupBox5.Location = new System.Drawing.Point(202, 81);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(100, 41);
+            this.groupBox5.Size = new System.Drawing.Size(54, 63);
             this.groupBox5.TabIndex = 262;
             this.groupBox5.TabStop = false;
             // 
             // radioButton7
             // 
             this.radioButton7.AutoSize = true;
-            this.radioButton7.Location = new System.Drawing.Point(50, 15);
+            this.radioButton7.Location = new System.Drawing.Point(5, 37);
             this.radioButton7.Name = "radioButton7";
             this.radioButton7.Size = new System.Drawing.Size(41, 16);
             this.radioButton7.TabIndex = 78;
