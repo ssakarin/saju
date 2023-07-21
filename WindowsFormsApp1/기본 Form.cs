@@ -920,21 +920,46 @@ namespace WindowsFormsApp1
             string temp2 = toGan(j_1) + toZi(j_2);
 
             //생일 후 절기 日의 간지
-            ToSajuDay(terms[j], out j_1, out j_2);
-            string temp3 = toGan(j_1) + toZi(j_2);
+            DateTime[] terms_next_year = new DateTime[24];
+            DateTime next_jeolgi;
+            string temp3;
+
+            if (j == 24)
+            {
+                terms_next_year = get24Terms(real_dt.AddYears(1));
+                ToSajuDay(terms_next_year[0], out j_1, out j_2);
+                next_jeolgi = terms_next_year[0]; 
+                temp3 = toGan(j_1) + toZi(j_2);
+            }
+            else
+            {
+                ToSajuDay(terms[j], out j_1, out j_2);
+                next_jeolgi = terms[j];
+                temp3 = toGan(j_1) + toZi(j_2);
+            }       
 
             // 몇번째인지 카운트
             int l, m, n;
             for (l = 0; l < 60 && gabja_order[l] != temp; l++) ;  // 생일
             for (m = 0; m < 60 && gabja_order[m] != temp2; m++) ; // 생일전 절기입일
-            for (n = 0; n < 60 && gabja_order[n] != temp3; n++) ; // 생일전 절기입일
+            for (n = 0; n < 60 && gabja_order[n] != temp3; n++) ; // 생일후 절기입일
 
             //MessageBox.Show(k+temp2 + terms[j-1].ToString());
             //MessageBox.Show("생일 "+ l + " 전절기 " + m + " 후절기 " + n + " 상원첫날 " + (int)(l/15)*15 + " 차이 " + (n - (int)(l / 15) * 15)) ;
 
-            if (n - (int)(l / 15) * 15 < 10 && n - (int)(l / 15) * 15 >= 0) 
-                j++;  // 생일의 절기입일이 생일 다음 절기와 비교해 10일 이내이면 생일은 다음 절기로 간주한다(초신) , 접기의 경우 기존 방식을 사용해도 결과가 같게 나오므로(보국 때문에) 별도로 처리하지 않는다
+            int diffHour = next_jeolgi.Hour - real_dt.Hour;
+            int diffMin = next_jeolgi.Minute - real_dt.Minute;
 
+            if (n - (int)(l / 15) * 15 < 10 && n - (int)(l / 15) * 15 > 0) // 생일의 절기입일이 생일 다음 절기와 비교해 10일 이내이면 생일은 다음 절기로 간주한다(초신)
+                                                                           // 접기의 경우 기존 방식을 사용해도 결과가 같게 나오므로(보국 때문에) 별도로 처리하지 않는다
+            {
+                if ((l % 15) == 0)  // 생일이 절기 입일인 경우 시간을 따져서 절기 시간보다 빠르면 이전 절기로, 뒤에 오면 다음 절기로 간주
+                {
+                    if (diffHour < 0 || (diffHour == 0 && diffMin <= 0)) j++;
+                }
+                else j++;
+            }
+          
             //if (j == 24 || j <= 10) direction = true;
             start = jeolgi[(j+23)%24,i / 20];   // 지반 戊 시작하는 궁 위치
 
@@ -1499,8 +1524,8 @@ namespace WindowsFormsApp1
                     else if (goong[i].yooksam[0] == 8 && goong[i].yooksam[1] == 1) goong[i].kyukkuk += "以一當十";// "日奇入霧";
                     else if (goong[i].yooksam[0] == 8 && goong[i].yooksam[1] == 2) goong[i].kyukkuk += "夫妻懷私"; // "日奇被刑";
                     else if (goong[i].yooksam[0] == 8 && goong[i].yooksam[1] == 3) goong[i].kyukkuk += "靑龍逃走";
-                    else if (goong[i].yooksam[0] == 8 && goong[i].yooksam[1] == 4) goong[i].kyukkuk += "日奇入地";
-                    else if (goong[i].yooksam[0] == 8 && goong[i].yooksam[1] == 5) goong[i].kyukkuk += "遁跡修道"; //  "華蓋逢星";
+                    else if (goong[i].yooksam[0] == 8 && goong[i].yooksam[1] == 4) goong[i].kyukkuk += "荷葉蓮花"; // 日奇入地";
+                    else if (goong[i].yooksam[0] == 8 && goong[i].yooksam[1] == 5) goong[i].kyukkuk += "祿野朝露"; // "遁跡修道"; //  "華蓋逢星";
 
                     else if (goong[i].yooksam[0] == 7 && goong[i].yooksam[1] == 8) goong[i].kyukkuk += "日月並行";
                     else if (goong[i].yooksam[0] == 7 && goong[i].yooksam[1] == 7) goong[i].kyukkuk += "有勇無謨"; // "月奇孛師";
