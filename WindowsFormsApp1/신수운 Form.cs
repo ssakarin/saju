@@ -917,8 +917,22 @@ namespace WindowsFormsApp1
 
             //생일 전 절기 日의 간지
             int j_1, j_2;
-            ToSajuDay(terms[j - 1], out j_1, out j_2);
-            string temp2 = toGan(j_1) + toZi(j_2);
+            string temp2;
+            DateTime[] terms_previous_year = new DateTime[24];
+            DateTime previous_jeolgi;
+
+            if (j != 0) // 생일이 24절기 안에 들어갈때
+            {
+                ToSajuDay(terms[j - 1], out j_1, out j_2);
+                temp2 = toGan(j_1) + toZi(j_2);
+            }
+            else // 생일이 각 해의 첫번째 절기(소한- 보통 1월 5일~6일) 보다 앞에 있을때, 즉 생일 전의 절기가 그 전해의 마지막 절기(동지) 일때
+            {
+                terms_previous_year = get24Terms(real_dt.AddYears(-1));
+                ToSajuDay(terms_previous_year[23], out j_1, out j_2);
+                previous_jeolgi = terms_previous_year[23];
+                temp2 = toGan(j_1) + toZi(j_2);
+            }
 
             //생일 후 절기 日의 간지
             DateTime[] terms_next_year = new DateTime[24];
