@@ -18,6 +18,7 @@ using System.Windows.Forms;
 using System.Text.RegularExpressions;
 using System.Windows.Forms.VisualStyles;
 using System.Diagnostics.Eventing.Reader;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Tab;
 
 namespace WindowsFormsApp1
 {
@@ -2499,6 +2500,7 @@ namespace WindowsFormsApp1
             label48.Text = "";
             label49.Text = "";
             label50.Text = "";
+            label59.Text = "";
             label61.Text = "";
             label62.Text = "";
             label63.Text = "";
@@ -2539,318 +2541,255 @@ namespace WindowsFormsApp1
             // 숫자 표시
             for (i = 0; i < 9; i++)
             {
-                if (goong[i].b_dong[2] == true) 
-                { 
-                    idx[0] = true; label41.Text = toNum(goong[i].hongNum[1]) + " ";  //世
-                    label41.ForeColor = Color.Red;
-                    if (toSixSin(goong[i].six_sin[1]) == "兄") label61.Text = toNum(goong[i].hongNum[1]) + "日";
-                    if (toSixSin(goong[i].six_sin[0]) == "兄") { idx[1] = true; label42.Text = toNum(goong[i].hongNum[0]) + "日"; }
-                    if (toSixSin(goong[i].six_sin[1]) == "孫") { idx[2] = true; label43.Text = toNum(goong[i].hongNum[1]) + "日"; }
-                    if (toSixSin(goong[i].six_sin[0]) == "孫") { idx[3] = true; label44.Text = toNum(goong[i].hongNum[0]) + "日"; }
-                    if (toSixSin(goong[i].six_sin[1]) == "財") { idx[4] = true; label45.Text = toNum(goong[i].hongNum[1]) + "日"; }
-                    if (toSixSin(goong[i].six_sin[0]) == "財") { idx[5] = true; label46.Text = toNum(goong[i].hongNum[0]) + "日"; }
-                    if (toSixSin(goong[i].six_sin[1]) == "官" || toSixSin(goong[i].six_sin[1]) == "鬼") { idx[6] = true; label47.Text = toNum(goong[i].hongNum[1]) + "日"; }
-                    if (toSixSin(goong[i].six_sin[0]) == "官" || toSixSin(goong[i].six_sin[0]) == "鬼") { idx[7] = true; label48.Text = toNum(goong[i].hongNum[0]) + "日"; }
-                    if (toSixSin(goong[i].six_sin[1]) == "父") { idx[8] = true; label49.Text = toNum(goong[i].hongNum[1]) + "日"; }
-                    if (toSixSin(goong[i].six_sin[0]) == "父") { idx[9] = true; label50.Text = toNum(goong[i].hongNum[0]) + "日"; }
-                }
-            }// 일
-            for (i = 0; i < 9; i++)
-            {
-                if (goong[i].b_dong[0] == true && goong[i].b_dong[2] != true)    // 세(년)
+                if (i == 4) // "中"
                 {
-                    if (toSixSin(goong[i].six_sin[1]) == "兄") label61.Text = toNum(goong[i].hongNum[1]) + "年";
-                    if (toSixSin(goong[i].six_sin[0]) == "兄")
-                    {
-                        if (idx[1] == false)
-                        {
-                            idx[1] = true;
-                            label42.Text = toNum(goong[i].hongNum[0]) + "年";
-                        }
-                        else label62.Text = toNum(goong[i].hongNum[0]) + "年";
-                    }
-                    if (toSixSin(goong[i].six_sin[1]) == "孫")
-                    {
-                        if (idx[2] == false)
-                        {
-                            idx[2] = true;
-                            label43.Text = toNum(goong[i].hongNum[1]) + "年";
-                        }
-                        else label63.Text = toNum(goong[i].hongNum[1]) + "年";
-                    }
-                    if (toSixSin(goong[i].six_sin[0]) == "孫")
-                    {
-                        if (idx[3] == false)
-                        {
-                            idx[3] = true;
-                            label44.Text = toNum(goong[i].hongNum[0]) + "年";
-                        }
-                        else label64.Text = toNum(goong[i].hongNum[0]) + "年";
-                    }
-                    if (toSixSin(goong[i].six_sin[1]) == "財")
-                    {
-                        if (idx[4] == false)
-                        {
-                            idx[4] = true;
-                            label45.Text = toNum(goong[i].hongNum[1]) + "年";
-                        }
-                        else label65.Text = toNum(goong[i].hongNum[1]) + "年";
-                    }
-                    if (toSixSin(goong[i].six_sin[0]) == "財")
-                    {
-                        if (idx[5] == false)
-                        {
-                            idx[5] = true;
-                            label46.Text = toNum(goong[i].hongNum[0]) + "年";
-                        }
-                        else label66.Text = toNum(goong[i].hongNum[0]) + "年";
-                    }
-                    if (toSixSin(goong[i].six_sin[1]) == "官" || toSixSin(goong[i].six_sin[1]) == "鬼")
-                    {
-                        if (idx[6] == false)
-                        {
-                            idx[6] = true;
-                            label47.Text = toNum(goong[i].hongNum[1]) + "年";
-                        }
-                        else label67.Text = toNum(goong[i].hongNum[1]) + "年";
-                    }
-                    if (toSixSin(goong[i].six_sin[0]) == "官" || toSixSin(goong[i].six_sin[0]) == "鬼")
-                    {
-                        if (idx[7] == false)
-                        {
-                            idx[7] = true;
-                            label48.Text = toNum(goong[i].hongNum[0]) + "年";
-                        }
-                        else label68.Text = toNum(goong[i].hongNum[0]) + "年";
-                    }
-                    if (toSixSin(goong[i].six_sin[1]) == "父")
-                    {
-                        if (idx[8] == false)
-                        {
-                            idx[8] = true;
-                            label49.Text = toNum(goong[i].hongNum[1]) + "年";
-                        }
-                        else label69.Text = toNum(goong[i].hongNum[1]) + "年";
-                    }
-                    if (toSixSin(goong[i].six_sin[0]) == "父")
-                    {
-                        if (idx[9] == false)
-                        {
-                            idx[9] = true;
-                            label50.Text = toNum(goong[i].hongNum[0]) + "年";
-                        }
-                        else label70.Text = toNum(goong[i].hongNum[0]) + "年";
-                    }
+                    if (toSixSin(goong[i].six_sin[1]) == "兄") { idx[0] = true; label61.Text = toNum(goong[i].hongNum[1]) + "中"; }
+                    if (toSixSin(goong[i].six_sin[0]) == "兄") { idx[1] = true; label42.Text = toNum(goong[i].hongNum[0]) + "中"; }
+                    if (toSixSin(goong[i].six_sin[1]) == "孫") { idx[2] = true; label43.Text = toNum(goong[i].hongNum[1]) + "中"; }
+                    if (toSixSin(goong[i].six_sin[0]) == "父") { idx[3] = true; label44.Text = toNum(goong[i].hongNum[0]) + "中"; }
+                    if (toSixSin(goong[i].six_sin[1]) == "財") { idx[4] = true; label45.Text = toNum(goong[i].hongNum[1]) + "中"; }
+                    if (toSixSin(goong[i].six_sin[0]) == "官" || toSixSin(goong[i].six_sin[0]) == "鬼") { idx[5] = true; label46.Text = toNum(goong[i].hongNum[0]) + "中"; }
+                    if (toSixSin(goong[i].six_sin[1]) == "官" || toSixSin(goong[i].six_sin[1]) == "鬼") { idx[6] = true; label47.Text = toNum(goong[i].hongNum[1]) + "中"; }
+                    if (toSixSin(goong[i].six_sin[0]) == "財") { idx[7] = true; label48.Text = toNum(goong[i].hongNum[0]) + "中"; }
+                    if (toSixSin(goong[i].six_sin[1]) == "父") { idx[8] = true; label49.Text = toNum(goong[i].hongNum[1]) + "中"; }
+                    if (toSixSin(goong[i].six_sin[0]) == "孫") { idx[9] = true; label50.Text = toNum(goong[i].hongNum[0]) + "中"; }
                 }
-            }// 년
-            for (i = 0; i < 9; i++)
-            {
-                if (i == 4 && goong[i].b_dong[0] != true && goong[i].b_dong[2] != true)    // 중궁
-                {
-                    if (toSixSin(goong[i].six_sin[1]) == "兄") label61.Text = toNum(goong[i].hongNum[1]) + "中";
-                    if (toSixSin(goong[i].six_sin[0]) == "兄")
-                    {
-                        if (idx[1] == false)
-                        {
-                            idx[1] = true;
-                            label42.Text = toNum(goong[i].hongNum[0]) + "中";
-                        }
-                        else label62.Text = toNum(goong[i].hongNum[0]) + "中";
-                    }
-                    if (toSixSin(goong[i].six_sin[1]) == "孫")
-                    {
-                        if (idx[2] == false)
-                        {
-                            idx[2] = true;
-                            label43.Text = toNum(goong[i].hongNum[1]) + "中";
-                        }
-                        else label63.Text = toNum(goong[i].hongNum[1]) + "中";
-                    }
-                    if (toSixSin(goong[i].six_sin[0]) == "孫")
-                    {
-                        if (idx[3] == false)
-                        {
-                            idx[3] = true;
-                            label44.Text = toNum(goong[i].hongNum[0]) + "中";
-                        }
-                        else label64.Text = toNum(goong[i].hongNum[0]) + "中";
-                    }
-                    if (toSixSin(goong[i].six_sin[1]) == "財")
-                    {
-                        if (idx[4] == false)
-                        {
-                            idx[4] = true;
-                            label45.Text = toNum(goong[i].hongNum[1]) + "中";
-                        }
-                        else label65.Text = toNum(goong[i].hongNum[1]) + "中";
-                    }
-                    if (toSixSin(goong[i].six_sin[0]) == "財")
-                    {
-                        if (idx[5] == false)
-                        {
-                            idx[5] = true;
-                            label46.Text = toNum(goong[i].hongNum[0]) + "中";
-                        }
-                        else label66.Text = toNum(goong[i].hongNum[0]) + "中";
-                    }
-                    if (toSixSin(goong[i].six_sin[1]) == "官" || toSixSin(goong[i].six_sin[1]) == "鬼")
-                    {
-                        if (idx[6] == false)
-                        {
-                            idx[6] = true;
-                            label47.Text = toNum(goong[i].hongNum[1]) + "中";
-                        }
-                        else label67.Text = toNum(goong[i].hongNum[1]) + "中";
-                    }
-                    if (toSixSin(goong[i].six_sin[0]) == "官" || toSixSin(goong[i].six_sin[0]) == "鬼")
-                    {
-                        if (idx[7] == false)
-                        {
-                            idx[7] = true;
-                            label48.Text = toNum(goong[i].hongNum[0]) + "中";
-                        }
-                        else label68.Text = toNum(goong[i].hongNum[0]) + "中";
-                    }
-                    if (toSixSin(goong[i].six_sin[1]) == "父")
-                    {
-                        if (idx[8] == false)
-                        {
-                            idx[8] = true;
-                            label49.Text = toNum(goong[i].hongNum[1]) + "中";
-                        }
-                        else label69.Text = toNum(goong[i].hongNum[1]) + "中";
-                    }
-                    if (toSixSin(goong[i].six_sin[0]) == "父")
-                    {
-                        if (idx[9] == false)
-                        {
-                            idx[9] = true;
-                            label50.Text = toNum(goong[i].hongNum[0]) + "中";
-                        }
-                        else label70.Text = toNum(goong[i].hongNum[0]) + "中";
-                    }
-                }
-            }// 중
-            for (i = 0; i < 9; i++)
-            {
-                if ((goong[i].b_dong[1] == true || goong[i].b_dong[3] == true) && goong[i].b_dong[0] != true && goong[i].b_dong[2] != true)  //월 시
-                {
-                    if (toSixSin(goong[i].six_sin[1]) == "兄") label61.Text = toNum(goong[i].hongNum[1]) ;
-                    if (toSixSin(goong[i].six_sin[0]) == "兄")
-                    {
-                        if (idx[1] == false)
-                        {
-                            idx[1] = true;
-                            label42.Text = toNum(goong[i].hongNum[0]) ;
-                        }
-                        else label62.Text = toNum(goong[i].hongNum[0]) ;
-                    }
-                    if (toSixSin(goong[i].six_sin[1]) == "孫")
-                    {
-                        if (idx[2] == false)
-                        {
-                            idx[2] = true;
-                            label43.Text = toNum(goong[i].hongNum[1]) ;
-                        }
-                        else label63.Text = toNum(goong[i].hongNum[1]) ;
-                    }
-                    if (toSixSin(goong[i].six_sin[0]) == "孫")
-                    {
-                        if (idx[3] == false)
-                        {
-                            idx[3] = true;
-                            label44.Text = toNum(goong[i].hongNum[0]) ;
-                        }
-                        else label64.Text = toNum(goong[i].hongNum[0]) ;
-                    }
-                    if (toSixSin(goong[i].six_sin[1]) == "財")
-                    {
-                        if (idx[4] == false)
-                        {
-                            idx[4] = true;
-                            label45.Text = toNum(goong[i].hongNum[1]) ;
-                        }
-                        else label65.Text = toNum(goong[i].hongNum[1]) ;
-                    }
-                    if (toSixSin(goong[i].six_sin[0]) == "財")
-                    {
-                        if (idx[5] == false)
-                        {
-                            idx[5] = true;
-                            label46.Text = toNum(goong[i].hongNum[0]) ;
-                        }
-                        else label66.Text = toNum(goong[i].hongNum[0]) ;
-                    }
-                    if (toSixSin(goong[i].six_sin[1]) == "官" || toSixSin(goong[i].six_sin[1]) == "鬼")
-                    {
-                        if (idx[6] == false)
-                        {
-                            idx[6] = true;
-                            label47.Text = toNum(goong[i].hongNum[1]) ;
-                        }
-                        else label67.Text = toNum(goong[i].hongNum[1]) ;
-                    }
-                    if (toSixSin(goong[i].six_sin[0]) == "官" || toSixSin(goong[i].six_sin[0]) == "鬼")
-                    {
-                        if (idx[7] == false)
-                        {
-                            idx[7] = true;
-                            label48.Text = toNum(goong[i].hongNum[0]) ;
-                        }
-                        else label68.Text = toNum(goong[i].hongNum[0]) ;
-                    }
-                    if (toSixSin(goong[i].six_sin[1]) == "父")
-                    {
-                        if (idx[8] == false)
-                        {
-                            idx[8] = true;
-                            label49.Text = toNum(goong[i].hongNum[1]) ;
-                        }
-                        else label69.Text = toNum(goong[i].hongNum[1]) ;
-                    }
-                    if (toSixSin(goong[i].six_sin[0]) == "父")
-                    {
-                        if (idx[9] == false)
-                        {
-                            idx[9] = true;
-                            label50.Text = toNum(goong[i].hongNum[0]) ;
-                        }
-                        else label70.Text = toNum(goong[i].hongNum[0]) ;
-                    }
-                }
-            }// 월,시  
 
-            // 3연속 체크
-            for ( i = 0; i<2; i++)
-            { 
-                for (j =0; j < 5;j++)
+                else                
                 {
-                    Control ct1 = this.Controls[labelname[i, (j + 3) % 5]];
-                    Control ct2 = this.Controls[labelname[i, (j + 4) % 5]];
-                    Control ct3 = this.Controls[labelname[i, j]];
-                    Control ct4 = this.Controls[labelname[i, (j + 1) % 5]];
-                    Control ct5 = this.Controls[labelname[i, (j + 2) % 5]];
-                    if ((ct1.Text.Length == 2 && ct2.Text.Length == 2 && ct3.Text.Length == 2) ||
-                        (ct2.Text.Length == 2 && ct3.Text.Length == 2 && ct4.Text.Length == 2) ||
-                        (ct3.Text.Length == 2 && ct4.Text.Length == 2 && ct5.Text.Length == 2)) ;
-                    else
-                    { 
-                        if (ct3.Text != "") 
-                            ct3.Text = ct3.Text.Substring(0, 1);
+                    if (toSixSin(goong[i].six_sin[1]) == "世")
+                        label41.Text = toNum(goong[i].hongNum[1]) + "世";
+                    label41.ForeColor = Color.Red;
+
+                    if (toSixSin(goong[i].six_sin[1]) == "兄")
+                    {
+                        if (goong[i].b_dong[0] == true)
+                            label61.Text = toNum(goong[i].hongNum[1]) + "年";
+                        else if (goong[i].b_dong[1] == true)
+                            label61.Text = toNum(goong[i].hongNum[1]) + "月";
+                        else if (goong[i].b_dong[2] == true)
+                            label61.Text = toNum(goong[i].hongNum[1]) + "日";
+                        else if (goong[i].b_dong[3] == true)
+                            label61.Text = toNum(goong[i].hongNum[1]) + "時";
+                    }
+                
+                    if (toSixSin(goong[i].six_sin[0]) == "兄") 
+                    {
+                        if (idx[1] == false)
+                        {
+                            idx[1] = true;
+                            if (goong[i].b_dong[0] == true)
+                                label42.Text = toNum(goong[i].hongNum[0]) + "年";
+                            else if (goong[i].b_dong[1] == true)
+                                label42.Text = toNum(goong[i].hongNum[0]) + "月";
+                            else if (goong[i].b_dong[2] == true)
+                                label42.Text = toNum(goong[i].hongNum[0]) + "日";
+                            else if (goong[i].b_dong[3] == true)
+                                label42.Text = toNum(goong[i].hongNum[0]) + "時";
+                            else idx[1] = false;
+                        }
+                        else if (label42.Text.Contains(toNum(goong[i].hongNum[0]))) ;
+                        else if (goong[i].b_dong[0] == true)
+                            label59.Text = toNum(goong[i].hongNum[0]) + "年";
+                        else if (goong[i].b_dong[1] == true)
+                            label59.Text = toNum(goong[i].hongNum[0]) + "月";
+                        else if (goong[i].b_dong[2] == true)
+                            label59.Text = toNum(goong[i].hongNum[0]) + "日";
+                        else if (goong[i].b_dong[3] == true)
+                            label59.Text = toNum(goong[i].hongNum[0]) + "時";
+                    }
+
+                    if (toSixSin(goong[i].six_sin[1]) == "孫")
+                    {
+                        if (idx[2] == false)
+                        {
+                            idx[2] = true;
+                            if (goong[i].b_dong[0] == true)
+                                label43.Text = toNum(goong[i].hongNum[1]) + "年";
+                            else if (goong[i].b_dong[1] == true)
+                                label43.Text = toNum(goong[i].hongNum[1]) + "月";
+                            else if (goong[i].b_dong[3] == true)
+                                label43.Text = toNum(goong[i].hongNum[1]) + "時";
+                            else idx[2] = false;
+                        }
+                        else if (label43.Text.Contains(toNum(goong[i].hongNum[1])));
+                        else if (goong[i].b_dong[0] == true)
+                            label63.Text = toNum(goong[i].hongNum[1]) + "年";
+                        else if (goong[i].b_dong[1] == true)
+                            label63.Text = toNum(goong[i].hongNum[1]) + "月";
+                        else if (goong[i].b_dong[3] == true)
+                            label63.Text = toNum(goong[i].hongNum[1]) + "時";
+                    }
+                    if (toSixSin(goong[i].six_sin[0]) == "父")
+                    {
+                        if (idx[3] == false)
+                        {
+                            idx[3] = true;
+                            if (goong[i].b_dong[0] == true)
+                                label44.Text = toNum(goong[i].hongNum[0]) + "年";
+                            else if (goong[i].b_dong[1] == true)
+                                label44.Text = toNum(goong[i].hongNum[0]) + "月";
+                            else if (goong[i].b_dong[2] == true)
+                                label44.Text = toNum(goong[i].hongNum[0]) + "日";
+                            else if (goong[i].b_dong[3] == true)
+                                label44.Text = toNum(goong[i].hongNum[0]) + "時";
+                            else idx[3] = false;
+                        }
+                        else if (label44.Text.Contains(toNum(goong[i].hongNum[0]))) ;
+                        else if (goong[i].b_dong[0] == true)
+                            label64.Text = toNum(goong[i].hongNum[0]) + "年";
+                        else if (goong[i].b_dong[1] == true)
+                            label64.Text = toNum(goong[i].hongNum[0]) + "月";
+                        else if (goong[i].b_dong[2] == true)
+                            label64.Text = toNum(goong[i].hongNum[0]) + "日";
+                        else if (goong[i].b_dong[3] == true)
+                            label64.Text = toNum(goong[i].hongNum[0]) + "時";
+                    }
+                    if (toSixSin(goong[i].six_sin[1]) == "財")
+                    {
+                        if (idx[4] == false)
+                        {
+                            idx[4] = true;
+                            if (goong[i].b_dong[0] == true)
+                                label45.Text = toNum(goong[i].hongNum[1]) + "年";
+                            else if (goong[i].b_dong[1] == true)
+                                label45.Text = toNum(goong[i].hongNum[1]) + "月";
+                            else if (goong[i].b_dong[3] == true)
+                                label45.Text = toNum(goong[i].hongNum[1]) + "時";
+                            else idx[4] = false;
+                        }
+                        else if (label45.Text.Contains(toNum(goong[i].hongNum[1]))) ;
+                        else if (goong[i].b_dong[0] == true)
+                            label65.Text = toNum(goong[i].hongNum[1]) + "年";
+                        else if (goong[i].b_dong[1] == true)
+                            label65.Text = toNum(goong[i].hongNum[1]) + "月";
+                        else if (goong[i].b_dong[3] == true)
+                            label65.Text = toNum(goong[i].hongNum[1]) + "時";
+                    }
+                    if (toSixSin(goong[i].six_sin[0]) == "官" || toSixSin(goong[i].six_sin[0]) == "鬼")
+                    {
+                        if (idx[5] == false)
+                        {
+                            idx[5] = true;
+                            if (goong[i].b_dong[0] == true)
+                                label46.Text = toNum(goong[i].hongNum[0]) + "年";
+                            else if (goong[i].b_dong[1] == true)
+                                label46.Text = toNum(goong[i].hongNum[0]) + "月";
+                            else if (goong[i].b_dong[2] == true)
+                                label46.Text = toNum(goong[i].hongNum[0]) + "日";
+                            else if (goong[i].b_dong[3] == true)
+                                label46.Text = toNum(goong[i].hongNum[0]) + "時";
+                            else idx[5] = false;
+                        }
+                        else if (label46.Text.Contains(toNum(goong[i].hongNum[0]))) ;
+                        else if (goong[i].b_dong[0] == true)
+                            label66.Text = toNum(goong[i].hongNum[0]) + "年";
+                        else if (goong[i].b_dong[1] == true)
+                            label66.Text = toNum(goong[i].hongNum[0]) + "月";
+                        else if (goong[i].b_dong[2] == true)
+                            label66.Text = toNum(goong[i].hongNum[0]) + "日";
+                        else if (goong[i].b_dong[3] == true)
+                            label66.Text = toNum(goong[i].hongNum[0]) + "時";
+                    }
+                    if (toSixSin(goong[i].six_sin[1]) == "官" || toSixSin(goong[i].six_sin[1]) == "鬼")
+                    {
+                        if (idx[6] == false)
+                        {
+                            idx[6] = true;
+
+                            if (goong[i].b_dong[0] == true)
+                                label47.Text = toNum(goong[i].hongNum[1]) + "年";
+                            else if (goong[i].b_dong[1] == true)
+                                label47.Text = toNum(goong[i].hongNum[1]) + "月";
+                            else if (goong[i].b_dong[3] == true)
+                                label47.Text = toNum(goong[i].hongNum[1]) + "時";
+                            else idx[6] = false;
+                        }
+                        else if (label47.Text.Contains(toNum(goong[i].hongNum[1]))) ;
+                        else if (goong[i].b_dong[0] == true)
+                            label67.Text = toNum(goong[i].hongNum[1]) + "年";
+                        else if (goong[i].b_dong[1] == true)
+                            label67.Text = toNum(goong[i].hongNum[1]) + "月";
+                        else if (goong[i].b_dong[3] == true)
+                            label67.Text = toNum(goong[i].hongNum[1]) + "時";
+                    }
+                    if (toSixSin(goong[i].six_sin[0]) == "財")
+                    {
+                        if (idx[7] == false)
+                        {
+                            idx[7] = true;
+
+                            if (goong[i].b_dong[0] == true)
+                                label48.Text = toNum(goong[i].hongNum[0]) + "年";
+                            else if (goong[i].b_dong[1] == true)
+                                label48.Text = toNum(goong[i].hongNum[0]) + "月";
+                            else if (goong[i].b_dong[2] == true)
+                                label48.Text = toNum(goong[i].hongNum[0]) + "日";
+                            else if (goong[i].b_dong[3] == true)
+                                label48.Text = toNum(goong[i].hongNum[0]) + "時";
+                            else idx[7] = false;
+                        }
+                        else if (label48.Text.Contains(toNum(goong[i].hongNum[0]))) ;
+                        else if (goong[i].b_dong[0] == true)
+                            label68.Text = toNum(goong[i].hongNum[0]) + "年";
+                        else if (goong[i].b_dong[1] == true)
+                            label68.Text = toNum(goong[i].hongNum[0]) + "月";
+                        else if (goong[i].b_dong[2] == true)
+                            label68.Text = toNum(goong[i].hongNum[0]) + "日";
+                        else if (goong[i].b_dong[3] == true)
+                            label68.Text = toNum(goong[i].hongNum[0]) + "時";
+                    }
+                    if (toSixSin(goong[i].six_sin[1]) == "父")
+                    {
+                        if (idx[8] == false)
+                        {
+                            idx[8] = true;
+
+                            if (goong[i].b_dong[0] == true)
+                                label49.Text = toNum(goong[i].hongNum[1]) + "年";
+                            else if (goong[i].b_dong[1] == true)
+                                label49.Text = toNum(goong[i].hongNum[1]) + "月";
+                            else if (goong[i].b_dong[3] == true)
+                                label49.Text = toNum(goong[i].hongNum[1]) + "時";
+                            else idx[8] = false;
+                        }
+                        else if (label49.Text.Contains(toNum(goong[i].hongNum[1]))) ;
+                        else if (goong[i].b_dong[0] == true)
+                            label69.Text = toNum(goong[i].hongNum[1]) + "年";
+                        else if (goong[i].b_dong[1] == true)
+                            label69.Text = toNum(goong[i].hongNum[1]) + "月";
+                        else if (goong[i].b_dong[3] == true)
+                            label69.Text = toNum(goong[i].hongNum[1]) + "時";
+                      
+                    }
+                    if (toSixSin(goong[i].six_sin[0]) == "孫")
+                    {
+                        if (idx[9] == false)
+                        {
+                            idx[9] = true;
+
+                            if (goong[i].b_dong[0] == true)
+                                label50.Text = toNum(goong[i].hongNum[0]) + "年";
+                            else if (goong[i].b_dong[1] == true)
+                                label50.Text = toNum(goong[i].hongNum[0]) + "月";
+                            else if (goong[i].b_dong[2] == true)
+                                label50.Text = toNum(goong[i].hongNum[0]) + "日";
+                            else if (goong[i].b_dong[3] == true)
+                                label50.Text = toNum(goong[i].hongNum[0]) + "時";
+                            else idx[9] = false;
+                        }
+                        else if (label50.Text.Contains(toNum(goong[i].hongNum[0]))) ;
+                        else if (goong[i].b_dong[0] == true)
+                            label70.Text = toNum(goong[i].hongNum[0]) + "年";
+                        else if (goong[i].b_dong[1] == true)
+                            label70.Text = toNum(goong[i].hongNum[0]) + "月";
+                        else if (goong[i].b_dong[2] == true)
+                            label70.Text = toNum(goong[i].hongNum[0]) + "日";
+                        else if (goong[i].b_dong[3] == true)
+                            label70.Text = toNum(goong[i].hongNum[0]) + "時";
                     }
                 }
             }
-            for (i = 0; i < 10; i++)
-            {
-                Control ct_1 = this.Controls[labelname2[0, i]];
-                Control ct_2 = this.Controls[labelname2[1, i]];
-                if (ct_1.Text.Length != 2 && ct_2.Text.Length == 2)  ct_2.Text = ct_2.Text.Substring(0, 1);
-            }
-            if (label41.Text.Length != 2)
-            {
-                label41.Text += " "; //世
-                label41.ForeColor = Color.Red;
-            }                
 
             // 오행 설정
             for (i = 0; i < 9 && goong[i].b_dong[2] != true; i++) ;
@@ -3037,314 +2976,513 @@ namespace WindowsFormsApp1
             // 숫자 표시
             for (i = 0; i < 9; i++)
             {
-                if (goong[i].b_dong[2] == true)
+                if (i == 4) // "中"
                 {
-                    idx[0] = true; label111.Text = toNum(goong[i].hongNum[1]) + "世";
-                    if (toSixSin(goong[i].six_sin[1]) == "兄") label86.Text = toNum(goong[i].hongNum[1]) + "日";
-                    if (toSixSin(goong[i].six_sin[0]) == "兄") { idx[1] = true; label110.Text = toNum(goong[i].hongNum[0]) + "日"; }
-                    if (toSixSin(goong[i].six_sin[1]) == "孫") { idx[2] = true; label109.Text = toNum(goong[i].hongNum[1]) + "日"; }
-                    if (toSixSin(goong[i].six_sin[0]) == "孫") { idx[3] = true; label108.Text = toNum(goong[i].hongNum[0]) + "日"; }
-                    if (toSixSin(goong[i].six_sin[1]) == "財") { idx[4] = true; label107.Text = toNum(goong[i].hongNum[1]) + "日"; }
-                    if (toSixSin(goong[i].six_sin[0]) == "財") { idx[5] = true; label106.Text = toNum(goong[i].hongNum[0]) + "日"; }
-                    if (toSixSin(goong[i].six_sin[1]) == "官" || toSixSin(goong[i].six_sin[1]) == "鬼") { idx[6] = true; label105.Text = toNum(goong[i].hongNum[1]) + "日"; }
-                    if (toSixSin(goong[i].six_sin[0]) == "官" || toSixSin(goong[i].six_sin[0]) == "鬼") { idx[7] = true; label104.Text = toNum(goong[i].hongNum[0]) + "日"; }
-                    if (toSixSin(goong[i].six_sin[1]) == "父") { idx[8] = true; label103.Text = toNum(goong[i].hongNum[1]) + "日"; }
-                    if (toSixSin(goong[i].six_sin[0]) == "父") { idx[9] = true; label112.Text = toNum(goong[i].hongNum[0]) + "日"; }
+                    if (toSixSin(goong[i].six_sin[1]) == "兄") label86.Text = toNum(goong[i].hongNum[1]) + "中";
+                    if (toSixSin(goong[i].six_sin[0]) == "兄") { idx[1] = true; label110.Text = toNum(goong[i].hongNum[0]) + "中"; }
+                    if (toSixSin(goong[i].six_sin[1]) == "孫") { idx[2] = true; label109.Text = toNum(goong[i].hongNum[1]) + "中"; }
+                    if (toSixSin(goong[i].six_sin[0]) == "孫") { idx[3] = true; label108.Text = toNum(goong[i].hongNum[0]) + "中"; }
+                    if (toSixSin(goong[i].six_sin[1]) == "財") { idx[4] = true; label107.Text = toNum(goong[i].hongNum[1]) + "中"; }
+                    if (toSixSin(goong[i].six_sin[0]) == "財") { idx[5] = true; label106.Text = toNum(goong[i].hongNum[0]) + "中"; }
+                    if (toSixSin(goong[i].six_sin[1]) == "官" || toSixSin(goong[i].six_sin[1]) == "鬼") { idx[6] = true; label105.Text = toNum(goong[i].hongNum[1]) + "中"; }
+                    if (toSixSin(goong[i].six_sin[0]) == "官" || toSixSin(goong[i].six_sin[0]) == "鬼") { idx[7] = true; label104.Text = toNum(goong[i].hongNum[0]) + "中"; }
+                    if (toSixSin(goong[i].six_sin[1]) == "父") { idx[8] = true; label103.Text = toNum(goong[i].hongNum[1]) + "中"; }
+                    if (toSixSin(goong[i].six_sin[0]) == "父") { idx[9] = true; label112.Text = toNum(goong[i].hongNum[0]) + "中"; }
                 }
-            }// 일
-            for (i = 0; i < 9; i++)
-            {
-                if (goong[i].b_dong[0] == true && goong[i].b_dong[2] != true)    // 세(년)
+
+                else
                 {
-                    if (toSixSin(goong[i].six_sin[1]) == "兄") label86.Text = toNum(goong[i].hongNum[1]) + "年";
+                    if (toSixSin(goong[i].six_sin[1]) == "世")
+                    {
+                        if (idx[0] == true) label86.Text = toNum(goong[i].hongNum[1]) + "世";
+                        else
+                        {
+                            label111.Text = toNum(goong[i].hongNum[1]) + "世";
+                            idx[0] = true;
+                        }
+                    }
+
+                    //        if (goong[i].b_dong[2] == true)
+                    //    {
+                    //        idx[0] = true; label111.Text = toNum(goong[i].hongNum[1]) + "世";
+                    //        if (toSixSin(goong[i].six_sin[1]) == "兄") label86.Text = toNum(goong[i].hongNum[1]) + "日";
+                    //        if (toSixSin(goong[i].six_sin[0]) == "兄") { idx[1] = true; label110.Text = toNum(goong[i].hongNum[0]) + "日"; }
+                    //        if (toSixSin(goong[i].six_sin[1]) == "孫") { idx[2] = true; label109.Text = toNum(goong[i].hongNum[1]) + "日"; }
+                    //        if (toSixSin(goong[i].six_sin[0]) == "孫") { idx[3] = true; label108.Text = toNum(goong[i].hongNum[0]) + "日"; }
+                    //        if (toSixSin(goong[i].six_sin[1]) == "財") { idx[4] = true; label107.Text = toNum(goong[i].hongNum[1]) + "日"; }
+                    //        if (toSixSin(goong[i].six_sin[0]) == "財") { idx[5] = true; label106.Text = toNum(goong[i].hongNum[0]) + "日"; }
+                    //        if (toSixSin(goong[i].six_sin[1]) == "官" || toSixSin(goong[i].six_sin[1]) == "鬼") { idx[6] = true; label105.Text = toNum(goong[i].hongNum[1]) + "日"; }
+                    //        if (toSixSin(goong[i].six_sin[0]) == "官" || toSixSin(goong[i].six_sin[0]) == "鬼") { idx[7] = true; label104.Text = toNum(goong[i].hongNum[0]) + "日"; }
+                    //        if (toSixSin(goong[i].six_sin[1]) == "父") { idx[8] = true; label103.Text = toNum(goong[i].hongNum[1]) + "日"; }
+                    //        if (toSixSin(goong[i].six_sin[0]) == "父") { idx[9] = true; label112.Text = toNum(goong[i].hongNum[0]) + "日"; }
+                    //    }
+                    //}// 일
+                    //for (i = 0; i < 9; i++)
+                    //{
+
+                    //if (goong[i].b_dong[0] == true && goong[i].b_dong[2] != true)    // 세(년)
+                    //{
+                    if (toSixSin(goong[i].six_sin[1]) == "兄")
+                    { 
+                        if (idx[0] == false)
+                        {
+                            idx[0] = true;
+                            if (goong[i].b_dong[0] == true)
+                                label111.Text = toNum(goong[i].hongNum[1]) + "年";
+                            else if (goong[i].b_dong[1] == true)
+                                label111.Text = toNum(goong[i].hongNum[1]) + "月";
+                            else if (goong[i].b_dong[2] == true)
+                                label111.Text = toNum(goong[i].hongNum[1]) + "日";
+                            else if (goong[i].b_dong[3] == true)
+                                label111.Text = toNum(goong[i].hongNum[1]) + "時";
+                            else idx[0] = false;
+                        }
+                        else if (label111.Text.Contains(toNum(goong[i].hongNum[1]))) ;
+                        else if (goong[i].b_dong[0] == true)
+                            label86.Text = toNum(goong[i].hongNum[1]) + "年";
+                        else if (goong[i].b_dong[1] == true)
+                            label86.Text = toNum(goong[i].hongNum[1]) + "月";
+                        else if (goong[i].b_dong[2] == true)
+                            label86.Text = toNum(goong[i].hongNum[1]) + "日";
+                        else if (goong[i].b_dong[3] == true)
+                            label86.Text = toNum(goong[i].hongNum[1]) + "時";
+                    }
+
                     if (toSixSin(goong[i].six_sin[0]) == "兄")
                     {
                         if (idx[1] == false)
                         {
                             idx[1] = true;
+                        if (goong[i].b_dong[0] == true)
                             label110.Text = toNum(goong[i].hongNum[0]) + "年";
-                        }
-                        else label85.Text = toNum(goong[i].hongNum[0]) + "年";
+                        else if (goong[i].b_dong[1] == true)
+                            label110.Text = toNum(goong[i].hongNum[0]) + "月";
+                        else if (goong[i].b_dong[2] == true)
+                            label110.Text = toNum(goong[i].hongNum[0]) + "日";
+                        else if (goong[i].b_dong[3] == true)
+                            label110.Text = toNum(goong[i].hongNum[0]) + "時";
+                        else idx[1] = false;
                     }
+                    else if (label110.Text.Contains(toNum(goong[i].hongNum[0]))) ;
+                    else if (goong[i].b_dong[0] == true)
+                        label85.Text = toNum(goong[i].hongNum[0]) + "年";
+                    else if (goong[i].b_dong[1] == true)
+                        label85.Text = toNum(goong[i].hongNum[0]) + "月";
+                    else if (goong[i].b_dong[2] == true)
+                        label85.Text = toNum(goong[i].hongNum[0]) + "日";
+                    else if (goong[i].b_dong[3] == true)
+                        label85.Text = toNum(goong[i].hongNum[0]) + "時";
+                    }
+
                     if (toSixSin(goong[i].six_sin[1]) == "孫")
                     {
                         if (idx[2] == false)
                         {
                             idx[2] = true;
-                            label109.Text = toNum(goong[i].hongNum[1]) + "年";
+                            if (goong[i].b_dong[0] == true)
+                                label109.Text = toNum(goong[i].hongNum[1]) + "年";
+                            else if (goong[i].b_dong[1] == true)
+                                label109.Text = toNum(goong[i].hongNum[1]) + "月";
+                            else if (goong[i].b_dong[2] == true)
+                                label109.Text = toNum(goong[i].hongNum[1]) + "日";
+                            else if (goong[i].b_dong[3] == true)
+                                label109.Text = toNum(goong[i].hongNum[1]) + "時";
+                            else idx[2] = false;
                         }
-                        else label84.Text = toNum(goong[i].hongNum[1]) + "年";
+                        else if (label109.Text.Contains(toNum(goong[i].hongNum[1]))) ;
+                        else if (goong[i].b_dong[0] == true)
+                            label84.Text = toNum(goong[i].hongNum[1]) + "年";
+                        else if (goong[i].b_dong[1] == true)
+                            label84.Text = toNum(goong[i].hongNum[1]) + "月";
+                        else if (goong[i].b_dong[2] == true)
+                            label84.Text = toNum(goong[i].hongNum[1]) + "日";
+                        else if (goong[i].b_dong[3] == true)
+                            label84.Text = toNum(goong[i].hongNum[1]) + "時";
                     }
+
                     if (toSixSin(goong[i].six_sin[0]) == "孫")
                     {
                         if (idx[3] == false)
                         {
                             idx[3] = true;
-                            label108.Text = toNum(goong[i].hongNum[0]) + "年";
+                            if (goong[i].b_dong[0] == true)
+                                label108.Text = toNum(goong[i].hongNum[0]) + "年";
+                            else if (goong[i].b_dong[1] == true)
+                                label108.Text = toNum(goong[i].hongNum[0]) + "月";
+                            else if (goong[i].b_dong[2] == true)
+                                label108.Text = toNum(goong[i].hongNum[0]) + "日";
+                            else if (goong[i].b_dong[3] == true)
+                                label108.Text = toNum(goong[i].hongNum[0]) + "時";
+                            else idx[3] = false;
                         }
-                        else label83.Text = toNum(goong[i].hongNum[0]) + "年";
+                        else if (label108.Text.Contains(toNum(goong[i].hongNum[0]))) ;
+                        else if (goong[i].b_dong[0] == true)
+                            label83.Text = toNum(goong[i].hongNum[0]) + "年";
+                        else if (goong[i].b_dong[1] == true)
+                            label83.Text = toNum(goong[i].hongNum[0]) + "月";
+                        else if (goong[i].b_dong[2] == true)
+                            label83.Text = toNum(goong[i].hongNum[0]) + "日";
+                        else if (goong[i].b_dong[3] == true)
+                            label83.Text = toNum(goong[i].hongNum[0]) + "時";
                     }
                     if (toSixSin(goong[i].six_sin[1]) == "財")
                     {
                         if (idx[4] == false)
                         {
                             idx[4] = true;
-                            label107.Text = toNum(goong[i].hongNum[1]) + "年";
+                            if (goong[i].b_dong[0] == true)
+                                label107.Text = toNum(goong[i].hongNum[1]) + "年";
+                            else if (goong[i].b_dong[1] == true)
+                                label107.Text = toNum(goong[i].hongNum[1]) + "月";
+                            else if (goong[i].b_dong[2] == true)
+                                label107.Text = toNum(goong[i].hongNum[1]) + "日";
+                            else if (goong[i].b_dong[3] == true)
+                                label107.Text = toNum(goong[i].hongNum[1]) + "時";
+                            else idx[4] = false;
                         }
-                        else label82.Text = toNum(goong[i].hongNum[1]) + "年";
+                        else if (label107.Text.Contains(toNum(goong[i].hongNum[1]))) ;
+                        else if (goong[i].b_dong[0] == true)
+                            label82.Text = toNum(goong[i].hongNum[1]) + "年";
+                        else if (goong[i].b_dong[1] == true)
+                            label82.Text = toNum(goong[i].hongNum[1]) + "月";
+                        else if (goong[i].b_dong[2] == true)
+                            label82.Text = toNum(goong[i].hongNum[1]) + "日";
+                        else if (goong[i].b_dong[3] == true)
+                            label82.Text = toNum(goong[i].hongNum[1]) + "時";
                     }
                     if (toSixSin(goong[i].six_sin[0]) == "財")
                     {
                         if (idx[5] == false)
                         {
                             idx[5] = true;
-                            label106.Text = toNum(goong[i].hongNum[0]) + "年";
+                            if (goong[i].b_dong[0] == true)
+                                label106.Text = toNum(goong[i].hongNum[0]) + "年";
+                            else if (goong[i].b_dong[1] == true)
+                                label106.Text = toNum(goong[i].hongNum[0]) + "月";
+                            else if (goong[i].b_dong[2] == true)
+                                label106.Text = toNum(goong[i].hongNum[0]) + "日";
+                            else if (goong[i].b_dong[3] == true)
+                                label106.Text = toNum(goong[i].hongNum[0]) + "時";
+                            else idx[5] = false;
                         }
-                        else label81.Text = toNum(goong[i].hongNum[0]) + "年";
+                        else if (label106.Text.Contains(toNum(goong[i].hongNum[0]))) ;
+                        else if (goong[i].b_dong[0] == true)
+                            label81.Text = toNum(goong[i].hongNum[0]) + "年";
+                        else if (goong[i].b_dong[1] == true)
+                            label81.Text = toNum(goong[i].hongNum[0]) + "月";
+                        else if (goong[i].b_dong[2] == true)
+                            label81.Text = toNum(goong[i].hongNum[0]) + "日";
+                        else if (goong[i].b_dong[3] == true)
+                            label81.Text = toNum(goong[i].hongNum[0]) + "時";
                     }
                     if (toSixSin(goong[i].six_sin[1]) == "官" || toSixSin(goong[i].six_sin[1]) == "鬼")
                     {
                         if (idx[6] == false)
                         {
                             idx[6] = true;
-                            label105.Text = toNum(goong[i].hongNum[1]) + "年";
+                            if (goong[i].b_dong[0] == true)
+                                label105.Text = toNum(goong[i].hongNum[1]) + "年";
+                            else if (goong[i].b_dong[1] == true)
+                                label105.Text = toNum(goong[i].hongNum[1]) + "月";
+                            else if (goong[i].b_dong[2] == true)
+                                label105.Text = toNum(goong[i].hongNum[1]) + "日";
+                            else if (goong[i].b_dong[3] == true)
+                                label105.Text = toNum(goong[i].hongNum[1]) + "時";
+                            else idx[6] = false;
                         }
-                        else label80.Text = toNum(goong[i].hongNum[1]) + "年";
+                        else if (label105.Text.Contains(toNum(goong[i].hongNum[1]))) ;
+                        else if (goong[i].b_dong[0] == true)
+                            label80.Text = toNum(goong[i].hongNum[1]) + "年";
+                        else if (goong[i].b_dong[1] == true)
+                            label80.Text = toNum(goong[i].hongNum[1]) + "月";
+                        else if (goong[i].b_dong[2] == true)
+                            label80.Text = toNum(goong[i].hongNum[1]) + "日";
+                        else if (goong[i].b_dong[3] == true)
+                            label80.Text = toNum(goong[i].hongNum[1]) + "時";
                     }
                     if (toSixSin(goong[i].six_sin[0]) == "官" || toSixSin(goong[i].six_sin[0]) == "鬼")
                     {
                         if (idx[7] == false)
                         {
                             idx[7] = true;
-                            label104.Text = toNum(goong[i].hongNum[0]) + "年";
+                            if (goong[i].b_dong[0] == true)
+                                label104.Text = toNum(goong[i].hongNum[0]) + "年";
+                            else if (goong[i].b_dong[1] == true)
+                                label104.Text = toNum(goong[i].hongNum[0]) + "月";
+                            else if (goong[i].b_dong[2] == true)
+                                label104.Text = toNum(goong[i].hongNum[0]) + "日";
+                            else if (goong[i].b_dong[3] == true)
+                                label104.Text = toNum(goong[i].hongNum[0]) + "時";
+                            else idx[7] = false;
                         }
-                        else label79.Text = toNum(goong[i].hongNum[0]) + "年";
+                        else if (label104.Text.Contains(toNum(goong[i].hongNum[0]))) ;
+                        else if (goong[i].b_dong[0] == true)
+                            label79.Text = toNum(goong[i].hongNum[0]) + "年";
+                        else if (goong[i].b_dong[1] == true)
+                            label79.Text = toNum(goong[i].hongNum[0]) + "月";
+                        else if (goong[i].b_dong[2] == true)
+                            label79.Text = toNum(goong[i].hongNum[0]) + "日";
+                        else if (goong[i].b_dong[3] == true)
+                            label79.Text = toNum(goong[i].hongNum[0]) + "時";
                     }
                     if (toSixSin(goong[i].six_sin[1]) == "父")
                     {
                         if (idx[8] == false)
                         {
                             idx[8] = true;
-                            label103.Text = toNum(goong[i].hongNum[1]) + "年";
+                            if (goong[i].b_dong[0] == true)
+                                label103.Text = toNum(goong[i].hongNum[1]) + "年";
+                            else if (goong[i].b_dong[1] == true)
+                                label103.Text = toNum(goong[i].hongNum[1]) + "月";
+                            else if (goong[i].b_dong[2] == true)
+                                label103.Text = toNum(goong[i].hongNum[1]) + "日";
+                            else if (goong[i].b_dong[3] == true)
+                                label103.Text = toNum(goong[i].hongNum[1]) + "時";
+                            else idx[8] = false;
                         }
-                        else label78.Text = toNum(goong[i].hongNum[1]) + "年";
+                        else if (label103.Text.Contains(toNum(goong[i].hongNum[1]))) ;
+                        else if (goong[i].b_dong[0] == true)
+                            label78.Text = toNum(goong[i].hongNum[1]) + "年";
+                        else if (goong[i].b_dong[1] == true)
+                            label78.Text = toNum(goong[i].hongNum[1]) + "月";
+                        else if (goong[i].b_dong[2] == true)
+                            label78.Text = toNum(goong[i].hongNum[1]) + "日";
+                        else if (goong[i].b_dong[3] == true)
+                            label78.Text = toNum(goong[i].hongNum[1]) + "時";
                     }
                     if (toSixSin(goong[i].six_sin[0]) == "父")
                     {
                         if (idx[9] == false)
                         {
                             idx[9] = true;
-                            label112.Text = toNum(goong[i].hongNum[0]) + "年";
+                            if (goong[i].b_dong[0] == true)
+                                label112.Text = toNum(goong[i].hongNum[0]) + "年";
+                            else if (goong[i].b_dong[1] == true)
+                                label112.Text = toNum(goong[i].hongNum[0]) + "月";
+                            else if (goong[i].b_dong[2] == true)
+                                label112.Text = toNum(goong[i].hongNum[0]) + "日";
+                            else if (goong[i].b_dong[3] == true)
+                                label112.Text = toNum(goong[i].hongNum[0]) + "時";
+                            else idx[9] = false;
                         }
-                        else label87.Text = toNum(goong[i].hongNum[0]) + "年";
+                        else if (label112.Text.Contains(toNum(goong[i].hongNum[0]))) ;
+                        else if (goong[i].b_dong[0] == true)
+                            label87.Text = toNum(goong[i].hongNum[0]) + "年";
+                        else if (goong[i].b_dong[1] == true)
+                            label87.Text = toNum(goong[i].hongNum[0]) + "月";
+                        else if (goong[i].b_dong[2] == true)
+                            label87.Text = toNum(goong[i].hongNum[0]) + "日";
+                        else if (goong[i].b_dong[3] == true)
+                            label87.Text = toNum(goong[i].hongNum[0]) + "時";
+
                     }
                 }
             }// 년
-            for (i = 0; i < 9; i++)
-            {
-                if (i == 4 && goong[i].b_dong[0] != true && goong[i].b_dong[2] != true)    // 중궁
-                {
-                    if (toSixSin(goong[i].six_sin[1]) == "兄") label86.Text = toNum(goong[i].hongNum[1]) + "中";
-                    if (toSixSin(goong[i].six_sin[0]) == "兄")
-                    {
-                        if (idx[1] == false)
-                        {
-                            idx[1] = true;
-                            label110.Text = toNum(goong[i].hongNum[0]) + "中";
-                        }
-                        else label85.Text = toNum(goong[i].hongNum[0]) + "中";
-                    }
-                    if (toSixSin(goong[i].six_sin[1]) == "孫")
-                    {
-                        if (idx[2] == false)
-                        {
-                            idx[2] = true;
-                            label109.Text = toNum(goong[i].hongNum[1]) + "中";
-                        }
-                        else label84.Text = toNum(goong[i].hongNum[1]) + "中";
-                    }
-                    if (toSixSin(goong[i].six_sin[0]) == "孫")
-                    {
-                        if (idx[3] == false)
-                        {
-                            idx[3] = true;
-                            label108.Text = toNum(goong[i].hongNum[0]) + "中";
-                        }
-                        else label83.Text = toNum(goong[i].hongNum[0]) + "中";
-                    }
-                    if (toSixSin(goong[i].six_sin[1]) == "財")
-                    {
-                        if (idx[4] == false)
-                        {
-                            idx[4] = true;
-                            label107.Text = toNum(goong[i].hongNum[1]) + "中";
-                        }
-                        else label82.Text = toNum(goong[i].hongNum[1]) + "中";
-                    }
-                    if (toSixSin(goong[i].six_sin[0]) == "財")
-                    {
-                        if (idx[5] == false)
-                        {
-                            idx[5] = true;
-                            label106.Text = toNum(goong[i].hongNum[0]) + "中";
-                        }
-                        else label81.Text = toNum(goong[i].hongNum[0]) + "中";
-                    }
-                    if (toSixSin(goong[i].six_sin[1]) == "官" || toSixSin(goong[i].six_sin[1]) == "鬼")
-                    {
-                        if (idx[6] == false)
-                        {
-                            idx[6] = true;
-                            label105.Text = toNum(goong[i].hongNum[1]) + "中";
-                        }
-                        else label80.Text = toNum(goong[i].hongNum[1]) + "中";
-                    }
-                    if (toSixSin(goong[i].six_sin[0]) == "官" || toSixSin(goong[i].six_sin[0]) == "鬼")
-                    {
-                        if (idx[7] == false)
-                        {
-                            idx[7] = true;
-                            label104.Text = toNum(goong[i].hongNum[0]) + "中";
-                        }
-                        else label79.Text = toNum(goong[i].hongNum[0]) + "中";
-                    }
-                    if (toSixSin(goong[i].six_sin[1]) == "父")
-                    {
-                        if (idx[8] == false)
-                        {
-                            idx[8] = true;
-                            label103.Text = toNum(goong[i].hongNum[1]) + "中";
-                        }
-                        else label78.Text = toNum(goong[i].hongNum[1]) + "中";
-                    }
-                    if (toSixSin(goong[i].six_sin[0]) == "父")
-                    {
-                        if (idx[9] == false)
-                        {
-                            idx[9] = true;
-                            label112.Text = toNum(goong[i].hongNum[0]) + "中";
-                        }
-                        else label87.Text = toNum(goong[i].hongNum[0]) + "中";
-                    }
-                }
-            }// 중
-            for (i = 0; i < 9; i++)
-            {
-                if ((goong[i].b_dong[1] == true || goong[i].b_dong[3] == true) && goong[i].b_dong[0] != true && goong[i].b_dong[2] != true)  //월 시
-                {
-                    if (toSixSin(goong[i].six_sin[1]) == "兄") label86.Text = toNum(goong[i].hongNum[1]);
-                    if (toSixSin(goong[i].six_sin[0]) == "兄")
-                    {
-                        if (idx[1] == false)
-                        {
-                            idx[1] = true;
-                            label110.Text = toNum(goong[i].hongNum[0]);
-                        }
-                        else label85.Text = toNum(goong[i].hongNum[0]);
-                    }
-                    if (toSixSin(goong[i].six_sin[1]) == "孫")
-                    {
-                        if (idx[2] == false)
-                        {
-                            idx[2] = true;
-                            label109.Text = toNum(goong[i].hongNum[1]);
-                        }
-                        else label84.Text = toNum(goong[i].hongNum[1]);
-                    }
-                    if (toSixSin(goong[i].six_sin[0]) == "孫")
-                    {
-                        if (idx[3] == false)
-                        {
-                            idx[3] = true;
-                            label108.Text = toNum(goong[i].hongNum[0]);
-                        }
-                        else label83.Text = toNum(goong[i].hongNum[0]);
-                    }
-                    if (toSixSin(goong[i].six_sin[1]) == "財")
-                    {
-                        if (idx[4] == false)
-                        {
-                            idx[4] = true;
-                            label107.Text = toNum(goong[i].hongNum[1]);
-                        }
-                        else label82.Text = toNum(goong[i].hongNum[1]);
-                    }
-                    if (toSixSin(goong[i].six_sin[0]) == "財")
-                    {
-                        if (idx[5] == false)
-                        {
-                            idx[5] = true;
-                            label106.Text = toNum(goong[i].hongNum[0]);
-                        }
-                        else label81.Text = toNum(goong[i].hongNum[0]);
-                    }
-                    if (toSixSin(goong[i].six_sin[1]) == "官" || toSixSin(goong[i].six_sin[1]) == "鬼")
-                    {
-                        if (idx[6] == false)
-                        {
-                            idx[6] = true;
-                            label105.Text = toNum(goong[i].hongNum[1]);
-                        }
-                        else label80.Text = toNum(goong[i].hongNum[1]);
-                    }
-                    if (toSixSin(goong[i].six_sin[0]) == "官" || toSixSin(goong[i].six_sin[0]) == "鬼")
-                    {
-                        if (idx[7] == false)
-                        {
-                            idx[7] = true;
-                            label104.Text = toNum(goong[i].hongNum[0]);
-                        }
-                        else label79.Text = toNum(goong[i].hongNum[0]);
-                    }
-                    if (toSixSin(goong[i].six_sin[1]) == "父")
-                    {
-                        if (idx[8] == false)
-                        {
-                            idx[8] = true;
-                            label103.Text = toNum(goong[i].hongNum[1]);
-                        }
-                        else label78.Text = toNum(goong[i].hongNum[1]);
-                    }
-                    if (toSixSin(goong[i].six_sin[0]) == "父")
-                    {
-                        if (idx[9] == false)
-                        {
-                            idx[9] = true;
-                            label112.Text = toNum(goong[i].hongNum[0]);
-                        }
-                        else label87.Text = toNum(goong[i].hongNum[0]);
-                    }
-                }
-            }// 월,시  
+            //for (i = 0; i < 9; i++)
+            //{
+            //    if (i == 4 && goong[i].b_dong[0] != true && goong[i].b_dong[2] != true)    // 중궁
+            //    {
+            //        if (toSixSin(goong[i].six_sin[1]) == "兄") label86.Text = toNum(goong[i].hongNum[1]) + "中";
+            //        if (toSixSin(goong[i].six_sin[0]) == "兄")
+            //        {
+            //            if (idx[1] == false)
+            //            {
+            //                idx[1] = true;
+            //                label110.Text = toNum(goong[i].hongNum[0]) + "中";
+            //            }
+            //            else label85.Text = toNum(goong[i].hongNum[0]) + "中";
+            //        }
+            //        if (toSixSin(goong[i].six_sin[1]) == "孫")
+            //        {
+            //            if (idx[2] == false)
+            //            {
+            //                idx[2] = true;
+            //                label109.Text = toNum(goong[i].hongNum[1]) + "中";
+            //            }
+            //            else label84.Text = toNum(goong[i].hongNum[1]) + "中";
+            //        }
+            //        if (toSixSin(goong[i].six_sin[0]) == "孫")
+            //        {
+            //            if (idx[3] == false)
+            //            {
+            //                idx[3] = true;
+            //                label108.Text = toNum(goong[i].hongNum[0]) + "中";
+            //            }
+            //            else label83.Text = toNum(goong[i].hongNum[0]) + "中";
+            //        }
+            //        if (toSixSin(goong[i].six_sin[1]) == "財")
+            //        {
+            //            if (idx[4] == false)
+            //            {
+            //                idx[4] = true;
+            //                label107.Text = toNum(goong[i].hongNum[1]) + "中";
+            //            }
+            //            else label82.Text = toNum(goong[i].hongNum[1]) + "中";
+            //        }
+            //        if (toSixSin(goong[i].six_sin[0]) == "財")
+            //        {
+            //            if (idx[5] == false)
+            //            {
+            //                idx[5] = true;
+            //                label106.Text = toNum(goong[i].hongNum[0]) + "中";
+            //            }
+            //            else label81.Text = toNum(goong[i].hongNum[0]) + "中";
+            //        }
+            //        if (toSixSin(goong[i].six_sin[1]) == "官" || toSixSin(goong[i].six_sin[1]) == "鬼")
+            //        {
+            //            if (idx[6] == false)
+            //            {
+            //                idx[6] = true;
+            //                label105.Text = toNum(goong[i].hongNum[1]) + "中";
+            //            }
+            //            else label80.Text = toNum(goong[i].hongNum[1]) + "中";
+            //        }
+            //        if (toSixSin(goong[i].six_sin[0]) == "官" || toSixSin(goong[i].six_sin[0]) == "鬼")
+            //        {
+            //            if (idx[7] == false)
+            //            {
+            //                idx[7] = true;
+            //                label104.Text = toNum(goong[i].hongNum[0]) + "中";
+            //            }
+            //            else label79.Text = toNum(goong[i].hongNum[0]) + "中";
+            //        }
+            //        if (toSixSin(goong[i].six_sin[1]) == "父")
+            //        {
+            //            if (idx[8] == false)
+            //            {
+            //                idx[8] = true;
+            //                label103.Text = toNum(goong[i].hongNum[1]) + "中";
+            //            }
+            //            else label78.Text = toNum(goong[i].hongNum[1]) + "中";
+            //        }
+            //        if (toSixSin(goong[i].six_sin[0]) == "父")
+            //        {
+            //            if (idx[9] == false)
+            //            {
+            //                idx[9] = true;
+            //                label112.Text = toNum(goong[i].hongNum[0]) + "中";
+            //            }
+            //            else label87.Text = toNum(goong[i].hongNum[0]) + "中";
+            //        }
+            //    }
+            //}// 중
+            //for (i = 0; i < 9; i++)
+            //{
+            //    if ((goong[i].b_dong[1] == true || goong[i].b_dong[3] == true) && goong[i].b_dong[0] != true && goong[i].b_dong[2] != true)  //월 시
+            //    {
+            //        if (toSixSin(goong[i].six_sin[1]) == "兄") label86.Text = toNum(goong[i].hongNum[1]);
+            //        if (toSixSin(goong[i].six_sin[0]) == "兄")
+            //        {
+            //            if (idx[1] == false)
+            //            {
+            //                idx[1] = true;
+            //                label110.Text = toNum(goong[i].hongNum[0]);
+            //            }
+            //            else label85.Text = toNum(goong[i].hongNum[0]);
+            //        }
+            //        if (toSixSin(goong[i].six_sin[1]) == "孫")
+            //        {
+            //            if (idx[2] == false)
+            //            {
+            //                idx[2] = true;
+            //                label109.Text = toNum(goong[i].hongNum[1]);
+            //            }
+            //            else label84.Text = toNum(goong[i].hongNum[1]);
+            //        }
+            //        if (toSixSin(goong[i].six_sin[0]) == "孫")
+            //        {
+            //            if (idx[3] == false)
+            //            {
+            //                idx[3] = true;
+            //                label108.Text = toNum(goong[i].hongNum[0]);
+            //            }
+            //            else label83.Text = toNum(goong[i].hongNum[0]);
+            //        }
+            //        if (toSixSin(goong[i].six_sin[1]) == "財")
+            //        {
+            //            if (idx[4] == false)
+            //            {
+            //                idx[4] = true;
+            //                label107.Text = toNum(goong[i].hongNum[1]);
+            //            }
+            //            else label82.Text = toNum(goong[i].hongNum[1]);
+            //        }
+            //        if (toSixSin(goong[i].six_sin[0]) == "財")
+            //        {
+            //            if (idx[5] == false)
+            //            {
+            //                idx[5] = true;
+            //                label106.Text = toNum(goong[i].hongNum[0]);
+            //            }
+            //            else label81.Text = toNum(goong[i].hongNum[0]);
+            //        }
+            //        if (toSixSin(goong[i].six_sin[1]) == "官" || toSixSin(goong[i].six_sin[1]) == "鬼")
+            //        {
+            //            if (idx[6] == false)
+            //            {
+            //                idx[6] = true;
+            //                label105.Text = toNum(goong[i].hongNum[1]);
+            //            }
+            //            else label80.Text = toNum(goong[i].hongNum[1]);
+            //        }
+            //        if (toSixSin(goong[i].six_sin[0]) == "官" || toSixSin(goong[i].six_sin[0]) == "鬼")
+            //        {
+            //            if (idx[7] == false)
+            //            {
+            //                idx[7] = true;
+            //                label104.Text = toNum(goong[i].hongNum[0]);
+            //            }
+            //            else label79.Text = toNum(goong[i].hongNum[0]);
+            //        }
+            //        if (toSixSin(goong[i].six_sin[1]) == "父")
+            //        {
+            //            if (idx[8] == false)
+            //            {
+            //                idx[8] = true;
+            //                label103.Text = toNum(goong[i].hongNum[1]);
+            //            }
+            //            else label78.Text = toNum(goong[i].hongNum[1]);
+            //        }
+            //        if (toSixSin(goong[i].six_sin[0]) == "父")
+            //        {
+            //            if (idx[9] == false)
+            //            {
+            //                idx[9] = true;
+            //                label112.Text = toNum(goong[i].hongNum[0]);
+            //            }
+            //            else label87.Text = toNum(goong[i].hongNum[0]);
+            //        }
+            //    }
+            //}// 월,시  
 
-            // 3연속 체크
-            for (i = 0; i < 2; i++)
-            {
-                for (j = 0; j < 5; j++)
-                {
-                    Control ct1 = this.Controls[labelname[i, (j + 3) % 5]];
-                    Control ct2 = this.Controls[labelname[i, (j + 4) % 5]];
-                    Control ct3 = this.Controls[labelname[i, j]];
-                    Control ct4 = this.Controls[labelname[i, (j + 1) % 5]];
-                    Control ct5 = this.Controls[labelname[i, (j + 2) % 5]];
-                    if ((ct1.Text.Length == 2 && ct2.Text.Length == 2 && ct3.Text.Length == 2) ||
-                        (ct2.Text.Length == 2 && ct3.Text.Length == 2 && ct4.Text.Length == 2) ||
-                        (ct3.Text.Length == 2 && ct4.Text.Length == 2 && ct5.Text.Length == 2)) ;
-                    else
-                    {
-                        if (ct3.Text != "")
-                            ct3.Text = ct3.Text.Substring(0, 1);
-                    }
-                }
-            }
-            for (i = 0; i < 10; i++)
-            {
-                Control ct_1 = this.Controls[labelname2[0, i]];
-                Control ct_2 = this.Controls[labelname2[1, i]];
-                if (ct_1.Text.Length != 2 && ct_2.Text.Length == 2) ct_2.Text = ct_2.Text.Substring(0, 1);
-            }
-            if (label111.Text.Length != 2)
-                label111.Text += "世";
+            //// 3연속 체크
+            //for (i = 0; i < 2; i++)
+            //{
+            //    for (j = 0; j < 5; j++)
+            //    {
+            //        Control ct1 = this.Controls[labelname[i, (j + 3) % 5]];
+            //        Control ct2 = this.Controls[labelname[i, (j + 4) % 5]];
+            //        Control ct3 = this.Controls[labelname[i, j]];
+            //        Control ct4 = this.Controls[labelname[i, (j + 1) % 5]];
+            //        Control ct5 = this.Controls[labelname[i, (j + 2) % 5]];
+            //        if ((ct1.Text.Length == 2 && ct2.Text.Length == 2 && ct3.Text.Length == 2) ||
+            //            (ct2.Text.Length == 2 && ct3.Text.Length == 2 && ct4.Text.Length == 2) ||
+            //            (ct3.Text.Length == 2 && ct4.Text.Length == 2 && ct5.Text.Length == 2)) ;
+            //        else
+            //        {
+            //            if (ct3.Text != "")
+            //                ct3.Text = ct3.Text.Substring(0, 1);
+            //        }
+            //    }
+            //}
+            //for (i = 0; i < 10; i++)
+            //{
+            //    Control ct_1 = this.Controls[labelname2[0, i]];
+            //    Control ct_2 = this.Controls[labelname2[1, i]];
+            //    if (ct_1.Text.Length != 2 && ct_2.Text.Length == 2) ct_2.Text = ct_2.Text.Substring(0, 1);
+            //}
+            //if (label111.Text.Length != 2)
+            //    label111.Text += "世";
 
             // 오행 설정
             for (i = 0; i < 9 && goong[i].b_dong[2] != true; i++) ;
@@ -3472,209 +3610,219 @@ namespace WindowsFormsApp1
 
         private void button1_Click(object sender, EventArgs e)  // 실행 부분
         {
-            for(int i = 0; i <9; i++) goong[i] = new Goong();
+            DateTime today = DateTime.Now;
 
-            name = textBox6.Text;
-            if (radioButton4.Checked) gender = 1; else gender = 0;
-
-            //string date = textBox1.Text + textBox2.Text + textBox3.Text + textBox4.Text; // 입력값 가저오기
-
-            try
+            if (today.Year >= 2024)
+            //if (today.Hour >= 10)
             {
-                //dt = DateTime.ParseExact(date, "yyyyMMddHHmm", System.Globalization.CultureInfo.InvariantCulture); //  생년월일
-                real_dt = dateTimePicker1.Value;
-                dtTemp = dateTimePicker1.Value;
-                dt = dateTimePicker1.Value;
+                MessageBox.Show("교육기한이 만료되었습니다.");
+            }
+            else
+            { 
+                for(int i = 0; i <9; i++) goong[i] = new Goong();
 
-                if (!radioButton6.Checked)
+                name = textBox6.Text;
+                if (radioButton4.Checked) gender = 1; else gender = 0;
+
+                //string date = textBox1.Text + textBox2.Text + textBox3.Text + textBox4.Text; // 입력값 가저오기
+
+                try
                 {
-                    if (radioButton1.Checked)
-                    {
-                        solar_dt = dt;
-                        ToLunarDate(dt, out ly, out lunar_year, out lunar_month, out lunar_day); // 양력->음력 변환
-                    }
-                    else if (radioButton2.Checked)
-                    {
-                        //lunar_dt = dt;
-                        ly = false;
-                        solar_dt = ToSolarDate(dt, false); // 음력->양력 변환
-                    }
-                    else //if (radioButton3.Checked)
-                    {
-                        //lunar_dt = dt;
-                        ly = true;
-                        solar_dt = ToSolarDate(dt, true); // 음력->양력 변환
-                    }
+                    //dt = DateTime.ParseExact(date, "yyyyMMddHHmm", System.Globalization.CultureInfo.InvariantCulture); //  생년월일
+                    real_dt = dateTimePicker1.Value;
+                    dtTemp = dateTimePicker1.Value;
+                    dt = dateTimePicker1.Value;
 
-                    //양력 표시
-                    if (radioButton2.Checked || radioButton3.Checked)
+                    if (!radioButton6.Checked)
                     {
-                        label14.Text = "양력 " + solar_dt.Year + "년 " + solar_dt.Month + "월 " + solar_dt.Day + "일 " + dt.Hour.ToString() + ":" + dt.Minute.ToString();
-                        //syear.Text = solar_dt.Year + " 년";
-                        //smonth.Text = solar_dt.Month + " 월";
-                        //sday.Text = solar_dt.Day + " 일";
-                        //shour.Text = dt.Hour.ToString() + ":"+dt.Minute.ToString() ;
+                        if (radioButton1.Checked)
+                        {
+                            solar_dt = dt;
+                            ToLunarDate(dt, out ly, out lunar_year, out lunar_month, out lunar_day); // 양력->음력 변환
+                        }
+                        else if (radioButton2.Checked)
+                        {
+                            //lunar_dt = dt;
+                            ly = false;
+                            solar_dt = ToSolarDate(dt, false); // 음력->양력 변환
+                        }
+                        else //if (radioButton3.Checked)
+                        {
+                            //lunar_dt = dt;
+                            ly = true;
+                            solar_dt = ToSolarDate(dt, true); // 음력->양력 변환
+                        }
+
+                        //양력 표시
+                        if (radioButton2.Checked || radioButton3.Checked)
+                        {
+                            label14.Text = "양력 " + solar_dt.Year + "년 " + solar_dt.Month + "월 " + solar_dt.Day + "일 " + dt.Hour.ToString() + ":" + dt.Minute.ToString();
+                            //syear.Text = solar_dt.Year + " 년";
+                            //smonth.Text = solar_dt.Month + " 월";
+                            //sday.Text = solar_dt.Day + " 일";
+                            //shour.Text = dt.Hour.ToString() + ":"+dt.Minute.ToString() ;
+                        }
+                        else
+                        {
+                            if (ly == false)
+                                label14.Text = "음력 " + lunar_year + "년 " + lunar_month.ToString("00") + "월 " + lunar_day.ToString("00") + "일 " + dt.Hour.ToString("00") + ":" + dt.Minute.ToString("00");
+                            else
+                                label14.Text = "음력 " + lunar_year + "년 " + lunar_month.ToString("00") + "월(윤달) " + lunar_day.ToString("00") + "일 " + dt.Hour.ToString() + ":" + dt.Minute.ToString("00"); ;
+                            //syear.Text = lunar_year + " 년";
+                            //if (ly == false) smonth.Text = lunar_month + " 월";
+                            //else smonth.Text = lunar_month + "월(윤달)";
+                            //sday.Text = lunar_day + " 일";
+                            //shour.Text = dt.Hour.ToString() + ":" + dt.Minute.ToString();
+                        }
+
+                        real_dt = dateAdjust(solar_dt);  // 서머타임 동경시 등 보정
+
+                        // 24절기 계산
+                        terms = get24Terms(real_dt);
+
+                        //양둔, 음둔 계산
+                        direction = getDirection(real_dt, terms);
+
+                        //년월일시 간지 계산 
+                        ToSajuYear(real_dt, terms[2], out sjGanzi[0, 0], out sjGanzi[0, 1]);
+                        ToSajuMonth(real_dt, terms, sjGanzi[0, 0], out sjGanzi[1, 0], out sjGanzi[1, 1]);
+                        ToSajuDay(real_dt, out sjGanzi[2, 0], out sjGanzi[2, 1]);
+                        ToSajuTime(real_dt, sjGanzi[2, 0], out sjGanzi[3, 0], out sjGanzi[3, 1]);
+
+
+                        comboBox4.SelectedIndex = sjGanzi[0, 0] - 1;
+                        comboBox8.SelectedIndex = sjGanzi[0, 1] - 1;
+                        comboBox3.SelectedIndex = sjGanzi[1, 0] - 1;
+                        comboBox7.SelectedIndex = sjGanzi[1, 1] - 1;
+                        comboBox2.SelectedIndex = sjGanzi[2, 0] - 1;
+                        comboBox6.SelectedIndex = sjGanzi[2, 1] - 1;
+                        comboBox1.SelectedIndex = sjGanzi[3, 0] - 1;
+                        comboBox5.SelectedIndex = sjGanzi[3, 1] - 1;
                     }
                     else
                     {
-                        if (ly == false)
-                            label14.Text = "음력 " + lunar_year + "년 " + lunar_month.ToString("00") + "월 " + lunar_day.ToString("00") + "일 " + dt.Hour.ToString("00") + ":" + dt.Minute.ToString("00");
-                        else
-                            label14.Text = "음력 " + lunar_year + "년 " + lunar_month.ToString("00") + "월(윤달) " + lunar_day.ToString("00") + "일 " + dt.Hour.ToString() + ":" + dt.Minute.ToString("00"); ;
-                        //syear.Text = lunar_year + " 년";
-                        //if (ly == false) smonth.Text = lunar_month + " 월";
-                        //else smonth.Text = lunar_month + "월(윤달)";
-                        //sday.Text = lunar_day + " 일";
-                        //shour.Text = dt.Hour.ToString() + ":" + dt.Minute.ToString();
+                        sjGanzi[0, 0] = comboBox4.SelectedIndex+1;
+                        sjGanzi[0, 1] = comboBox8.SelectedIndex+1;
+                        sjGanzi[1, 0] = comboBox3.SelectedIndex+1;
+                        sjGanzi[1, 1] = comboBox7.SelectedIndex+1;
+                        sjGanzi[2, 0] = comboBox2.SelectedIndex+1;
+                        sjGanzi[2, 1] = comboBox6.SelectedIndex+1;
+                        sjGanzi[3, 0] = comboBox1.SelectedIndex+1;
+                        sjGanzi[3, 1] = comboBox5.SelectedIndex+1;
+
+                        direction = false;
+                        if (comboBox9.SelectedIndex+1 == 24 || comboBox9.SelectedIndex+1 <= 11) direction = true;
                     }
 
-                    real_dt = dateAdjust(solar_dt);  // 서머타임 동경시 등 보정
+                    //년월일시 간지 표시
+                    label12.Text = toGan(sjGanzi[0, 0]); label12.BackColor = getGancolor(sjGanzi[0, 0]);
+                    label18.Text = toZi(sjGanzi[0, 1]); label18.BackColor = getZicolor(sjGanzi[0, 1]);
+                    label11.Text = toGan(sjGanzi[1, 0]); label11.BackColor = getGancolor(sjGanzi[1, 0]);
+                    label17.Text = toZi(sjGanzi[1, 1]); label17.BackColor = getZicolor(sjGanzi[1, 1]);
+                    label10.Text = toGan(sjGanzi[2, 0]); label10.BackColor = getGancolor(sjGanzi[2, 0]);
+                    label16.Text = toZi(sjGanzi[2, 1]); label16.BackColor = getZicolor(sjGanzi[2, 1]);
+                    label9.Text = toGan(sjGanzi[3, 0]); label9.BackColor = getGancolor(sjGanzi[3, 0]);
+                    label15.Text = toZi(sjGanzi[3, 1]); label15.BackColor = getZicolor(sjGanzi[3, 1]);
 
-                    // 24절기 계산
-                    terms = get24Terms(real_dt);
+                    //표시용
+                    //int ind;
+                    //for (ind = 0; ind < 24 && dt.CompareTo(terms[ind] ) >= 0; ind++) ;
+                    //if (direction) textBox5.Text += "양둔: ";
+                    //else textBox5.Text += "음둔: ";
+                    //textBox5.Text += toJeolGi((ind+23)%24) + Environment.NewLine;
 
-                    //양둔, 음둔 계산
-                    direction = getDirection(real_dt, terms);
+                    //홍국수
+                    setHongNum(goong, sjGanzi, out eunboksu1, out eunboksu2);
 
-                    //년월일시 간지 계산 
-                    ToSajuYear(real_dt, terms[2], out sjGanzi[0, 0], out sjGanzi[0, 1]);
-                    ToSajuMonth(real_dt, terms, sjGanzi[0, 0], out sjGanzi[1, 0], out sjGanzi[1, 1]);
-                    ToSajuDay(real_dt, out sjGanzi[2, 0], out sjGanzi[2, 1]);
-                    ToSajuTime(real_dt, sjGanzi[2, 0], out sjGanzi[3, 0], out sjGanzi[3, 1]);
+                    //동처 계산
+                    setDongcheo(goong, sjGanzi);
 
+                    //유년계산
+                    setYooAge(goong, eunboksu1, eunboksu2);
 
-                    comboBox4.SelectedIndex = sjGanzi[0, 0] - 1;
-                    comboBox8.SelectedIndex = sjGanzi[0, 1] - 1;
-                    comboBox3.SelectedIndex = sjGanzi[1, 0] - 1;
-                    comboBox7.SelectedIndex = sjGanzi[1, 1] - 1;
-                    comboBox2.SelectedIndex = sjGanzi[2, 0] - 1;
-                    comboBox6.SelectedIndex = sjGanzi[2, 1] - 1;
-                    comboBox1.SelectedIndex = sjGanzi[3, 0] - 1;
-                    comboBox5.SelectedIndex = sjGanzi[3, 1] - 1;
-                }
-                else
-                {
-                    sjGanzi[0, 0] = comboBox4.SelectedIndex+1;
-                    sjGanzi[0, 1] = comboBox8.SelectedIndex+1;
-                    sjGanzi[1, 0] = comboBox3.SelectedIndex+1;
-                    sjGanzi[1, 1] = comboBox7.SelectedIndex+1;
-                    sjGanzi[2, 0] = comboBox2.SelectedIndex+1;
-                    sjGanzi[2, 1] = comboBox6.SelectedIndex+1;
-                    sjGanzi[3, 0] = comboBox1.SelectedIndex+1;
-                    sjGanzi[3, 1] = comboBox5.SelectedIndex+1;
+                    //육신 계산
+                    setSixSin(goong, sjGanzi);
 
-                    direction = false;
-                    if (comboBox9.SelectedIndex+1 == 24 || comboBox9.SelectedIndex+1 <= 11) direction = true;
-                }
+                    //흥국수 강약
+                    setHonglvl(goong, sjGanzi[1, 1], real_dt);
 
-                //년월일시 간지 표시
-                label12.Text = toGan(sjGanzi[0, 0]); label12.BackColor = getGancolor(sjGanzi[0, 0]);
-                label18.Text = toZi(sjGanzi[0, 1]); label18.BackColor = getZicolor(sjGanzi[0, 1]);
-                label11.Text = toGan(sjGanzi[1, 0]); label11.BackColor = getGancolor(sjGanzi[1, 0]);
-                label17.Text = toZi(sjGanzi[1, 1]); label17.BackColor = getZicolor(sjGanzi[1, 1]);
-                label10.Text = toGan(sjGanzi[2, 0]); label10.BackColor = getGancolor(sjGanzi[2, 0]);
-                label16.Text = toZi(sjGanzi[2, 1]); label16.BackColor = getZicolor(sjGanzi[2, 1]);
-                label9.Text = toGan(sjGanzi[3, 0]); label9.BackColor = getGancolor(sjGanzi[3, 0]);
-                label15.Text = toZi(sjGanzi[3, 1]); label15.BackColor = getZicolor(sjGanzi[3, 1]);
+                    //육의삼기 붙이기
+                    if (radioButton6.Checked)
+                        sisunsoo = setYookSamSaJu(goong, sjGanzi, comboBox9.SelectedIndex + 1, direction); 
+                    else
+                        sisunsoo = setYookSam(goong, sjGanzi, real_dt, terms, direction);
 
-                //표시용
-                //int ind;
-                //for (ind = 0; ind < 24 && dt.CompareTo(terms[ind] ) >= 0; ind++) ;
-                //if (direction) textBox5.Text += "양둔: ";
-                //else textBox5.Text += "음둔: ";
-                //textBox5.Text += toJeolGi((ind+23)%24) + Environment.NewLine;
+                    //팔문 붙이기
+                    set8mun(goong, sjGanzi, direction);
 
-                //홍국수
-                setHongNum(goong, sjGanzi, out eunboksu1, out eunboksu2);
+                    //팔괴 붙이기
+                    set8goe(goong);
 
-                //동처 계산
-                setDongcheo(goong, sjGanzi);
+                    //구성 붙이기
+                    setGooSung(goong, sjGanzi, sisunsoo);
 
-                //유년계산
-                setYooAge(goong, eunboksu1, eunboksu2);
+                    //팔장 붙이기
+                    setEightjang(goong, sjGanzi, direction, sisunsoo);
 
-                //육신 계산
-                setSixSin(goong, sjGanzi);
+                    //천을, 천마 일록
+                    setCheonMaRok(goong, sjGanzi, direction);
 
-                //흥국수 강약
-                setHonglvl(goong, sjGanzi[1, 1], real_dt);
-
-                //육의삼기 붙이기
-                if (radioButton6.Checked)
-                    sisunsoo = setYookSamSaJu(goong, sjGanzi, comboBox9.SelectedIndex + 1, direction); 
-                else
-                    sisunsoo = setYookSam(goong, sjGanzi, real_dt, terms, direction);
-
-                //팔문 붙이기
-                set8mun(goong, sjGanzi, direction);
-
-                //팔괴 붙이기
-                set8goe(goong);
-
-                //구성 붙이기
-                setGooSung(goong, sjGanzi, sisunsoo);
-
-                //팔장 붙이기
-                setEightjang(goong, sjGanzi, direction, sisunsoo);
-
-                //천을, 천마 일록
-                setCheonMaRok(goong, sjGanzi, direction);
-
-                //12운성
-                setEunsung(goong, sjGanzi);
+                    //12운성
+                    setEunsung(goong, sjGanzi);
                 
-                //공망
-                setGongMang(goong, sjGanzi);
+                    //공망
+                    setGongMang(goong, sjGanzi);
 
-                //신살
-                setSinsal(goong, sjGanzi);
+                    //신살
+                    setSinsal(goong, sjGanzi);
 
-                //격국
-                setKyukkuk(goong, sjGanzi);
+                    //격국
+                    setKyukkuk(goong, sjGanzi);
                 
-                //이사방위
-                setIsabangui(goong, sjGanzi);
+                    //이사방위
+                    setIsabangui(goong, sjGanzi);
 
-                //태을구성법
-                setTaeulGusung(goong, sjGanzi, direction);
+                    //태을구성법
+                    setTaeulGusung(goong, sjGanzi, direction);
 
-                //10년대운
-                set10Daeun(terms, sjGanzi, gender, real_dt);
+                    //10년대운
+                    set10Daeun(terms, sjGanzi, gender, real_dt);
 
-                //결과물 구궁에 출력
-                if (comboBox9.SelectedIndex == -1 && radioButton6.Checked)
-                {
-                    comboBox9.SelectedIndex = 0;
-                    showGoongLabelText(goong, eunboksu1, eunboksu2);
-                }
+                    //결과물 구궁에 출력
+                    if (comboBox9.SelectedIndex == -1 && radioButton6.Checked)
+                    {
+                        comboBox9.SelectedIndex = 0;
+                        showGoongLabelText(goong, eunboksu1, eunboksu2);
+                    }
                     
-                else
-                    showGoongLabelText(goong, eunboksu1, eunboksu2);
+                    else
+                        showGoongLabelText(goong, eunboksu1, eunboksu2);
 
-                //통기도 출력
+                    //통기도 출력
+                    if (radioButton8.Checked)
+                        showTongGido(goong);
+                    else
+                        showTongGido_1(goong);
+
+                    //사주팔자 육신
+                    SaJuYooksin(sjGanzi);
+
+                    bYoonyun = false;
+                    bTongi = false;
+                    bProcess = true;
+                    pictureBox1.Update();
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show("년,월,일,시를 정확히 입력하세요");
+                }
+                Graphics g = pictureBox1.CreateGraphics();
                 if (radioButton8.Checked)
-                    showTongGido(goong);
-                else
-                    showTongGido_1(goong);
-
-                //사주팔자 육신
-                SaJuYooksin(sjGanzi);
-
-                bYoonyun = false;
-                bTongi = false;
-                bProcess = true;
-                pictureBox1.Update();
+                {
+                    g.FillEllipse(myBrush, 121, 103, 90, 90);
+                    g.DrawEllipse(Pens.Black, 121, 103, 90, 90);
+                }       
             }
-            catch(Exception ex)
-            {
-                MessageBox.Show("년,월,일,시를 정확히 입력하세요");
-            }
-            Graphics g = pictureBox1.CreateGraphics();
-            if (radioButton8.Checked)
-            {
-                g.FillEllipse(myBrush, 121, 103, 90, 90);
-                g.DrawEllipse(Pens.Black, 121, 103, 90, 90);
-            }            
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -3836,30 +3984,40 @@ namespace WindowsFormsApp1
 
         private void button5_Click(object sender, EventArgs e)
         {
-            if (bProcess)
-            { 
-                if (!bYoonyun)
+            DateTime today = DateTime.Now;
+
+            if (today.Year >= 2024)
+            //if (today.Hour >= 10)
+            {
+                MessageBox.Show("교육기한이 만료되었습니다.");
+            }
+            else
+            {
+                if (bProcess)
                 {
-                    button1_Click(sender, e);
-                    Yunyun();
-                    for (int i = 0; i < 9; i++)
-                    {                        
-                        String name = "richTextBox" + (i + 1);
-                        Control ct = this.Controls[name];
-                        RichTextBox c = ct as RichTextBox;
-                        AlignText(c);
+                    if (!bYoonyun)
+                    {
+                        button1_Click(sender, e);
+                        Yunyun();
+                        for (int i = 0; i < 9; i++)
+                        {
+                            String name = "richTextBox" + (i + 1);
+                            Control ct = this.Controls[name];
+                            RichTextBox c = ct as RichTextBox;
+                            AlignText(c);
+                        }
+                        bYoonyun = true;
                     }
-                    bYoonyun = true;
+                    else
+                    {
+                        button1_Click(sender, e);
+                        bYoonyun = false;
+                    }
                 }
                 else
                 {
-                    button1_Click(sender, e);
-                    bYoonyun = false;
+                    MessageBox.Show("년,월,일,시를 정확히 입력하세요");
                 }
-            }
-            else 
-            {
-                MessageBox.Show("년,월,일,시를 정확히 입력하세요");
             }
         }//유년소운 보여주기/숨기기
 
@@ -3885,96 +4043,106 @@ namespace WindowsFormsApp1
 
         private void button7_Click(object sender, EventArgs e)
         {
-            if (bProcess)
+            DateTime today = DateTime.Now;
+
+            if (today.Year >= 2024)
+            //if (today.Hour >= 10)
             {
-                for (int i = 0; i < 9; i++)
-                {
-                    String name = "richTextBox" + (i + 1);
-                    Control ct = this.Controls[name];
-                    RichTextBox c = ct as RichTextBox;
-                    c.BackColor = Color.White;
-
-                    //1줄  숫자, 속성, 사지
-                    c.Text = " " + (i + 1) + " (" + toOhaeng_1(getohaeng(i + 1, 3)) + ")";
-                    if (i == 4) c.BackColor = Color.Wheat;
-                    else
-                    {
-                        if (goong[i].b_dong[0] == true) { c.Text += " 年支"; c.BackColor = Color.LightGray; }
-                        if (goong[i].b_dong[1] == true) { c.Text += " 月支"; c.BackColor = Color.LightGray; }
-                        if (goong[i].b_dong[2] == true) { c.Text += " 日支"; c.BackColor = Color.LightGray; }
-                        if (goong[i].b_dong[3] == true) { c.Text += " 時支"; c.BackColor = Color.LightGray; }
-                    }
-                    c.Text += "\n";
-
-                    //2줄 홍국수 강약
-                    c.AppendText(toHongNumLvl(goong[i].hongNumlvl[0]) + Environment.NewLine);
-
-                    //3줄 육신, 홍국수, 유년
-                    c.Text += toSixSin(goong[i].six_sin[0]);
-                    c.AppendText(" " + toNum(goong[i].hongNum[0]) + " " + goong[i].yoo_age[0] + "~");
-                    if (goong[i].hongNum[0] == 10) c.AppendText((goong[i].yoo_age[0] + eunboksu1 - 1).ToString());
-                    else c.AppendText((goong[i].yoo_age[0] + goong[i].hongNum[0] - 1).ToString());
-                    c.Text += "\n";
-
-                    //4줄 팔문, 천반 홍국수(강약), 천반천간, 구성, 유년, 육신 
-                    string fmt = "00.##";
-                    c.Text += toSixSin(goong[i].six_sin[1]);
-                    c.AppendText(" " + toNum(goong[i].hongNum[1]) + " " + goong[i].yoo_age[1].ToString(fmt) + "~");
-                    if (goong[i].hongNum[1] == 10) c.AppendText((goong[i].yoo_age[1] + eunboksu2 - 1).ToString(fmt));
-                    else c.AppendText((goong[i].yoo_age[1] + goong[i].hongNum[1] - 1).ToString(fmt));
-                    c.Text += "\n";
-
-                    //5줄 홍국수 강약
-                    c.AppendText(toHongNumLvl(goong[i].hongNumlvl[1]) + Environment.NewLine);
-
-                    //6쭐 문왕, 운성
-                    c.Text += " (" + toMunWang(i) + ") " + " " + goong[i].eunsung;
-
-                    // 정렬
-                    string[] Line = c.Text.Split(new char[] { '\n' });
-                    int start = 0;
-
-                    c.Select(start, Line[0].Length);
-                    c.SelectionFont = new Font("맑은 고딕", 13, FontStyle.Regular);
-                    c.SelectionAlignment = HorizontalAlignment.Left;
-                    start += Line[0].Length + 1;
-
-                    c.Select(start, Line[1].Length);
-                    c.SelectionFont = new Font("맑은 고딕", 9, FontStyle.Regular);
-                    c.SelectionAlignment = HorizontalAlignment.Center;
-                    start += Line[1].Length + 1;
-
-                    c.Select(start, Line[2].Length);
-                    c.SelectionFont = new Font("맑은 고딕", 15, FontStyle.Regular);
-                    c.SelectionAlignment = HorizontalAlignment.Center;
-                    start += Line[2].Length + 1;
-
-                    c.Select(start, Line[3].Length);
-                    c.SelectionFont = new Font("맑은 고딕", 15, FontStyle.Regular);
-                    c.SelectionAlignment = HorizontalAlignment.Center;
-                    if (Line[3].Substring(0, 1) == "世")
-                    {
-                        c.Select(start, 1);
-                        c.SelectionColor = Color.Red;
-                        c.SelectionFont = new Font("맑은 고딕", 15, FontStyle.Bold);
-                    }
-                    start += Line[3].Length + 1;
-
-                    c.Select(start, Line[4].Length);
-                    c.SelectionFont = new Font("맑은 고딕", 9, FontStyle.Regular);
-                    c.SelectionAlignment = HorizontalAlignment.Center;
-                    start += Line[4].Length + 1;
-
-                    c.Select(start, Line[5].Length);
-                    c.SelectionFont = new Font("맑은 고딕", 13, FontStyle.Regular);
-                    c.SelectionAlignment = HorizontalAlignment.Left;
-                    start += Line[5].Length + 1;
-
-                }
+                MessageBox.Show("교육기한이 만료되었습니다.");
             }
             else
             {
-                MessageBox.Show("년,월,일,시를 정확히 입력하세요");
+                if (bProcess)
+                {
+                    for (int i = 0; i < 9; i++)
+                    {
+                        String name = "richTextBox" + (i + 1);
+                        Control ct = this.Controls[name];
+                        RichTextBox c = ct as RichTextBox;
+                        c.BackColor = Color.White;
+
+                        //1줄  숫자, 속성, 사지
+                        c.Text = " " + (i + 1) + " (" + toOhaeng_1(getohaeng(i + 1, 3)) + ")";
+                        if (i == 4) c.BackColor = Color.Wheat;
+                        else
+                        {
+                            if (goong[i].b_dong[0] == true) { c.Text += " 年支"; c.BackColor = Color.LightGray; }
+                            if (goong[i].b_dong[1] == true) { c.Text += " 月支"; c.BackColor = Color.LightGray; }
+                            if (goong[i].b_dong[2] == true) { c.Text += " 日支"; c.BackColor = Color.LightGray; }
+                            if (goong[i].b_dong[3] == true) { c.Text += " 時支"; c.BackColor = Color.LightGray; }
+                        }
+                        c.Text += "\n";
+
+                        //2줄 홍국수 강약
+                        c.AppendText(toHongNumLvl(goong[i].hongNumlvl[0]) + Environment.NewLine);
+
+                        //3줄 육신, 홍국수, 유년
+                        c.Text += toSixSin(goong[i].six_sin[0]);
+                        c.AppendText(" " + toNum(goong[i].hongNum[0]) + " " + goong[i].yoo_age[0] + "~");
+                        if (goong[i].hongNum[0] == 10) c.AppendText((goong[i].yoo_age[0] + eunboksu1 - 1).ToString());
+                        else c.AppendText((goong[i].yoo_age[0] + goong[i].hongNum[0] - 1).ToString());
+                        c.Text += "\n";
+
+                        //4줄 팔문, 천반 홍국수(강약), 천반천간, 구성, 유년, 육신 
+                        string fmt = "00.##";
+                        c.Text += toSixSin(goong[i].six_sin[1]);
+                        c.AppendText(" " + toNum(goong[i].hongNum[1]) + " " + goong[i].yoo_age[1].ToString(fmt) + "~");
+                        if (goong[i].hongNum[1] == 10) c.AppendText((goong[i].yoo_age[1] + eunboksu2 - 1).ToString(fmt));
+                        else c.AppendText((goong[i].yoo_age[1] + goong[i].hongNum[1] - 1).ToString(fmt));
+                        c.Text += "\n";
+
+                        //5줄 홍국수 강약
+                        c.AppendText(toHongNumLvl(goong[i].hongNumlvl[1]) + Environment.NewLine);
+
+                        //6쭐 문왕, 운성
+                        c.Text += " (" + toMunWang(i) + ") " + " " + goong[i].eunsung;
+
+                        // 정렬
+                        string[] Line = c.Text.Split(new char[] { '\n' });
+                        int start = 0;
+
+                        c.Select(start, Line[0].Length);
+                        c.SelectionFont = new Font("맑은 고딕", 13, FontStyle.Regular);
+                        c.SelectionAlignment = HorizontalAlignment.Left;
+                        start += Line[0].Length + 1;
+
+                        c.Select(start, Line[1].Length);
+                        c.SelectionFont = new Font("맑은 고딕", 9, FontStyle.Regular);
+                        c.SelectionAlignment = HorizontalAlignment.Center;
+                        start += Line[1].Length + 1;
+
+                        c.Select(start, Line[2].Length);
+                        c.SelectionFont = new Font("맑은 고딕", 15, FontStyle.Regular);
+                        c.SelectionAlignment = HorizontalAlignment.Center;
+                        start += Line[2].Length + 1;
+
+                        c.Select(start, Line[3].Length);
+                        c.SelectionFont = new Font("맑은 고딕", 15, FontStyle.Regular);
+                        c.SelectionAlignment = HorizontalAlignment.Center;
+                        if (Line[3].Substring(0, 1) == "世")
+                        {
+                            c.Select(start, 1);
+                            c.SelectionColor = Color.Red;
+                            c.SelectionFont = new Font("맑은 고딕", 15, FontStyle.Bold);
+                        }
+                        start += Line[3].Length + 1;
+
+                        c.Select(start, Line[4].Length);
+                        c.SelectionFont = new Font("맑은 고딕", 9, FontStyle.Regular);
+                        c.SelectionAlignment = HorizontalAlignment.Center;
+                        start += Line[4].Length + 1;
+
+                        c.Select(start, Line[5].Length);
+                        c.SelectionFont = new Font("맑은 고딕", 13, FontStyle.Regular);
+                        c.SelectionAlignment = HorizontalAlignment.Left;
+                        start += Line[5].Length + 1;
+
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("년,월,일,시를 정확히 입력하세요");
+                }
             }
         }
 
@@ -3994,210 +4162,228 @@ namespace WindowsFormsApp1
 
         private void button6_Click(object sender, EventArgs e)
         {
+            DateTime today = DateTime.Now;
 
-            Form4 dlg = new Form4(this);
-            dlg.Show();
+            if (today.Year >= 2024)
+            //if (today.Hour >= 10)
+            {
+                MessageBox.Show("교육기한이 만료되었습니다.");
+            }
+            else
+            {
+                Form4 dlg = new Form4(this);
+                dlg.Show();
 
-            //for (int i = 0; i < 9; i++) goong[i] = new Goong();
+                //for (int i = 0; i < 9; i++) goong[i] = new Goong();
 
-            //name = textBox6.Text;
-            //if (radioButton4.Checked) gender = 1; else gender = 0;
+                //name = textBox6.Text;
+                //if (radioButton4.Checked) gender = 1; else gender = 0;
 
-            //try
-            //{
-            //    //dt = DateTime.ParseExact(date, "yyyyMMddHHmm", System.Globalization.CultureInfo.InvariantCulture); //  생년월일
-            //    DateTime real_dt = dateTimePicker1.Value;
-            //    dt = dateTimePicker1.Value;
+                //try
+                //{
+                //    //dt = DateTime.ParseExact(date, "yyyyMMddHHmm", System.Globalization.CultureInfo.InvariantCulture); //  생년월일
+                //    DateTime real_dt = dateTimePicker1.Value;
+                //    dt = dateTimePicker1.Value;
 
-            //    int age = dt.Year - dtTemp.Year + 1;
-            //    if (gender  == 1)
-            //    {
-            //        int[] HyearRR = { 7, 6, 1, 8, 3, 4, 9, 2 };
-            //        if (age == 1) Hyear = 9;
-            //        else Hyear = HyearRR[(age+6)%8];
-            //    }
-            //    else
-            //    {
-            //        int[] HyearRR = { 7, 2, 9, 4, 3, 8, 1, 6 };
-            //        if (age == 1) Hyear = 1;
-            //        else Hyear = HyearRR[(age + 6) % 8];
-            //    }
-            //    if (radioButton1.Checked)
-            //    {
-            //        solar_dt = dt;
-            //        ToLunarDate(dt, out ly, out lunar_year, out lunar_month, out lunar_day); // 양력->음력 변환
-            //    }
-            //    else if (radioButton2.Checked)
-            //    {
-            //        //lunar_dt = dt;
-            //        ly = false;
-            //        solar_dt = ToSolarDate(dt, false); // 음력->양력 변환
-            //    }
-            //    else //if (radioButton3.Checked)
-            //    {
-            //        //lunar_dt = dt;
-            //        ly = true;
-            //        solar_dt = ToSolarDate(dt, true); // 음력->양력 변환
-            //    }
+                //    int age = dt.Year - dtTemp.Year + 1;
+                //    if (gender  == 1)
+                //    {
+                //        int[] HyearRR = { 7, 6, 1, 8, 3, 4, 9, 2 };
+                //        if (age == 1) Hyear = 9;
+                //        else Hyear = HyearRR[(age+6)%8];
+                //    }
+                //    else
+                //    {
+                //        int[] HyearRR = { 7, 2, 9, 4, 3, 8, 1, 6 };
+                //        if (age == 1) Hyear = 1;
+                //        else Hyear = HyearRR[(age + 6) % 8];
+                //    }
+                //    if (radioButton1.Checked)
+                //    {
+                //        solar_dt = dt;
+                //        ToLunarDate(dt, out ly, out lunar_year, out lunar_month, out lunar_day); // 양력->음력 변환
+                //    }
+                //    else if (radioButton2.Checked)
+                //    {
+                //        //lunar_dt = dt;
+                //        ly = false;
+                //        solar_dt = ToSolarDate(dt, false); // 음력->양력 변환
+                //    }
+                //    else //if (radioButton3.Checked)
+                //    {
+                //        //lunar_dt = dt;
+                //        ly = true;
+                //        solar_dt = ToSolarDate(dt, true); // 음력->양력 변환
+                //    }
 
-            //    //양력 표시
-            //    if (radioButton2.Checked || radioButton3.Checked)
-            //    {
-            //        label14.Text = "양력 " + solar_dt.Year + "년 " + solar_dt.Month + "월 " + solar_dt.Day + "일 " + dt.Hour.ToString() + ":" + dt.Minute.ToString();
-            //        //syear.Text = solar_dt.Year + " 년";
-            //        //smonth.Text = solar_dt.Month + " 월";
-            //        //sday.Text = solar_dt.Day + " 일";
-            //        //shour.Text = dt.Hour.ToString() + ":"+dt.Minute.ToString() ;
-            //    }
-            //    else
-            //    {
-            //        if (ly == false)
-            //            label14.Text = "음력 " + lunar_year + "년 " + lunar_month.ToString("00") + "월 " + lunar_day.ToString("00") + "일 " + dt.Hour.ToString("00") + ":" + dt.Minute.ToString("00");
-            //        else
-            //            label14.Text = "음력 " + lunar_year + "년 " + lunar_month.ToString("00") + "월(윤달) " + lunar_day.ToString("00") + "일 " + dt.Hour.ToString() + ":" + dt.Minute.ToString("00"); ;
-            //        //syear.Text = lunar_year + " 년";
-            //        //if (ly == false) smonth.Text = lunar_month + " 월";
-            //        //else smonth.Text = lunar_month + "월(윤달)";
-            //        //sday.Text = lunar_day + " 일";
-            //        //shour.Text = dt.Hour.ToString() + ":" + dt.Minute.ToString();
-            //    }
+                //    //양력 표시
+                //    if (radioButton2.Checked || radioButton3.Checked)
+                //    {
+                //        label14.Text = "양력 " + solar_dt.Year + "년 " + solar_dt.Month + "월 " + solar_dt.Day + "일 " + dt.Hour.ToString() + ":" + dt.Minute.ToString();
+                //        //syear.Text = solar_dt.Year + " 년";
+                //        //smonth.Text = solar_dt.Month + " 월";
+                //        //sday.Text = solar_dt.Day + " 일";
+                //        //shour.Text = dt.Hour.ToString() + ":"+dt.Minute.ToString() ;
+                //    }
+                //    else
+                //    {
+                //        if (ly == false)
+                //            label14.Text = "음력 " + lunar_year + "년 " + lunar_month.ToString("00") + "월 " + lunar_day.ToString("00") + "일 " + dt.Hour.ToString("00") + ":" + dt.Minute.ToString("00");
+                //        else
+                //            label14.Text = "음력 " + lunar_year + "년 " + lunar_month.ToString("00") + "월(윤달) " + lunar_day.ToString("00") + "일 " + dt.Hour.ToString() + ":" + dt.Minute.ToString("00"); ;
+                //        //syear.Text = lunar_year + " 년";
+                //        //if (ly == false) smonth.Text = lunar_month + " 월";
+                //        //else smonth.Text = lunar_month + "월(윤달)";
+                //        //sday.Text = lunar_day + " 일";
+                //        //shour.Text = dt.Hour.ToString() + ":" + dt.Minute.ToString();
+                //    }
 
-            //    real_dt = dateAdjust(solar_dt);  // 서머타임 동경시 등 보정
+                //    real_dt = dateAdjust(solar_dt);  // 서머타임 동경시 등 보정
 
-            //    // 24절기 계산
-            //    terms = get24Terms(real_dt);
+                //    // 24절기 계산
+                //    terms = get24Terms(real_dt);
 
-            //    //양둔, 음둔 계산
-            //    direction = getDirection(real_dt, terms);
+                //    //양둔, 음둔 계산
+                //    direction = getDirection(real_dt, terms);
 
-            //    //년월일시 간지 계산 
-            //    ToSajuYear(real_dt, terms[2], out sjGanzi[0, 0], out sjGanzi[0, 1]);
-            //    ToSajuMonth(real_dt, terms, sjGanzi[0, 0], out sjGanzi[1, 0], out sjGanzi[1, 1]);
-            //    ToSajuDay(real_dt, out sjGanzi[2, 0], out sjGanzi[2, 1]);
-            //    ToSajuTime(real_dt, sjGanzi[2, 0], out sjGanzi[3, 0], out sjGanzi[3, 1]);
+                //    //년월일시 간지 계산 
+                //    ToSajuYear(real_dt, terms[2], out sjGanzi[0, 0], out sjGanzi[0, 1]);
+                //    ToSajuMonth(real_dt, terms, sjGanzi[0, 0], out sjGanzi[1, 0], out sjGanzi[1, 1]);
+                //    ToSajuDay(real_dt, out sjGanzi[2, 0], out sjGanzi[2, 1]);
+                //    ToSajuTime(real_dt, sjGanzi[2, 0], out sjGanzi[3, 0], out sjGanzi[3, 1]);
 
-            //    //년월일시 간지 표시
-            //    label12.Text = toGan(sjGanzi[0, 0]); label12.BackColor = getGancolor(sjGanzi[0, 0]);
-            //    label18.Text = toZi(sjGanzi[0, 1]); label18.BackColor = getZicolor(sjGanzi[0, 1]);
-            //    label11.Text = toGan(sjGanzi[1, 0]); label11.BackColor = getGancolor(sjGanzi[1, 0]);
-            //    label17.Text = toZi(sjGanzi[1, 1]); label17.BackColor = getZicolor(sjGanzi[1, 1]);
-            //    label10.Text = toGan(sjGanzi[2, 0]); label10.BackColor = getGancolor(sjGanzi[2, 0]);
-            //    label16.Text = toZi(sjGanzi[2, 1]); label16.BackColor = getZicolor(sjGanzi[2, 1]);
-            //    label9.Text = toGan(sjGanzi[3, 0]); label9.BackColor = getGancolor(sjGanzi[3, 0]);
-            //    label15.Text = toZi(sjGanzi[3, 1]); label15.BackColor = getZicolor(sjGanzi[3, 1]);
+                //    //년월일시 간지 표시
+                //    label12.Text = toGan(sjGanzi[0, 0]); label12.BackColor = getGancolor(sjGanzi[0, 0]);
+                //    label18.Text = toZi(sjGanzi[0, 1]); label18.BackColor = getZicolor(sjGanzi[0, 1]);
+                //    label11.Text = toGan(sjGanzi[1, 0]); label11.BackColor = getGancolor(sjGanzi[1, 0]);
+                //    label17.Text = toZi(sjGanzi[1, 1]); label17.BackColor = getZicolor(sjGanzi[1, 1]);
+                //    label10.Text = toGan(sjGanzi[2, 0]); label10.BackColor = getGancolor(sjGanzi[2, 0]);
+                //    label16.Text = toZi(sjGanzi[2, 1]); label16.BackColor = getZicolor(sjGanzi[2, 1]);
+                //    label9.Text = toGan(sjGanzi[3, 0]); label9.BackColor = getGancolor(sjGanzi[3, 0]);
+                //    label15.Text = toZi(sjGanzi[3, 1]); label15.BackColor = getZicolor(sjGanzi[3, 1]);
 
-            //    //홍국수
-            //    setHongNum(goong, sjGanzi, out eunboksu1, out eunboksu2);
+                //    //홍국수
+                //    setHongNum(goong, sjGanzi, out eunboksu1, out eunboksu2);
 
-            //    //동처 계산
-            //    setDongcheo(goong, sjGanzi);
+                //    //동처 계산
+                //    setDongcheo(goong, sjGanzi);
 
-            //    //유년계산
-            //    setYooAge(goong, eunboksu1, eunboksu2);
+                //    //유년계산
+                //    setYooAge(goong, eunboksu1, eunboksu2);
 
-            //    //육신 계산
-            //    setSixSin(goong, sjGanzi);
+                //    //육신 계산
+                //    setSixSin(goong, sjGanzi);
 
-            //    //흥국수 강약
-            //    setHonglvl(goong, sjGanzi[1, 1]);
+                //    //흥국수 강약
+                //    setHonglvl(goong, sjGanzi[1, 1]);
 
-            //    //육의삼기 붙이기
-            //    sisunsoo = setYookSam(goong, sjGanzi, real_dt, terms, direction);
+                //    //육의삼기 붙이기
+                //    sisunsoo = setYookSam(goong, sjGanzi, real_dt, terms, direction);
 
-            //    //팔문 붙이기
-            //    set8mun(goong, sjGanzi, direction);
+                //    //팔문 붙이기
+                //    set8mun(goong, sjGanzi, direction);
 
-            //    //팔괴 붙이기
-            //    set8goe(goong);
+                //    //팔괴 붙이기
+                //    set8goe(goong);
 
-            //    //구성 붙이기
-            //    setGooSung(goong, sjGanzi, sisunsoo);
+                //    //구성 붙이기
+                //    setGooSung(goong, sjGanzi, sisunsoo);
 
-            //    //팔장 붙이기
-            //    setEightjang(goong, sjGanzi, direction, sisunsoo);
+                //    //팔장 붙이기
+                //    setEightjang(goong, sjGanzi, direction, sisunsoo);
 
-            //    //천을, 천마 일록
-            //    setCheonMaRok(goong, sjGanzi, direction);
+                //    //천을, 천마 일록
+                //    setCheonMaRok(goong, sjGanzi, direction);
 
-            //    //12운성
-            //    setEunsung(goong, sjGanzi);
+                //    //12운성
+                //    setEunsung(goong, sjGanzi);
 
-            //    //공망
-            //    setGongMang(goong, sjGanzi);
+                //    //공망
+                //    setGongMang(goong, sjGanzi);
 
-            //    //신살
-            //    setSinsal(goong, sjGanzi);
+                //    //신살
+                //    setSinsal(goong, sjGanzi);
 
-            //    //격국
-            //    setKyukkuk(goong, sjGanzi);
+                //    //격국
+                //    setKyukkuk(goong, sjGanzi);
 
-            //    //이사방위
-            //    setIsabangui(goong, sjGanzi);
+                //    //이사방위
+                //    setIsabangui(goong, sjGanzi);
 
-            //    //태을구성법
-            //    setTaeulGusung(goong, sjGanzi, direction);
+                //    //태을구성법
+                //    setTaeulGusung(goong, sjGanzi, direction);
 
-            //    //결과물 구궁에 출력
-            //    showGoongLabelText_Sinsoo(goong, eunboksu1, eunboksu2);
+                //    //결과물 구궁에 출력
+                //    showGoongLabelText_Sinsoo(goong, eunboksu1, eunboksu2);
 
-            //    //통기도 출력
-            //    showTongGido(goong);
+                //    //통기도 출력
+                //    showTongGido(goong);
 
-            //    bYoonyun = false;
-            //    bTongi = false;
-            //    bProcess = true;
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show("년,월,일,시를 정확히 입력하세요");
-            //}
-
+                //    bYoonyun = false;
+                //    bTongi = false;
+                //    bProcess = true;
+                //}
+                //catch (Exception ex)
+                //{
+                //    MessageBox.Show("년,월,일,시를 정확히 입력하세요");
+                //}
+            }
         } //신수운 (1번 버튼에서 유년 부분제거)
 
         private void button2_Click(object sender, EventArgs e)  // 저장
         {
-            try
+            DateTime today = DateTime.Now;
+
+            if (today.Year >= 2024)
+            //if (today.Hour >= 10)
             {
-                //string path = AppDomain.CurrentDomain.BaseDirectory;
-                //string path = System.Windows.Forms.Application.StartupPath;
-                string path = "data.txt";
-
-                gimundungab.PerformClick();
-
-                if (radioButton4.Checked) gender = 1;
-                else gender = 0;
-                string temp, line;
-                bool saved = false;
-                if (radioButton1.Checked) temp = "양력";
-                else if (radioButton2.Checked) temp = "음력";
-                else temp = "음력윤달";
-                string data = textBox6.Text + " " + gender + " " + dt.ToString("yyyy_MM_dd_HHmm") + " " + temp; // 입력값 가저오기
-
-                using (StreamReader file = new StreamReader(path))
+                MessageBox.Show("교육기한이 만료되었습니다.");
+            }
+            else
+            {
+                try
                 {
-                    while ((line = file.ReadLine()) != null)
+                    //string path = AppDomain.CurrentDomain.BaseDirectory;
+                    //string path = System.Windows.Forms.Application.StartupPath;
+                    string path = "data.txt";
+
+                    gimundungab.PerformClick();
+
+                    if (radioButton4.Checked) gender = 1;
+                    else gender = 0;
+                    string temp, line;
+                    bool saved = false;
+                    if (radioButton1.Checked) temp = "양력";
+                    else if (radioButton2.Checked) temp = "음력";
+                    else temp = "음력윤달";
+                    string data = textBox6.Text + " " + gender + " " + dt.ToString("yyyy_MM_dd_HHmm") + " " + temp; // 입력값 가저오기
+
+                    using (StreamReader file = new StreamReader(path))
                     {
-                        if (line == data)
+                        while ((line = file.ReadLine()) != null)
                         {
-                            saved = true;
-                            goto EXIT;
+                            if (line == data)
+                            {
+                                saved = true;
+                                goto EXIT;
+                            }
                         }
                     }
-                }
 
-                if (!saved)
+                    if (!saved)
+                    {
+                        using (StreamWriter file = File.AppendText(path))
+                            file.WriteLine(data);
+                    }
+
+                EXIT:
+                    if (saved) MessageBox.Show("이미 저장된 사람입니다");
+                }
+                //file.Close();
+                catch
                 {
-                    using (StreamWriter file = File.AppendText(path))
-                        file.WriteLine(data);
+                    MessageBox.Show("저장할 수 없습니다");
                 }
-
-            EXIT:
-                if (saved) MessageBox.Show("이미 저장된 사람입니다");
-            }
-            //file.Close();
-            catch
-            {
-                MessageBox.Show("저장할 수 없습니다");
             }
         }
 

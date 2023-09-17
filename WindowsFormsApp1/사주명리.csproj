@@ -185,5 +185,8 @@
   <ItemGroup>
     <None Include="media\tongi_raw.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="media\tongi_1.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

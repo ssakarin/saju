@@ -74,7 +74,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
-            this.label59 = new System.Windows.Forms.Label();
             this.label58 = new System.Windows.Forms.Label();
             this.label57 = new System.Windows.Forms.Label();
             this.label27 = new System.Windows.Forms.Label();
@@ -89,27 +88,7 @@
             this.label52 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label69 = new WindowsFormsApp1.LabelX();
-            this.label68 = new WindowsFormsApp1.LabelX();
-            this.label67 = new WindowsFormsApp1.LabelX();
-            this.label66 = new WindowsFormsApp1.LabelX();
-            this.label65 = new WindowsFormsApp1.LabelX();
-            this.label64 = new WindowsFormsApp1.LabelX();
-            this.label63 = new WindowsFormsApp1.LabelX();
-            this.label62 = new WindowsFormsApp1.LabelX();
-            this.label61 = new WindowsFormsApp1.LabelX();
-            this.label70 = new WindowsFormsApp1.LabelX();
             this.label51 = new System.Windows.Forms.Label();
-            this.label49 = new WindowsFormsApp1.LabelX();
-            this.label48 = new WindowsFormsApp1.LabelX();
-            this.label47 = new WindowsFormsApp1.LabelX();
-            this.label46 = new WindowsFormsApp1.LabelX();
-            this.label45 = new WindowsFormsApp1.LabelX();
-            this.label44 = new WindowsFormsApp1.LabelX();
-            this.label43 = new WindowsFormsApp1.LabelX();
-            this.label42 = new WindowsFormsApp1.LabelX();
-            this.label41 = new WindowsFormsApp1.LabelX();
-            this.label50 = new WindowsFormsApp1.LabelX();
             this.label73 = new System.Windows.Forms.Label();
             this.label74 = new System.Windows.Forms.Label();
             this.label75 = new System.Windows.Forms.Label();
@@ -118,6 +97,13 @@
             this.label71 = new System.Windows.Forms.Label();
             this.label72 = new System.Windows.Forms.Label();
             this.label77 = new System.Windows.Forms.Label();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.radioButton5 = new System.Windows.Forms.RadioButton();
+            this.radioButton4 = new System.Windows.Forms.RadioButton();
+            this.label40 = new System.Windows.Forms.Label();
+            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.label59 = new WindowsFormsApp1.LabelX();
             this.label78 = new WindowsFormsApp1.LabelX();
             this.label79 = new WindowsFormsApp1.LabelX();
             this.label80 = new WindowsFormsApp1.LabelX();
@@ -143,12 +129,26 @@
             this.label110 = new WindowsFormsApp1.LabelX();
             this.label111 = new WindowsFormsApp1.LabelX();
             this.label112 = new WindowsFormsApp1.LabelX();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.radioButton5 = new System.Windows.Forms.RadioButton();
-            this.radioButton4 = new System.Windows.Forms.RadioButton();
-            this.label40 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.label69 = new WindowsFormsApp1.LabelX();
+            this.label68 = new WindowsFormsApp1.LabelX();
+            this.label67 = new WindowsFormsApp1.LabelX();
+            this.label66 = new WindowsFormsApp1.LabelX();
+            this.label65 = new WindowsFormsApp1.LabelX();
+            this.label64 = new WindowsFormsApp1.LabelX();
+            this.label63 = new WindowsFormsApp1.LabelX();
+            this.label62 = new WindowsFormsApp1.LabelX();
+            this.label61 = new WindowsFormsApp1.LabelX();
+            this.label70 = new WindowsFormsApp1.LabelX();
+            this.label49 = new WindowsFormsApp1.LabelX();
+            this.label48 = new WindowsFormsApp1.LabelX();
+            this.label47 = new WindowsFormsApp1.LabelX();
+            this.label46 = new WindowsFormsApp1.LabelX();
+            this.label45 = new WindowsFormsApp1.LabelX();
+            this.label44 = new WindowsFormsApp1.LabelX();
+            this.label43 = new WindowsFormsApp1.LabelX();
+            this.label42 = new WindowsFormsApp1.LabelX();
+            this.label41 = new WindowsFormsApp1.LabelX();
+            this.label50 = new WindowsFormsApp1.LabelX();
             this.groupBox2.SuspendLayout();
             this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -649,19 +649,6 @@
             this.label15.TabIndex = 137;
             this.label15.Text = "지";
             // 
-            // label59
-            // 
-            this.label59.AutoSize = true;
-            this.label59.BackColor = System.Drawing.Color.White;
-            this.label59.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label59.ForeColor = System.Drawing.Color.Red;
-            this.label59.Location = new System.Drawing.Point(187, 503);
-            this.label59.Name = "label59";
-            this.label59.Size = new System.Drawing.Size(21, 17);
-            this.label59.TabIndex = 228;
-            this.label59.Text = "世";
-            this.label59.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // label58
             // 
             this.label58.AutoSize = true;
@@ -840,278 +827,18 @@
             this.pictureBox1.WaitOnLoad = true;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
-            // label69
-            // 
-            this.label69.AutoSize = true;
-            this.label69.BackColor = System.Drawing.Color.White;
-            this.label69.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label69.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label69.Location = new System.Drawing.Point(99, 519);
-            this.label69.Name = "label69";
-            this.label69.Size = new System.Drawing.Size(16, 17);
-            this.label69.TabIndex = 252;
-            this.label69.Text = "1";
-            this.label69.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label68
-            // 
-            this.label68.AutoSize = true;
-            this.label68.BackColor = System.Drawing.Color.White;
-            this.label68.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label68.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label68.Location = new System.Drawing.Point(193, 444);
-            this.label68.Name = "label68";
-            this.label68.Size = new System.Drawing.Size(16, 17);
-            this.label68.TabIndex = 251;
-            this.label68.Text = "1";
-            this.label68.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label67
-            // 
-            this.label67.AutoSize = true;
-            this.label67.BackColor = System.Drawing.Color.White;
-            this.label67.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label67.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label67.Location = new System.Drawing.Point(134, 563);
-            this.label67.Name = "label67";
-            this.label67.Size = new System.Drawing.Size(16, 17);
-            this.label67.TabIndex = 250;
-            this.label67.Text = "1";
-            this.label67.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label66
-            // 
-            this.label66.AutoSize = true;
-            this.label66.BackColor = System.Drawing.Color.White;
-            this.label66.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label66.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label66.Location = new System.Drawing.Point(142, 444);
-            this.label66.Name = "label66";
-            this.label66.Size = new System.Drawing.Size(16, 17);
-            this.label66.TabIndex = 249;
-            this.label66.Text = "1";
-            this.label66.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label65
-            // 
-            this.label65.AutoSize = true;
-            this.label65.BackColor = System.Drawing.Color.White;
-            this.label65.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label65.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label65.Location = new System.Drawing.Point(193, 563);
-            this.label65.Name = "label65";
-            this.label65.Size = new System.Drawing.Size(16, 17);
-            this.label65.TabIndex = 248;
-            this.label65.Text = "1";
-            this.label65.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label64
-            // 
-            this.label64.AutoSize = true;
-            this.label64.BackColor = System.Drawing.Color.White;
-            this.label64.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label64.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label64.Location = new System.Drawing.Point(95, 486);
-            this.label64.Name = "label64";
-            this.label64.Size = new System.Drawing.Size(16, 17);
-            this.label64.TabIndex = 247;
-            this.label64.Text = "1";
-            this.label64.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label63
-            // 
-            this.label63.AutoSize = true;
-            this.label63.BackColor = System.Drawing.Color.White;
-            this.label63.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label63.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label63.Location = new System.Drawing.Point(225, 520);
-            this.label63.Name = "label63";
-            this.label63.Size = new System.Drawing.Size(16, 17);
-            this.label63.TabIndex = 246;
-            this.label63.Text = "1";
-            this.label63.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label62
-            // 
-            this.label62.AutoSize = true;
-            this.label62.BackColor = System.Drawing.Color.White;
-            this.label62.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label62.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label62.Location = new System.Drawing.Point(188, 481);
-            this.label62.Name = "label62";
-            this.label62.Size = new System.Drawing.Size(16, 17);
-            this.label62.TabIndex = 245;
-            this.label62.Text = "1";
-            this.label62.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label61
-            // 
-            this.label61.AutoSize = true;
-            this.label61.BackColor = System.Drawing.Color.White;
-            this.label61.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label61.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label61.Location = new System.Drawing.Point(188, 525);
-            this.label61.Name = "label61";
-            this.label61.Size = new System.Drawing.Size(16, 17);
-            this.label61.TabIndex = 244;
-            this.label61.Text = "1";
-            this.label61.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label70
-            // 
-            this.label70.AutoSize = true;
-            this.label70.BackColor = System.Drawing.Color.White;
-            this.label70.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label70.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label70.Location = new System.Drawing.Point(231, 486);
-            this.label70.Name = "label70";
-            this.label70.Size = new System.Drawing.Size(16, 17);
-            this.label70.TabIndex = 253;
-            this.label70.Text = "1";
-            this.label70.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // label51
             // 
             this.label51.AutoSize = true;
             this.label51.BackColor = System.Drawing.Color.White;
             this.label51.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label51.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label51.Location = new System.Drawing.Point(156, 504);
+            this.label51.Location = new System.Drawing.Point(174, 499);
             this.label51.Name = "label51";
             this.label51.Size = new System.Drawing.Size(16, 17);
             this.label51.TabIndex = 243;
             this.label51.Text = "1";
             this.label51.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label49
-            // 
-            this.label49.AutoSize = true;
-            this.label49.BackColor = System.Drawing.Color.White;
-            this.label49.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label49.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label49.Location = new System.Drawing.Point(82, 543);
-            this.label49.Name = "label49";
-            this.label49.Size = new System.Drawing.Size(16, 17);
-            this.label49.TabIndex = 241;
-            this.label49.Text = "1";
-            this.label49.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label48
-            // 
-            this.label48.AutoSize = true;
-            this.label48.BackColor = System.Drawing.Color.White;
-            this.label48.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label48.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label48.Location = new System.Drawing.Point(197, 416);
-            this.label48.Name = "label48";
-            this.label48.Size = new System.Drawing.Size(16, 17);
-            this.label48.TabIndex = 240;
-            this.label48.Text = "1";
-            this.label48.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label47
-            // 
-            this.label47.AutoSize = true;
-            this.label47.BackColor = System.Drawing.Color.White;
-            this.label47.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label47.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label47.Location = new System.Drawing.Point(123, 588);
-            this.label47.Name = "label47";
-            this.label47.Size = new System.Drawing.Size(16, 17);
-            this.label47.TabIndex = 239;
-            this.label47.Text = "1";
-            this.label47.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label46
-            // 
-            this.label46.AutoSize = true;
-            this.label46.BackColor = System.Drawing.Color.White;
-            this.label46.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label46.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label46.Location = new System.Drawing.Point(126, 419);
-            this.label46.Name = "label46";
-            this.label46.Size = new System.Drawing.Size(16, 17);
-            this.label46.TabIndex = 238;
-            this.label46.Text = "1";
-            this.label46.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label45
-            // 
-            this.label45.AutoSize = true;
-            this.label45.BackColor = System.Drawing.Color.White;
-            this.label45.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label45.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label45.Location = new System.Drawing.Point(199, 588);
-            this.label45.Name = "label45";
-            this.label45.Size = new System.Drawing.Size(16, 17);
-            this.label45.TabIndex = 237;
-            this.label45.Text = "1";
-            this.label45.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label44
-            // 
-            this.label44.AutoSize = true;
-            this.label44.BackColor = System.Drawing.Color.White;
-            this.label44.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label44.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label44.Location = new System.Drawing.Point(82, 460);
-            this.label44.Name = "label44";
-            this.label44.Size = new System.Drawing.Size(16, 17);
-            this.label44.TabIndex = 236;
-            this.label44.Text = "1";
-            this.label44.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label43
-            // 
-            this.label43.AutoSize = true;
-            this.label43.BackColor = System.Drawing.Color.White;
-            this.label43.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label43.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label43.Location = new System.Drawing.Point(244, 543);
-            this.label43.Name = "label43";
-            this.label43.Size = new System.Drawing.Size(16, 17);
-            this.label43.TabIndex = 235;
-            this.label43.Text = "1";
-            this.label43.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label42
-            // 
-            this.label42.AutoSize = true;
-            this.label42.BackColor = System.Drawing.Color.White;
-            this.label42.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label42.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label42.Location = new System.Drawing.Point(156, 481);
-            this.label42.Name = "label42";
-            this.label42.Size = new System.Drawing.Size(16, 17);
-            this.label42.TabIndex = 234;
-            this.label42.Text = "1";
-            this.label42.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label41
-            // 
-            this.label41.AutoSize = true;
-            this.label41.BackColor = System.Drawing.Color.White;
-            this.label41.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label41.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label41.Location = new System.Drawing.Point(156, 525);
-            this.label41.Name = "label41";
-            this.label41.Size = new System.Drawing.Size(16, 17);
-            this.label41.TabIndex = 233;
-            this.label41.Text = "1";
-            this.label41.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label50
-            // 
-            this.label50.AutoSize = true;
-            this.label50.BackColor = System.Drawing.Color.White;
-            this.label50.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label50.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label50.Location = new System.Drawing.Point(243, 460);
-            this.label50.Name = "label50";
-            this.label50.Size = new System.Drawing.Size(16, 17);
-            this.label50.TabIndex = 242;
-            this.label50.Text = "1";
-            this.label50.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label73
             // 
@@ -1201,6 +928,81 @@
             this.label77.TabIndex = 261;
             this.label77.Text = "육신";
             this.label77.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = global::GimunMyungRi.Properties.Resources.tongi_1;
+            this.pictureBox3.InitialImage = null;
+            this.pictureBox3.Location = new System.Drawing.Point(13, 361);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(355, 293);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox3.TabIndex = 263;
+            this.pictureBox3.TabStop = false;
+            this.pictureBox3.Visible = false;
+            this.pictureBox3.WaitOnLoad = true;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.radioButton5);
+            this.groupBox1.Controls.Add(this.radioButton4);
+            this.groupBox1.Location = new System.Drawing.Point(204, 22);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(134, 41);
+            this.groupBox1.TabIndex = 291;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "성별";
+            // 
+            // radioButton5
+            // 
+            this.radioButton5.AutoSize = true;
+            this.radioButton5.Location = new System.Drawing.Point(83, 15);
+            this.radioButton5.Name = "radioButton5";
+            this.radioButton5.Size = new System.Drawing.Size(35, 16);
+            this.radioButton5.TabIndex = 78;
+            this.radioButton5.TabStop = true;
+            this.radioButton5.Text = "여";
+            this.radioButton5.UseVisualStyleBackColor = true;
+            // 
+            // radioButton4
+            // 
+            this.radioButton4.AutoSize = true;
+            this.radioButton4.Location = new System.Drawing.Point(17, 15);
+            this.radioButton4.Name = "radioButton4";
+            this.radioButton4.Size = new System.Drawing.Size(35, 16);
+            this.radioButton4.TabIndex = 77;
+            this.radioButton4.TabStop = true;
+            this.radioButton4.Text = "남";
+            this.radioButton4.UseVisualStyleBackColor = true;
+            // 
+            // label40
+            // 
+            this.label40.AutoSize = true;
+            this.label40.Location = new System.Drawing.Point(51, 38);
+            this.label40.Name = "label40";
+            this.label40.Size = new System.Drawing.Size(29, 12);
+            this.label40.TabIndex = 290;
+            this.label40.Text = "이름";
+            // 
+            // textBox6
+            // 
+            this.textBox6.Location = new System.Drawing.Point(90, 35);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(77, 21);
+            this.textBox6.TabIndex = 289;
+            // 
+            // label59
+            // 
+            this.label59.AutoSize = true;
+            this.label59.BackColor = System.Drawing.Color.White;
+            this.label59.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label59.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label59.Location = new System.Drawing.Point(183, 481);
+            this.label59.Name = "label59";
+            this.label59.Size = new System.Drawing.Size(16, 17);
+            this.label59.TabIndex = 292;
+            this.label59.Text = "1";
+            this.label59.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label78
             // 
@@ -1363,7 +1165,7 @@
             this.label100.AutoSize = true;
             this.label100.BackColor = System.Drawing.SystemColors.Control;
             this.label100.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label100.Location = new System.Drawing.Point(193, 529);
+            this.label100.Location = new System.Drawing.Point(197, 529);
             this.label100.Name = "label100";
             this.label100.Size = new System.Drawing.Size(16, 17);
             this.label100.TabIndex = 276;
@@ -1527,73 +1329,272 @@
             this.label112.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.label112.Visible = false;
             // 
-            // pictureBox3
+            // label69
             // 
-            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.InitialImage = null;
-            this.pictureBox3.Location = new System.Drawing.Point(13, 361);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(355, 293);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox3.TabIndex = 263;
-            this.pictureBox3.TabStop = false;
-            this.pictureBox3.Visible = false;
-            this.pictureBox3.WaitOnLoad = true;
+            this.label69.AutoSize = true;
+            this.label69.BackColor = System.Drawing.Color.White;
+            this.label69.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label69.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label69.Location = new System.Drawing.Point(99, 519);
+            this.label69.Name = "label69";
+            this.label69.Size = new System.Drawing.Size(16, 17);
+            this.label69.TabIndex = 252;
+            this.label69.Text = "1";
+            this.label69.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // groupBox1
+            // label68
             // 
-            this.groupBox1.Controls.Add(this.radioButton5);
-            this.groupBox1.Controls.Add(this.radioButton4);
-            this.groupBox1.Location = new System.Drawing.Point(204, 22);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(134, 41);
-            this.groupBox1.TabIndex = 291;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "성별";
+            this.label68.AutoSize = true;
+            this.label68.BackColor = System.Drawing.Color.White;
+            this.label68.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label68.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label68.Location = new System.Drawing.Point(193, 444);
+            this.label68.Name = "label68";
+            this.label68.Size = new System.Drawing.Size(16, 17);
+            this.label68.TabIndex = 251;
+            this.label68.Text = "1";
+            this.label68.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // radioButton5
+            // label67
             // 
-            this.radioButton5.AutoSize = true;
-            this.radioButton5.Location = new System.Drawing.Point(83, 15);
-            this.radioButton5.Name = "radioButton5";
-            this.radioButton5.Size = new System.Drawing.Size(35, 16);
-            this.radioButton5.TabIndex = 78;
-            this.radioButton5.TabStop = true;
-            this.radioButton5.Text = "여";
-            this.radioButton5.UseVisualStyleBackColor = true;
+            this.label67.AutoSize = true;
+            this.label67.BackColor = System.Drawing.Color.White;
+            this.label67.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label67.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label67.Location = new System.Drawing.Point(134, 563);
+            this.label67.Name = "label67";
+            this.label67.Size = new System.Drawing.Size(16, 17);
+            this.label67.TabIndex = 250;
+            this.label67.Text = "1";
+            this.label67.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // radioButton4
+            // label66
             // 
-            this.radioButton4.AutoSize = true;
-            this.radioButton4.Location = new System.Drawing.Point(17, 15);
-            this.radioButton4.Name = "radioButton4";
-            this.radioButton4.Size = new System.Drawing.Size(35, 16);
-            this.radioButton4.TabIndex = 77;
-            this.radioButton4.TabStop = true;
-            this.radioButton4.Text = "남";
-            this.radioButton4.UseVisualStyleBackColor = true;
+            this.label66.AutoSize = true;
+            this.label66.BackColor = System.Drawing.Color.White;
+            this.label66.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label66.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label66.Location = new System.Drawing.Point(142, 444);
+            this.label66.Name = "label66";
+            this.label66.Size = new System.Drawing.Size(16, 17);
+            this.label66.TabIndex = 249;
+            this.label66.Text = "1";
+            this.label66.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label40
+            // label65
             // 
-            this.label40.AutoSize = true;
-            this.label40.Location = new System.Drawing.Point(51, 38);
-            this.label40.Name = "label40";
-            this.label40.Size = new System.Drawing.Size(29, 12);
-            this.label40.TabIndex = 290;
-            this.label40.Text = "이름";
+            this.label65.AutoSize = true;
+            this.label65.BackColor = System.Drawing.Color.White;
+            this.label65.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label65.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label65.Location = new System.Drawing.Point(193, 563);
+            this.label65.Name = "label65";
+            this.label65.Size = new System.Drawing.Size(16, 17);
+            this.label65.TabIndex = 248;
+            this.label65.Text = "1";
+            this.label65.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // textBox6
+            // label64
             // 
-            this.textBox6.Location = new System.Drawing.Point(90, 35);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(77, 21);
-            this.textBox6.TabIndex = 289;
+            this.label64.AutoSize = true;
+            this.label64.BackColor = System.Drawing.Color.White;
+            this.label64.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label64.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label64.Location = new System.Drawing.Point(95, 486);
+            this.label64.Name = "label64";
+            this.label64.Size = new System.Drawing.Size(16, 17);
+            this.label64.TabIndex = 247;
+            this.label64.Text = "1";
+            this.label64.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label63
+            // 
+            this.label63.AutoSize = true;
+            this.label63.BackColor = System.Drawing.Color.White;
+            this.label63.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label63.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label63.Location = new System.Drawing.Point(225, 520);
+            this.label63.Name = "label63";
+            this.label63.Size = new System.Drawing.Size(16, 17);
+            this.label63.TabIndex = 246;
+            this.label63.Text = "1";
+            this.label63.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label62
+            // 
+            this.label62.AutoSize = true;
+            this.label62.BackColor = System.Drawing.Color.White;
+            this.label62.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label62.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label62.Location = new System.Drawing.Point(188, 481);
+            this.label62.Name = "label62";
+            this.label62.Size = new System.Drawing.Size(16, 17);
+            this.label62.TabIndex = 245;
+            this.label62.Text = "1";
+            this.label62.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label61
+            // 
+            this.label61.AutoSize = true;
+            this.label61.BackColor = System.Drawing.Color.White;
+            this.label61.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label61.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label61.Location = new System.Drawing.Point(183, 515);
+            this.label61.Name = "label61";
+            this.label61.Size = new System.Drawing.Size(16, 17);
+            this.label61.TabIndex = 244;
+            this.label61.Text = "1";
+            this.label61.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label70
+            // 
+            this.label70.AutoSize = true;
+            this.label70.BackColor = System.Drawing.Color.White;
+            this.label70.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label70.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label70.Location = new System.Drawing.Point(231, 486);
+            this.label70.Name = "label70";
+            this.label70.Size = new System.Drawing.Size(16, 17);
+            this.label70.TabIndex = 253;
+            this.label70.Text = "1";
+            this.label70.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label49
+            // 
+            this.label49.AutoSize = true;
+            this.label49.BackColor = System.Drawing.Color.White;
+            this.label49.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label49.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label49.Location = new System.Drawing.Point(82, 543);
+            this.label49.Name = "label49";
+            this.label49.Size = new System.Drawing.Size(16, 17);
+            this.label49.TabIndex = 241;
+            this.label49.Text = "1";
+            this.label49.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label48
+            // 
+            this.label48.AutoSize = true;
+            this.label48.BackColor = System.Drawing.Color.White;
+            this.label48.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label48.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label48.Location = new System.Drawing.Point(197, 416);
+            this.label48.Name = "label48";
+            this.label48.Size = new System.Drawing.Size(16, 17);
+            this.label48.TabIndex = 240;
+            this.label48.Text = "1";
+            this.label48.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label47
+            // 
+            this.label47.AutoSize = true;
+            this.label47.BackColor = System.Drawing.Color.White;
+            this.label47.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label47.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label47.Location = new System.Drawing.Point(123, 588);
+            this.label47.Name = "label47";
+            this.label47.Size = new System.Drawing.Size(16, 17);
+            this.label47.TabIndex = 239;
+            this.label47.Text = "1";
+            this.label47.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label46
+            // 
+            this.label46.AutoSize = true;
+            this.label46.BackColor = System.Drawing.Color.White;
+            this.label46.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label46.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label46.Location = new System.Drawing.Point(126, 419);
+            this.label46.Name = "label46";
+            this.label46.Size = new System.Drawing.Size(16, 17);
+            this.label46.TabIndex = 238;
+            this.label46.Text = "1";
+            this.label46.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label45
+            // 
+            this.label45.AutoSize = true;
+            this.label45.BackColor = System.Drawing.Color.White;
+            this.label45.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label45.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label45.Location = new System.Drawing.Point(199, 588);
+            this.label45.Name = "label45";
+            this.label45.Size = new System.Drawing.Size(16, 17);
+            this.label45.TabIndex = 237;
+            this.label45.Text = "1";
+            this.label45.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label44
+            // 
+            this.label44.AutoSize = true;
+            this.label44.BackColor = System.Drawing.Color.White;
+            this.label44.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label44.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label44.Location = new System.Drawing.Point(82, 460);
+            this.label44.Name = "label44";
+            this.label44.Size = new System.Drawing.Size(16, 17);
+            this.label44.TabIndex = 236;
+            this.label44.Text = "1";
+            this.label44.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label43
+            // 
+            this.label43.AutoSize = true;
+            this.label43.BackColor = System.Drawing.Color.White;
+            this.label43.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label43.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label43.Location = new System.Drawing.Point(244, 543);
+            this.label43.Name = "label43";
+            this.label43.Size = new System.Drawing.Size(16, 17);
+            this.label43.TabIndex = 235;
+            this.label43.Text = "1";
+            this.label43.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label42
+            // 
+            this.label42.AutoSize = true;
+            this.label42.BackColor = System.Drawing.Color.White;
+            this.label42.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label42.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label42.Location = new System.Drawing.Point(151, 481);
+            this.label42.Name = "label42";
+            this.label42.Size = new System.Drawing.Size(16, 17);
+            this.label42.TabIndex = 234;
+            this.label42.Text = "1";
+            this.label42.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label41
+            // 
+            this.label41.AutoSize = true;
+            this.label41.BackColor = System.Drawing.Color.White;
+            this.label41.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label41.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label41.Location = new System.Drawing.Point(150, 515);
+            this.label41.Name = "label41";
+            this.label41.Size = new System.Drawing.Size(16, 17);
+            this.label41.TabIndex = 233;
+            this.label41.Text = "1";
+            this.label41.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label50
+            // 
+            this.label50.AutoSize = true;
+            this.label50.BackColor = System.Drawing.Color.White;
+            this.label50.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label50.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label50.Location = new System.Drawing.Point(243, 460);
+            this.label50.Name = "label50";
+            this.label50.Size = new System.Drawing.Size(16, 17);
+            this.label50.TabIndex = 242;
+            this.label50.Text = "1";
+            this.label50.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Form4
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1130, 745);
+            this.Controls.Add(this.label59);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label40);
             this.Controls.Add(this.textBox6);
@@ -1622,7 +1623,6 @@
             this.Controls.Add(this.label110);
             this.Controls.Add(this.label111);
             this.Controls.Add(this.label112);
-            this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.label60);
             this.Controls.Add(this.label71);
             this.Controls.Add(this.label72);
@@ -1656,7 +1656,6 @@
             this.Controls.Add(this.label54);
             this.Controls.Add(this.label53);
             this.Controls.Add(this.label52);
-            this.Controls.Add(this.label59);
             this.Controls.Add(this.label58);
             this.Controls.Add(this.label57);
             this.Controls.Add(this.label27);
@@ -1689,7 +1688,6 @@
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.label20);
             this.Controls.Add(this.label19);
-            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.label16);
@@ -1704,6 +1702,8 @@
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label15);
+            this.Controls.Add(this.pictureBox3);
+            this.Controls.Add(this.pictureBox1);
             this.Name = "Form4";
             this.ShowIcon = false;
             this.Text = "신수운";
@@ -1766,7 +1766,6 @@
         private System.Windows.Forms.Label label56;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Label label59;
         private System.Windows.Forms.Label label58;
         private System.Windows.Forms.Label label57;
         private System.Windows.Forms.Label label27;
@@ -1842,5 +1841,6 @@
         private LabelX label110;
         private LabelX label111;
         private LabelX label112;
+        private LabelX label59;
     }
 }
