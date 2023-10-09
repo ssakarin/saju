@@ -135,6 +135,7 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label59 = new WindowsFormsApp1.LabelX();
             this.label78 = new WindowsFormsApp1.LabelX();
             this.label79 = new WindowsFormsApp1.LabelX();
             this.label80 = new WindowsFormsApp1.LabelX();
@@ -180,7 +181,6 @@
             this.label42 = new WindowsFormsApp1.LabelX();
             this.label41 = new WindowsFormsApp1.LabelX();
             this.label50 = new WindowsFormsApp1.LabelX();
-            this.label59 = new WindowsFormsApp1.LabelX();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -1493,7 +1493,7 @@
             // 
             // pictureBox3
             // 
-            this.pictureBox3.Image = global::GimunMyungRi.Properties.Resources.tongi_1;
+            this.pictureBox3.Image = global::GimunMyungRi.Properties.Resources.tongi;
             this.pictureBox3.InitialImage = null;
             this.pictureBox3.Location = new System.Drawing.Point(11, 333);
             this.pictureBox3.Name = "pictureBox3";
@@ -1516,6 +1516,19 @@
             this.pictureBox1.TabIndex = 81;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.WaitOnLoad = true;
+            // 
+            // label59
+            // 
+            this.label59.AutoSize = true;
+            this.label59.BackColor = System.Drawing.Color.White;
+            this.label59.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label59.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label59.Location = new System.Drawing.Point(178, 453);
+            this.label59.Name = "label59";
+            this.label59.Size = new System.Drawing.Size(16, 17);
+            this.label59.TabIndex = 181;
+            this.label59.Text = "1";
+            this.label59.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label78
             // 
@@ -2102,19 +2115,6 @@
             this.label50.Text = "1";
             this.label50.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label59
-            // 
-            this.label59.AutoSize = true;
-            this.label59.BackColor = System.Drawing.Color.White;
-            this.label59.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label59.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label59.Location = new System.Drawing.Point(178, 453);
-            this.label59.Name = "label59";
-            this.label59.Size = new System.Drawing.Size(16, 17);
-            this.label59.TabIndex = 181;
-            this.label59.Text = "1";
-            this.label59.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -2242,7 +2242,7 @@
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.ShowIcon = false;
-            this.Text = "기문둔갑 교육용 프로그램";
+            this.Text = "기문둔갑";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

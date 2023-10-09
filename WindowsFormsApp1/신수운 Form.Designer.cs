@@ -162,10 +162,10 @@
             this.richTextBox4.BackColor = System.Drawing.SystemColors.Window;
             this.richTextBox4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.richTextBox4.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.richTextBox4.Location = new System.Drawing.Point(401, 54);
+            this.richTextBox4.Location = new System.Drawing.Point(401, 29);
             this.richTextBox4.Margin = new System.Windows.Forms.Padding(0);
             this.richTextBox4.Name = "richTextBox4";
-            this.richTextBox4.Size = new System.Drawing.Size(220, 180);
+            this.richTextBox4.Size = new System.Drawing.Size(220, 208);
             this.richTextBox4.TabIndex = 177;
             this.richTextBox4.Text = "";
             // 
@@ -174,10 +174,10 @@
             this.richTextBox9.BackColor = System.Drawing.SystemColors.Window;
             this.richTextBox9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.richTextBox9.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.richTextBox9.Location = new System.Drawing.Point(624, 54);
+            this.richTextBox9.Location = new System.Drawing.Point(624, 29);
             this.richTextBox9.Margin = new System.Windows.Forms.Padding(0);
             this.richTextBox9.Name = "richTextBox9";
-            this.richTextBox9.Size = new System.Drawing.Size(220, 180);
+            this.richTextBox9.Size = new System.Drawing.Size(220, 208);
             this.richTextBox9.TabIndex = 182;
             this.richTextBox9.Text = "";
             // 
@@ -186,10 +186,10 @@
             this.richTextBox8.BackColor = System.Drawing.SystemColors.Window;
             this.richTextBox8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.richTextBox8.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.richTextBox8.Location = new System.Drawing.Point(401, 420);
+            this.richTextBox8.Location = new System.Drawing.Point(401, 452);
             this.richTextBox8.Margin = new System.Windows.Forms.Padding(0);
             this.richTextBox8.Name = "richTextBox8";
-            this.richTextBox8.Size = new System.Drawing.Size(220, 180);
+            this.richTextBox8.Size = new System.Drawing.Size(220, 212);
             this.richTextBox8.TabIndex = 181;
             this.richTextBox8.Text = "";
             // 
@@ -198,10 +198,10 @@
             this.richTextBox6.BackColor = System.Drawing.SystemColors.Window;
             this.richTextBox6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.richTextBox6.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.richTextBox6.Location = new System.Drawing.Point(847, 420);
+            this.richTextBox6.Location = new System.Drawing.Point(847, 452);
             this.richTextBox6.Margin = new System.Windows.Forms.Padding(0);
             this.richTextBox6.Name = "richTextBox6";
-            this.richTextBox6.Size = new System.Drawing.Size(220, 180);
+            this.richTextBox6.Size = new System.Drawing.Size(220, 212);
             this.richTextBox6.TabIndex = 179;
             this.richTextBox6.Text = "";
             // 
@@ -210,10 +210,10 @@
             this.richTextBox5.BackColor = System.Drawing.SystemColors.Window;
             this.richTextBox5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.richTextBox5.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.richTextBox5.Location = new System.Drawing.Point(624, 237);
+            this.richTextBox5.Location = new System.Drawing.Point(624, 240);
             this.richTextBox5.Margin = new System.Windows.Forms.Padding(0);
             this.richTextBox5.Name = "richTextBox5";
-            this.richTextBox5.Size = new System.Drawing.Size(220, 180);
+            this.richTextBox5.Size = new System.Drawing.Size(220, 207);
             this.richTextBox5.TabIndex = 178;
             this.richTextBox5.Text = "";
             // 
@@ -222,10 +222,10 @@
             this.richTextBox3.BackColor = System.Drawing.SystemColors.Window;
             this.richTextBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.richTextBox3.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.richTextBox3.Location = new System.Drawing.Point(401, 237);
+            this.richTextBox3.Location = new System.Drawing.Point(400, 240);
             this.richTextBox3.Margin = new System.Windows.Forms.Padding(0);
             this.richTextBox3.Name = "richTextBox3";
-            this.richTextBox3.Size = new System.Drawing.Size(220, 180);
+            this.richTextBox3.Size = new System.Drawing.Size(220, 207);
             this.richTextBox3.TabIndex = 176;
             this.richTextBox3.Text = "";
             // 
@@ -234,10 +234,10 @@
             this.richTextBox2.BackColor = System.Drawing.SystemColors.Window;
             this.richTextBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.richTextBox2.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.richTextBox2.Location = new System.Drawing.Point(847, 54);
+            this.richTextBox2.Location = new System.Drawing.Point(847, 29);
             this.richTextBox2.Margin = new System.Windows.Forms.Padding(0);
             this.richTextBox2.Name = "richTextBox2";
-            this.richTextBox2.Size = new System.Drawing.Size(220, 180);
+            this.richTextBox2.Size = new System.Drawing.Size(220, 208);
             this.richTextBox2.TabIndex = 175;
             this.richTextBox2.Text = "";
             // 
@@ -246,10 +246,10 @@
             this.richTextBox1.BackColor = System.Drawing.SystemColors.Window;
             this.richTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.richTextBox1.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.richTextBox1.Location = new System.Drawing.Point(624, 420);
+            this.richTextBox1.Location = new System.Drawing.Point(624, 452);
             this.richTextBox1.Margin = new System.Windows.Forms.Padding(0);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(220, 180);
+            this.richTextBox1.Size = new System.Drawing.Size(220, 212);
             this.richTextBox1.TabIndex = 174;
             this.richTextBox1.Text = "";
             // 
@@ -280,10 +280,10 @@
             this.richTextBox7.BackColor = System.Drawing.SystemColors.Window;
             this.richTextBox7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.richTextBox7.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.richTextBox7.Location = new System.Drawing.Point(847, 237);
+            this.richTextBox7.Location = new System.Drawing.Point(847, 240);
             this.richTextBox7.Margin = new System.Windows.Forms.Padding(0);
             this.richTextBox7.Name = "richTextBox7";
-            this.richTextBox7.Size = new System.Drawing.Size(220, 180);
+            this.richTextBox7.Size = new System.Drawing.Size(220, 208);
             this.richTextBox7.TabIndex = 180;
             this.richTextBox7.Text = "";
             // 
@@ -401,7 +401,7 @@
             // 
             this.label37.AutoSize = true;
             this.label37.BackColor = System.Drawing.Color.NavajoWhite;
-            this.label37.Location = new System.Drawing.Point(1069, 501);
+            this.label37.Location = new System.Drawing.Point(1069, 555);
             this.label37.Name = "label37";
             this.label37.Size = new System.Drawing.Size(17, 12);
             this.label37.TabIndex = 149;
@@ -411,7 +411,7 @@
             // 
             this.label38.AutoSize = true;
             this.label38.BackColor = System.Drawing.Color.NavajoWhite;
-            this.label38.Location = new System.Drawing.Point(1069, 316);
+            this.label38.Location = new System.Drawing.Point(1069, 336);
             this.label38.Name = "label38";
             this.label38.Size = new System.Drawing.Size(17, 12);
             this.label38.TabIndex = 148;
@@ -421,7 +421,7 @@
             // 
             this.label39.AutoSize = true;
             this.label39.BackColor = System.Drawing.Color.NavajoWhite;
-            this.label39.Location = new System.Drawing.Point(1069, 133);
+            this.label39.Location = new System.Drawing.Point(1069, 128);
             this.label39.Name = "label39";
             this.label39.Size = new System.Drawing.Size(17, 12);
             this.label39.TabIndex = 147;
@@ -431,7 +431,7 @@
             // 
             this.label36.AutoSize = true;
             this.label36.BackColor = System.Drawing.Color.NavajoWhite;
-            this.label36.Location = new System.Drawing.Point(380, 501);
+            this.label36.Location = new System.Drawing.Point(380, 557);
             this.label36.Name = "label36";
             this.label36.Size = new System.Drawing.Size(17, 12);
             this.label36.TabIndex = 146;
@@ -441,7 +441,7 @@
             // 
             this.label35.AutoSize = true;
             this.label35.BackColor = System.Drawing.Color.NavajoWhite;
-            this.label35.Location = new System.Drawing.Point(380, 316);
+            this.label35.Location = new System.Drawing.Point(380, 338);
             this.label35.Name = "label35";
             this.label35.Size = new System.Drawing.Size(17, 12);
             this.label35.TabIndex = 145;
@@ -451,7 +451,7 @@
             // 
             this.label34.AutoSize = true;
             this.label34.BackColor = System.Drawing.Color.NavajoWhite;
-            this.label34.Location = new System.Drawing.Point(380, 136);
+            this.label34.Location = new System.Drawing.Point(381, 124);
             this.label34.Name = "label34";
             this.label34.Size = new System.Drawing.Size(17, 12);
             this.label34.TabIndex = 144;
@@ -472,7 +472,7 @@
             // 
             this.label31.AutoSize = true;
             this.label31.BackColor = System.Drawing.Color.NavajoWhite;
-            this.label31.Location = new System.Drawing.Point(954, 36);
+            this.label31.Location = new System.Drawing.Point(954, 11);
             this.label31.Name = "label31";
             this.label31.Size = new System.Drawing.Size(17, 12);
             this.label31.TabIndex = 143;
@@ -482,7 +482,7 @@
             // 
             this.label32.AutoSize = true;
             this.label32.BackColor = System.Drawing.Color.NavajoWhite;
-            this.label32.Location = new System.Drawing.Point(723, 36);
+            this.label32.Location = new System.Drawing.Point(723, 11);
             this.label32.Name = "label32";
             this.label32.Size = new System.Drawing.Size(17, 12);
             this.label32.TabIndex = 142;
@@ -492,7 +492,7 @@
             // 
             this.label33.AutoSize = true;
             this.label33.BackColor = System.Drawing.Color.NavajoWhite;
-            this.label33.Location = new System.Drawing.Point(501, 36);
+            this.label33.Location = new System.Drawing.Point(501, 11);
             this.label33.Name = "label33";
             this.label33.Size = new System.Drawing.Size(17, 12);
             this.label33.TabIndex = 141;
@@ -502,7 +502,7 @@
             // 
             this.label30.AutoSize = true;
             this.label30.BackColor = System.Drawing.Color.NavajoWhite;
-            this.label30.Location = new System.Drawing.Point(954, 604);
+            this.label30.Location = new System.Drawing.Point(954, 666);
             this.label30.Name = "label30";
             this.label30.Size = new System.Drawing.Size(17, 12);
             this.label30.TabIndex = 140;
@@ -512,7 +512,7 @@
             // 
             this.label29.AutoSize = true;
             this.label29.BackColor = System.Drawing.Color.NavajoWhite;
-            this.label29.Location = new System.Drawing.Point(723, 604);
+            this.label29.Location = new System.Drawing.Point(723, 667);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(17, 12);
             this.label29.TabIndex = 139;
@@ -522,7 +522,7 @@
             // 
             this.label28.AutoSize = true;
             this.label28.BackColor = System.Drawing.Color.NavajoWhite;
-            this.label28.Location = new System.Drawing.Point(501, 604);
+            this.label28.Location = new System.Drawing.Point(501, 666);
             this.label28.Name = "label28";
             this.label28.Size = new System.Drawing.Size(17, 12);
             this.label28.TabIndex = 138;
@@ -707,7 +707,7 @@
             this.label25.BackColor = System.Drawing.Color.White;
             this.label25.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label25.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label25.Location = new System.Drawing.Point(289, 445);
+            this.label25.Location = new System.Drawing.Point(50, 444);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(21, 17);
             this.label25.TabIndex = 223;
@@ -720,7 +720,7 @@
             this.label24.BackColor = System.Drawing.Color.White;
             this.label24.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label24.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label24.Location = new System.Drawing.Point(226, 386);
+            this.label24.Location = new System.Drawing.Point(103, 386);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(37, 17);
             this.label24.TabIndex = 222;
@@ -733,7 +733,7 @@
             this.label23.BackColor = System.Drawing.Color.White;
             this.label23.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label23.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label23.Location = new System.Drawing.Point(110, 386);
+            this.label23.Location = new System.Drawing.Point(239, 386);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(21, 17);
             this.label23.TabIndex = 221;
@@ -746,7 +746,7 @@
             this.label21.BackColor = System.Drawing.Color.White;
             this.label21.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label21.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label21.Location = new System.Drawing.Point(48, 447);
+            this.label21.Location = new System.Drawing.Point(290, 444);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(21, 17);
             this.label21.TabIndex = 220;
@@ -808,9 +808,9 @@
             // pictureBox2
             // 
             this.pictureBox2.BackColor = System.Drawing.Color.NavajoWhite;
-            this.pictureBox2.Location = new System.Drawing.Point(375, 30);
+            this.pictureBox2.Location = new System.Drawing.Point(375, 5);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(719, 592);
+            this.pictureBox2.Size = new System.Drawing.Size(711, 680);
             this.pictureBox2.TabIndex = 197;
             this.pictureBox2.TabStop = false;
             // 
@@ -931,7 +931,7 @@
             // 
             // pictureBox3
             // 
-            this.pictureBox3.Image = global::GimunMyungRi.Properties.Resources.tongi_1;
+            this.pictureBox3.Image = global::GimunMyungRi.Properties.Resources.tongi;
             this.pictureBox3.InitialImage = null;
             this.pictureBox3.Location = new System.Drawing.Point(13, 361);
             this.pictureBox3.Name = "pictureBox3";
