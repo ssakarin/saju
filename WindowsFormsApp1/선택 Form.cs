@@ -74,7 +74,7 @@ namespace WindowsFormsApp1
                 else if (solarlunar == "") f1.radioButton1.Checked = true;
                 else  f1.radioButton3.Checked = true;
 
-                if (gender == "남") f1.radioButton4.Checked = true;
+                if (gender == "남자") f1.radioButton4.Checked = true;
                 else f1.radioButton5.Checked = true;
 
                 string[] substr = date.Split('_');

@@ -1493,7 +1493,7 @@
             // 
             // pictureBox3
             // 
-            this.pictureBox3.Image = global::GimunMyungRi.Properties.Resources.tongi;
+            this.pictureBox3.Image = global::GimunMyungRi.Properties.Resources.tongi_1;
             this.pictureBox3.InitialImage = null;
             this.pictureBox3.Location = new System.Drawing.Point(11, 333);
             this.pictureBox3.Name = "pictureBox3";

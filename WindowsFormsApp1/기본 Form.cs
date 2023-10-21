@@ -1643,7 +1643,7 @@ namespace WindowsFormsApp1
                     else if (goong[i].yooksam[0] == 4 && goong[i].yooksam[1] == 0) goong[i].kyukkuk += "小蛇化龍";
                     else if (goong[i].yooksam[0] == 4 && goong[i].yooksam[1] == 1) goong[i].kyukkuk += "凶蛇入獄";
                     else if (goong[i].yooksam[0] == 4 && goong[i].yooksam[1] == 2) goong[i].kyukkuk += "太白擒蛇";
-                    else if (goong[i].yooksam[0] == 4 && goong[i].yooksam[1] == 3) goong[i].kyukkuk += "淘洗株玉"; // "騰蛇相戰";
+                    else if (goong[i].yooksam[0] == 4 && goong[i].yooksam[1] == 3) goong[i].kyukkuk += "淘洗珠玉"; // "騰蛇相戰";
                     else if (goong[i].yooksam[0] == 4 && goong[i].yooksam[1] == 4) goong[i].kyukkuk += "伏吟地網";
                     else if (goong[i].yooksam[0] == 4 && goong[i].yooksam[1] == 5) goong[i].kyukkuk += "幼女奸淫";
 
@@ -3704,16 +3704,16 @@ namespace WindowsFormsApp1
 
         private bool b_trial()
         {
-            //DateTime today = DateTime.Now;
+            DateTime today = DateTime.Now;
 
-            //if (today.Year >= 2024)
-            //{
-            //    MessageBox.Show("교육기한이 만료되었습니다.");
-            //    return false;
-            //}
-            //else return true;
+            if (today.Year >= 2024)
+            {
+                MessageBox.Show("교육기한이 만료되었습니다.");
+                return false;
+            }
+            else return true;
 
-            return true;
+            //return true;
         }
         private void button1_Click(object sender, EventArgs e)  // 실행 부분
         {
@@ -4184,6 +4184,7 @@ namespace WindowsFormsApp1
                             if (goong[i].b_dong[2] == true) { c.Text += " 日支"; c.BackColor = Color.LightGray; }
                             if (goong[i].b_dong[3] == true) { c.Text += " 時支"; c.BackColor = Color.LightGray; }
                         }
+                        if (i == 4) c.AppendText(" " + setBatangguk(goong) );
                         c.Text += "\n";
 
                         //2줄 홍국수 강약

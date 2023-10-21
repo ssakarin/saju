@@ -1636,7 +1636,7 @@ namespace WindowsFormsApp1
                     else if (goong[i].yooksam[0] == 4 && goong[i].yooksam[1] == 0) goong[i].kyukkuk += "小蛇化龍";
                     else if (goong[i].yooksam[0] == 4 && goong[i].yooksam[1] == 1) goong[i].kyukkuk += "凶蛇入獄";
                     else if (goong[i].yooksam[0] == 4 && goong[i].yooksam[1] == 2) goong[i].kyukkuk += "太白擒蛇";
-                    else if (goong[i].yooksam[0] == 4 && goong[i].yooksam[1] == 3) goong[i].kyukkuk += "淘洗株玉"; // "騰蛇相戰";
+                    else if (goong[i].yooksam[0] == 4 && goong[i].yooksam[1] == 3) goong[i].kyukkuk += "淘洗珠玉"; // "騰蛇相戰";
                     else if (goong[i].yooksam[0] == 4 && goong[i].yooksam[1] == 4) goong[i].kyukkuk += "伏吟地網";
                     else if (goong[i].yooksam[0] == 4 && goong[i].yooksam[1] == 5) goong[i].kyukkuk += "幼女奸淫";
 
