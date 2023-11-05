@@ -3700,7 +3700,7 @@ namespace WindowsFormsApp1
 
             textBox6.Text = "아무개";
 
-        }  // 초기화
+        }  // 초기화 11
 
         private bool b_trial()
         {
