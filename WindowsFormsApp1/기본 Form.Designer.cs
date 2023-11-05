@@ -1479,7 +1479,6 @@
             this.button8.TabIndex = 180;
             this.button8.Text = "절기";
             this.button8.UseVisualStyleBackColor = false;
-            this.button8.Visible = false;
             this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
             // pictureBox2
