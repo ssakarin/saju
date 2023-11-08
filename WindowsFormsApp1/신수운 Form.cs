@@ -50,6 +50,7 @@ namespace WindowsFormsApp1
         {
             public int[] hongNum = new int[2];      //천반수 지반수
             public bool[] b_dong = new bool[4];     //사지
+            public bool[] b_gan = new bool[4];      //사간
             public int[] yoo_age = new int[2];      //유년
             public int[] six_sin = new int[2];      //육신
             public int[] hongNumlvl = new int[2];   //홍국수 강약
@@ -1679,8 +1680,8 @@ namespace WindowsFormsApp1
                     else if (toYookSam(goong[i].yooksam[1]) == toGan(sjGanzi[3, 0]) && (goong[i].yooksam[0] == 4 || goong[i].yooksam[1] == 4)) goong[i].kyukkuk += " 地網遮蔽";
                     else if (goong[i].eightjang == "直" && (goong[i].yooksam[0] == 4 || goong[i].yooksam[1] == 4)) goong[i].kyukkuk += " 地網遮蔽";
 
-                    if (goong[i].b_dong[2] == true && goong[i].yooksam[0] == 2) goong[i].kyukkuk += " 伏干";
-                    if (goong[i].b_dong[2] == true && goong[i].yooksam[1] == 2) goong[i].kyukkuk += " 飛干";
+                    if ((goong[i].b_gan[2] == true || goong[i].b_gan[3] == true) && goong[i].yooksam[0] == 2) goong[i].kyukkuk += " 伏干";
+                    if ((goong[i].b_gan[2] == true || goong[i].b_gan[3] == true) && goong[i].yooksam[1] == 2) goong[i].kyukkuk += " 飛干";
 
                     if (i == 3 && (goong[i].yooksam[0] == 4 || goong[i].yooksam[0] == 5)) goong[i].kyukkuk += " 六儀擊形";
                     else if (i == 8 && (goong[i].yooksam[0] == 3)) goong[i].kyukkuk += " 六儀擊形";
@@ -1883,8 +1884,8 @@ namespace WindowsFormsApp1
                     else if (toYookSam(goong[i].yooksam[1]) == toGan(sjGanzi[3, 0]) && (goong[i].yooksam[0] == 4 || goong[i].yooksam[1] == 4)) goong[i].kyukkuk += " 地網遮蔽";
                     else if (goong[i].eightjang == "直" && (goong[i].yooksam[0] == 4 || goong[i].yooksam[1] == 4)) goong[i].kyukkuk += " 地網遮蔽";
 
-                    if (goong[i].b_dong[2] == true && goong[i].yooksam[0] == 2) goong[i].kyukkuk += " 伏干";
-                    if (goong[i].b_dong[2] == true && goong[i].yooksam[1] == 2) goong[i].kyukkuk += " 飛干";
+                    if ((goong[i].b_gan[2] == true || goong[i].b_gan[3] == true) && goong[i].yooksam[0] == 2) goong[i].kyukkuk += " 伏干";
+                    if ((goong[i].b_gan[2] == true || goong[i].b_gan[3] == true) && goong[i].yooksam[1] == 2) goong[i].kyukkuk += " 飛干";
 
                     if (i == 3 && (goong[i].yooksam[0] == 4 || goong[i].yooksam[0] == 5)) goong[i].kyukkuk += " 六儀擊形";
                     else if (i == 8 && (goong[i].yooksam[0] == 3)) goong[i].kyukkuk += " 六儀擊形";

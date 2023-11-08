@@ -55,6 +55,7 @@ namespace WindowsFormsApp1
         {
             public int[] hongNum = new int[2];      //천반수 지반수
             public bool[] b_dong = new bool[4];     //사지
+            public bool[] b_gan = new bool[4];      //사간
             public int[] yoo_age = new int[2];      //유년
             public int[] six_sin = new int[2];      //육신
             public int[] hongNumlvl = new int[2];   //홍국수 강약
@@ -335,10 +336,22 @@ namespace WindowsFormsApp1
                     }
                 }
                 else cmp = toGan(sjGanzi[j, 0]);
-                if (j == 0 && toYookSam(goong[num].yooksam[1]) == cmp) temp += " 年干";
-                if (j == 1 && toYookSam(goong[num].yooksam[1]) == cmp) temp += " 月干";
-                if (j == 2 && toYookSam(goong[num].yooksam[1]) == cmp) temp += " 日干";
-                if (j == 3 && toYookSam(goong[num].yooksam[1]) == cmp) temp += " 時干";
+                if (j == 0 && toYookSam(goong[num].yooksam[1]) == cmp)
+                {
+                    temp += " 年干";
+                }
+                if (j == 1 && toYookSam(goong[num].yooksam[1]) == cmp)
+                {
+                    temp += " 月干";
+                }
+                if (j == 2 && toYookSam(goong[num].yooksam[1]) == cmp)
+                {
+                    temp += " 日干";
+                }
+                if (j == 3 && toYookSam(goong[num].yooksam[1]) == cmp)
+                {
+                    temp += " 時干";
+                }
             }
             
             return temp;
@@ -712,6 +725,33 @@ namespace WindowsFormsApp1
                 goong[4].hongNum[0] = t2;
             }
         }
+
+        public void setfourGan(Goong[] goong, int[,] sjGanzi) // 동처 계산
+        {
+            String[,] day = { { "子", "戊" }, { "戌", "己" }, { "申", "庚" }, { "午", "辛" }, { "辰", "壬" }, { "寅", "癸" } };
+            string cmp = "";
+            int i, j, k ;
+
+            for(k = 0; k <9; k++)
+            { 
+                for (j = 0; j < 4; j++)
+                {
+                    if (toGan(sjGanzi[j, 0]) == "甲")
+                    {
+                        for (i = 0; i < 6; i++)
+                        {
+                            if (toZi(sjGanzi[j, 1]) == day[i, 0]) cmp = day[i, 1];
+                        }
+                    }
+                    else cmp = toGan(sjGanzi[j, 0]);
+                    if (j == 0 && toYookSam(goong[k].yooksam[1]) == cmp) goong[k].b_gan[0] = true;
+                    if (j == 1 && toYookSam(goong[k].yooksam[1]) == cmp) goong[k].b_gan[1] = true;
+                    if (j == 2 && toYookSam(goong[k].yooksam[1]) == cmp) goong[k].b_gan[2] = true;
+                    if (j == 3 && toYookSam(goong[k].yooksam[1]) == cmp) goong[k].b_gan[3] = true;
+                }
+            }
+        }
+
 
         public void setDongcheo(Goong[] goong, int[,] sjGanzi) // 동처 계산
         {
@@ -1686,8 +1726,8 @@ namespace WindowsFormsApp1
                 else if (toYookSam(goong[i].yooksam[1]) == toGan(sjGanzi[3, 0]) && (goong[i].yooksam[0] == 4 || goong[i].yooksam[1] == 4)) goong[i].kyukkuk += " 地網遮蔽";
                 else if (goong[i].eightjang == "直" && (goong[i].yooksam[0] == 4 || goong[i].yooksam[1] == 4)) goong[i].kyukkuk += " 地網遮蔽";
 
-                if (goong[i].b_dong[2] == true && goong[i].yooksam[0] == 2) goong[i].kyukkuk += " 伏干";
-                if (goong[i].b_dong[2] == true && goong[i].yooksam[1] == 2) goong[i].kyukkuk += " 飛干";
+                if ((goong[i].b_gan[2] == true  || goong[i].b_gan[3] == true) && goong[i].yooksam[0] == 2) goong[i].kyukkuk += " 伏干";
+                if ((goong[i].b_gan[2] == true || goong[i].b_gan[3] == true)  && goong[i].yooksam[1] == 2) goong[i].kyukkuk += " 飛干";
 
                 if (i == 3 && (goong[i].yooksam[0] == 4 || goong[i].yooksam[0] == 5)) goong[i].kyukkuk += " 六儀擊形";
                 else if (i == 8 && (goong[i].yooksam[0] == 3)) goong[i].kyukkuk += " 六儀擊形";
@@ -1890,8 +1930,8 @@ namespace WindowsFormsApp1
                     else if (toYookSam(goong[i].yooksam[1]) == toGan(sjGanzi[3, 0]) && (goong[i].yooksam[0] == 4 || goong[i].yooksam[1] == 4)) goong[i].kyukkuk += " 地網遮蔽";
                     else if (goong[i].eightjang == "直" && (goong[i].yooksam[0] == 4 || goong[i].yooksam[1] == 4)) goong[i].kyukkuk += " 地網遮蔽";
 
-                    if (goong[i].b_dong[2] == true && goong[i].yooksam[0] == 2) goong[i].kyukkuk += " 伏干";
-                    if (goong[i].b_dong[2] == true && goong[i].yooksam[1] == 2) goong[i].kyukkuk += " 飛干";
+                    if ((goong[i].b_gan[2] == true || goong[i].b_gan[3] == true) && goong[i].yooksam[0] == 2) goong[i].kyukkuk += " 伏干";
+                    if ((goong[i].b_gan[2] == true || goong[i].b_gan[3] == true) && goong[i].yooksam[1] == 2) goong[i].kyukkuk += " 飛干";
 
                     if (i == 3 && (goong[i].yooksam[0] == 4 || goong[i].yooksam[0] == 5)) goong[i].kyukkuk += " 六儀擊形";
                     else if (i == 8 && (goong[i].yooksam[0] == 3)) goong[i].kyukkuk += " 六儀擊形";
@@ -3859,6 +3899,9 @@ namespace WindowsFormsApp1
                         sisunsoo = setYookSamSaJu(goong, sjGanzi, comboBox9.SelectedIndex + 1, direction); 
                     else
                         sisunsoo = setYookSam(goong, sjGanzi, real_dt, terms, direction);
+
+                    //사간 계산
+                    setfourGan(goong, sjGanzi);
 
                     //조객 상문 붙이기
                     setJoSang(goong, sjGanzi);
