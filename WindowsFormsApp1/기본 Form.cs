@@ -3744,16 +3744,16 @@ namespace WindowsFormsApp1
 
         private bool b_trial()
         {
-            DateTime today = DateTime.Now;
+            //DateTime today = DateTime.Now;
 
-            if (today.Year >= 2024)
-            {
-                MessageBox.Show("교육기한이 만료되었습니다.");
-                return false;
-            }
-            else return true;
+            //if (today.Year >= 2024)
+            //{
+            //    MessageBox.Show("교육기한이 만료되었습니다.");
+            //    return false;
+            //}
+            //else return true;
 
-            //return true;
+            return true;
         }
         private void button1_Click(object sender, EventArgs e)  // 실행 부분
         {

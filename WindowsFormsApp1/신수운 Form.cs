@@ -711,6 +711,32 @@ namespace WindowsFormsApp1
             }
         }
 
+        public void setfourGan(Goong[] goong, int[,] sjGanzi) // 동처 계산
+        {
+            String[,] day = { { "子", "戊" }, { "戌", "己" }, { "申", "庚" }, { "午", "辛" }, { "辰", "壬" }, { "寅", "癸" } };
+            string cmp = "";
+            int i, j, k;
+
+            for (k = 0; k < 9; k++)
+            {
+                for (j = 0; j < 4; j++)
+                {
+                    if (toGan(sjGanzi[j, 0]) == "甲")
+                    {
+                        for (i = 0; i < 6; i++)
+                        {
+                            if (toZi(sjGanzi[j, 1]) == day[i, 0]) cmp = day[i, 1];
+                        }
+                    }
+                    else cmp = toGan(sjGanzi[j, 0]);
+                    if (j == 0 && toYookSam(goong[k].yooksam[1]) == cmp) goong[k].b_gan[0] = true;
+                    if (j == 1 && toYookSam(goong[k].yooksam[1]) == cmp) goong[k].b_gan[1] = true;
+                    if (j == 2 && toYookSam(goong[k].yooksam[1]) == cmp) goong[k].b_gan[2] = true;
+                    if (j == 3 && toYookSam(goong[k].yooksam[1]) == cmp) goong[k].b_gan[3] = true;
+                }
+            }
+        }
+
         public void setDongcheo(Goong[] goong, int[,] sjGanzi) // 동처 계산
         {
             for (int i = 0; i < 4; i++) { if (sjGanzi[i, 1] == 1) goong[0].b_dong[i] = true; }
@@ -3541,6 +3567,9 @@ namespace WindowsFormsApp1
 
                 //육의삼기 붙이기
                 sisunsoo = setYookSam(goong, sjGanzi, real_dt, terms, direction);
+                
+                //사간 계산
+                setfourGan(goong, sjGanzi);
 
                 //조객 상문 붙이기
                 setJoSang(goong, sjGanzi);
