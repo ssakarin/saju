@@ -3752,7 +3752,7 @@ namespace WindowsFormsApp1
             //    return false;
             //}
             //else return true;
-
+            //
             return true;
         }
         private void button1_Click(object sender, EventArgs e)  // 실행 부분
