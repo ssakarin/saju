@@ -56,6 +56,7 @@ namespace WindowsFormsApp1
             public int[] hongNumlvl = new int[2];   //홍국수 강약
             public int[] yooksam = new int[2];      //육의삼기
             public int eightmun;                    //팔문
+            public int timeeightmun;                //시가    팔문
             public int eightgoe;                    //팔괴
             public int goosung;                     //구성
             public string eightjang;                //팔장
@@ -66,8 +67,9 @@ namespace WindowsFormsApp1
             public string gongmang;                 //공망
             public string sinsal;                   //신살
             public string kyukkuk;                  //격국
-            public int taeulgusung;              //태을구성
-            public string josang;                    //조객상문
+            public int taeulgusung;                 //태을구성
+            public string josang;                   //조객상문
+            public string month_days;               //월국 날짜
         }
 
         Form1 f1;
@@ -243,6 +245,19 @@ namespace WindowsFormsApp1
             else if (num == 5) return "驚";
             else if (num == 6) return "開";
             else if (num == 7) return "休";
+            else return "";
+        } // 팔문
+
+        public string to8Mun2(int num)
+        {
+            if (num == 0) return "生門";
+            else if (num == 1) return "傷門";
+            else if (num == 2) return "杜門";
+            else if (num == 3) return "景門";
+            else if (num == 4) return "死門";
+            else if (num == 5) return "驚門";
+            else if (num == 6) return "開門";
+            else if (num == 7) return "休門";
             else return "";
         } // 팔문
 
@@ -1212,6 +1227,44 @@ namespace WindowsFormsApp1
             goong[4].eightmun = 8;
         } // 팔문 붙이기
 
+
+        public void settime8mun(Goong[] goong, int[,] sjGanzi, bool direction)
+        {
+            String[,] day = { { "甲子", "乙丑", "丙寅", "丁卯", "戊辰", "己巳", "庚午", "辛未", "壬申", "癸酉","甲戌", "乙亥"},
+                            { "丙子", "丁丑", "戊寅", "己卯", "庚辰", "辛巳", "壬午", "癸未", "甲申", "乙酉", "丙戌", "丁亥"},
+                            { "戊子", "己丑", "庚寅", "辛卯", "壬辰", "癸巳", "甲午", "乙未", "丙申", "丁酉", "戊戌", "己亥"},
+                            { "庚子", "辛丑", "壬寅", "癸卯", "甲辰", "乙巳", "丙午", "丁未", "戊申", "己酉", "庚戌", "辛亥"},
+                            { "壬子", "癸丑", "甲寅", "乙卯", "丙辰", "丁巳", "戊午", "己未", "庚申", "辛酉", "壬戌", "癸亥"}};
+            int[] foward_direction = { 8, 7, 4, 9, 1, 6, 3, 2 };
+            int[] backward_direction = { 8, 2, 3, 6, 1, 9, 4, 7 };
+
+            int i = 0, j = 0, k = 0;
+            string temp = toGan(sjGanzi[3, 0]) + toZi(sjGanzi[3, 1]); // 시주
+
+            //시주 오자원 찾기
+            for (i = 0; i < 5; i++)
+                for (j = 0; j < 12; j++)
+                {
+                    if (day[i, j] == temp) goto EXIT_FOR;
+                }
+            EXIT_FOR:
+
+            if (i == 1 || i == 3) j += 4;
+
+            for (k = 0; k < 8; k++)
+            {
+                if (direction)
+                {
+                    goong[foward_direction[(j + k) % 8] - 1].timeeightmun = k;
+                }
+                else
+                {
+                    goong[backward_direction[(j + k) % 8] - 1].timeeightmun = k;
+                }
+            }
+            goong[4].timeeightmun = 8;
+        } // 시가팔문 붙이기
+
         public void set8goe(Goong[] goong) // 팔괘 붙이기
         {
             int[,] goe = { { 0, 1, 0 }, { 0, 0, 0 }, { 0, 0, 1 }, { 1, 1, 0 }, { 1, 1, 0 }, { 1, 1, 1 }, { 0, 1, 1 }, { 1, 0, 0 }, { 1, 0, 1 } };
@@ -1689,11 +1742,17 @@ namespace WindowsFormsApp1
                     if (goong[i].yooksam[0] == 6 && goong[i].eightmun == 0) goong[i].kyukkuk += " 玉女守門";
 
                     //흉격
-                    if (toYookSam(goong[i].yooksam[1]) == toGan(sjGanzi[0, 0]) && (goong[i].yooksam[0] == 7 || goong[i].yooksam[1] == 7)) goong[i].kyukkuk += " 悖亂";
+                    if ((toYookSam(goong[i].yooksam[1]) == toGan(sjGanzi[0, 0]) && goong[i].yooksam[0] == 7) || (toYookSam(goong[i].yooksam[0]) == toGan(sjGanzi[0, 0]) && goong[i].yooksam[1] == 7)) goong[i].kyukkuk += " 悖亂";
+                    else if ((toYookSam(goong[i].yooksam[1]) == toGan(sjGanzi[1, 0]) && goong[i].yooksam[0] == 7) || (toYookSam(goong[i].yooksam[0]) == toGan(sjGanzi[1, 0]) && goong[i].yooksam[1] == 7)) goong[i].kyukkuk += " 悖亂";
+                    else if ((toYookSam(goong[i].yooksam[1]) == toGan(sjGanzi[2, 0]) && goong[i].yooksam[0] == 7) || (toYookSam(goong[i].yooksam[0]) == toGan(sjGanzi[2, 0]) && goong[i].yooksam[1] == 7)) goong[i].kyukkuk += " 悖亂";
+                    else if ((toYookSam(goong[i].yooksam[1]) == toGan(sjGanzi[3, 0]) && goong[i].yooksam[0] == 7) || (toYookSam(goong[i].yooksam[0]) == toGan(sjGanzi[3, 0]) && goong[i].yooksam[1] == 7)) goong[i].kyukkuk += " 悖亂";
+                    else if (i == 4 && goong[i].yooksam[1] == 7 && goong[1].yooksam[0] == 7) goong[i].kyukkuk += " 悖亂";
+
+ /*                 if (toYookSam(goong[i].yooksam[1]) == toGan(sjGanzi[0, 0]) && (goong[i].yooksam[0] == 7 || goong[i].yooksam[1] == 7)) goong[i].kyukkuk += " 悖亂";
                     else if (toYookSam(goong[i].yooksam[1]) == toGan(sjGanzi[1, 0]) && (goong[i].yooksam[0] == 7 || goong[i].yooksam[1] == 7)) goong[i].kyukkuk += " 悖亂";
                     else if (toYookSam(goong[i].yooksam[1]) == toGan(sjGanzi[2, 0]) && (goong[i].yooksam[0] == 7 || goong[i].yooksam[1] == 7)) goong[i].kyukkuk += " 悖亂";
                     else if (toYookSam(goong[i].yooksam[1]) == toGan(sjGanzi[3, 0]) && (goong[i].yooksam[0] == 7 || goong[i].yooksam[1] == 7)) goong[i].kyukkuk += " 悖亂";
-                    else if (toYookSam(goong[i].yooksam[1]) == "直" && (goong[i].yooksam[0] == 7 || goong[i].yooksam[1] == 7)) goong[i].kyukkuk += " 悖亂";
+                    else if (toYookSam(goong[i].yooksam[1]) == "直" && (goong[i].yooksam[0] == 7 || goong[i].yooksam[1] == 7)) goong[i].kyukkuk += " 悖亂";*/
 
                     if (toYookSam(goong[i].yooksam[1]) == toGan(sjGanzi[0, 0]) && (goong[i].yooksam[0] == 5 || goong[i].yooksam[1] == 5)) goong[i].kyukkuk += " 天網四張";
                     else if (toYookSam(goong[i].yooksam[1]) == toGan(sjGanzi[1, 0]) && (goong[i].yooksam[0] == 5 || goong[i].yooksam[1] == 5)) goong[i].kyukkuk += " 天網四張";
@@ -1893,11 +1952,17 @@ namespace WindowsFormsApp1
                     if (goong[i].yooksam[0] == 6 && goong[i].eightmun == 0) goong[i].kyukkuk += " 玉女守門";
 
                     //흉격
-                    if (toYookSam(goong[i].yooksam[1]) == toGan(sjGanzi[0, 0]) && (goong[i].yooksam[0] == 7 || goong[i].yooksam[1] == 7)) goong[i].kyukkuk += " 悖亂";
+                    if ((toYookSam(goong[i].yooksam[1]) == toGan(sjGanzi[0, 0]) && goong[i].yooksam[0] == 7) || (toYookSam(goong[i].yooksam[0]) == toGan(sjGanzi[0, 0]) && goong[i].yooksam[1] == 7)) goong[i].kyukkuk += " 悖亂";
+                    else if ((toYookSam(goong[i].yooksam[1]) == toGan(sjGanzi[1, 0]) && goong[i].yooksam[0] == 7) || (toYookSam(goong[i].yooksam[0]) == toGan(sjGanzi[1, 0]) && goong[i].yooksam[1] == 7)) goong[i].kyukkuk += " 悖亂";
+                    else if ((toYookSam(goong[i].yooksam[1]) == toGan(sjGanzi[2, 0]) && goong[i].yooksam[0] == 7) || (toYookSam(goong[i].yooksam[0]) == toGan(sjGanzi[2, 0]) && goong[i].yooksam[1] == 7)) goong[i].kyukkuk += " 悖亂";
+                    else if ((toYookSam(goong[i].yooksam[1]) == toGan(sjGanzi[3, 0]) && goong[i].yooksam[0] == 7) || (toYookSam(goong[i].yooksam[0]) == toGan(sjGanzi[3, 0]) && goong[i].yooksam[1] == 7)) goong[i].kyukkuk += " 悖亂";
+                    else if (i == 4 && goong[i].yooksam[1] == 7 && goong[1].yooksam[0] == 7) goong[i].kyukkuk += " 悖亂";
+
+/*                    if (toYookSam(goong[i].yooksam[1]) == toGan(sjGanzi[0, 0]) && (goong[i].yooksam[0] == 7 || goong[i].yooksam[1] == 7)) goong[i].kyukkuk += " 悖亂";
                     else if (toYookSam(goong[i].yooksam[1]) == toGan(sjGanzi[1, 0]) && (goong[i].yooksam[0] == 7 || goong[i].yooksam[1] == 7)) goong[i].kyukkuk += " 悖亂";
                     else if (toYookSam(goong[i].yooksam[1]) == toGan(sjGanzi[2, 0]) && (goong[i].yooksam[0] == 7 || goong[i].yooksam[1] == 7)) goong[i].kyukkuk += " 悖亂";
                     else if (toYookSam(goong[i].yooksam[1]) == toGan(sjGanzi[3, 0]) && (goong[i].yooksam[0] == 7 || goong[i].yooksam[1] == 7)) goong[i].kyukkuk += " 悖亂";
-                    else if (toYookSam(goong[i].yooksam[1]) == "直" && (goong[i].yooksam[0] == 7 || goong[i].yooksam[1] == 7)) goong[i].kyukkuk += " 悖亂";
+                    else if (toYookSam(goong[i].yooksam[1]) == "直" && (goong[i].yooksam[0] == 7 || goong[i].yooksam[1] == 7)) goong[i].kyukkuk += " 悖亂";*/
 
                     if (toYookSam(goong[i].yooksam[1]) == toGan(sjGanzi[0, 0]) && (goong[i].yooksam[0] == 5 || goong[i].yooksam[1] == 5)) goong[i].kyukkuk += " 天網四張";
                     else if (toYookSam(goong[i].yooksam[1]) == toGan(sjGanzi[1, 0]) && (goong[i].yooksam[0] == 5 || goong[i].yooksam[1] == 5)) goong[i].kyukkuk += " 天網四張";
@@ -1960,6 +2025,26 @@ namespace WindowsFormsApp1
             else return "";
         }   // 바탕국
 
+        public string setBatangguk1(Goong[] goong)
+        {
+            if (goong[4].hongNum[0] == 3 && goong[4].hongNum[1] == 5) return "戰";
+            else if (goong[4].hongNum[0] == 2 && goong[4].hongNum[1] == 5) return "沖";
+            else if (goong[4].hongNum[0] == 8 && goong[4].hongNum[1] == 5) return "沖";
+            else if (goong[4].hongNum[0] == 7 && goong[4].hongNum[1] == 5) return "怨";
+            else if (goong[4].hongNum[0] == 5 && goong[4].hongNum[1] == 5) return "破";
+            else if ((goong[4].hongNum[0] + goong[4].hongNum[1]) % 10 == 4 || (goong[4].hongNum[0] + goong[4].hongNum[1]) % 10 == 9 || (goong[4].hongNum[0] + goong[4].hongNum[1]) % 10 == 0)
+                return "和";
+            else if ((goong[4].hongNum[0] + goong[4].hongNum[1]) % 10 == 1 || (goong[4].hongNum[0] + goong[4].hongNum[1]) % 10 == 3 || (goong[4].hongNum[0] + goong[4].hongNum[1]) % 10 == 6)
+                return "戰";
+            else if ((goong[4].hongNum[0] + goong[4].hongNum[1]) % 10 == 2 || (goong[4].hongNum[0] + goong[4].hongNum[1]) % 10 == 8)
+                return "沖";
+            else if ((goong[4].hongNum[0] + goong[4].hongNum[1]) % 10 == 7)
+                return "怨";
+            else if ((goong[4].hongNum[0] + goong[4].hongNum[1]) % 10 == 5)
+                return "破";
+            else return "";
+        }   // 바탕국
+
         public void setTaeulGusung(Goong[] goong, int[,] sjGanzi, bool direction)
         {
             int[] plus = { 7, 8, 0, 1, 2, 3 };
@@ -1989,6 +2074,107 @@ namespace WindowsFormsApp1
                 {
                     goong[(minus[k] - (j - 1) - l + 18) % 9].taeulgusung = l;
                 }
+            }
+        }
+
+        public void setMonthDays(Goong[] goong, bool direction) // 월국
+        {
+            if (radioButton10.Checked)
+            {
+                int start = -1;
+                int i = 0, j = 0;
+                int birthday = dateTimePicker1.Value.Day;
+                int month = dateTimePicker1.Value.Month;
+                int endofmonth = 30;
+                if (month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month == 12) endofmonth = 31;
+                else if (month == 2) endofmonth = 29;
+                for (i = 0; i < 9; i++)
+                {
+                    if (toSixSin(goong[i].six_sin[1]) == "世") start = i;
+                }
+                //MessageBox.Show(dateTimePicker1.Value.Day.ToString());
+
+                if (direction)
+                {
+                    //for (i = birthday; i < 31; i ++)
+                    //{
+                    //    goong[(i- birthday + start) % 9].month_days += " " + i.ToString();
+                    //}
+                    for (i = 1; i <= endofmonth; i++)
+                    {
+                        goong[(90 + i - birthday + start) % 9].month_days += " " + i.ToString();
+                    }
+                }
+                else
+                {
+                    //for (i = birthday; i < 31; i++)
+                    //{
+                    //    goong[(90-(i - birthday) + start) % 9].month_days += " " + i.ToString();
+                    //}
+                    for (i = 1; i <= endofmonth; i++)
+                    {
+                        goong[(90 - (i - birthday) + start) % 9].month_days += " " + i.ToString();
+                    }
+                }
+                //goong[i].month_days = (string)i.ToString();
+                //goong[i].month_days = toSixSin(goong[i].six_sin[1]);
+            }
+            if (radioButton9.Checked)
+            {
+                int start = -1;
+                int i = 0, j = 0;
+                int birthday = dateTimePicker1.Value.Day;
+                int year = dateTimePicker1.Value.Year;
+                int month = dateTimePicker1.Value.Month;
+                int endofmonth = 30;
+
+                KoreanLunisolarCalendar klc = new KoreanLunisolarCalendar();
+
+                if (klc.GetMonthsInYear(year) > 12)
+                {
+                    int leapMonth = klc.GetLeapMonth(year);
+
+                    if (month > leapMonth - 1)
+                    {
+                        month++;
+                    }
+                    else if (month == leapMonth - 1 && false)
+                    {
+                        month++;
+                    }
+                }
+
+                endofmonth  = klc.GetDaysInMonth(year,month);
+                for (i = 0; i < 9; i++)
+                {
+                    if (toSixSin(goong[i].six_sin[1]) == "世") start = i;
+                }
+                //MessageBox.Show(dateTimePicker1.Value.Day.ToString());
+
+                if (direction)
+                {
+                    //for (i = birthday; i < 31; i ++)
+                    //{
+                    //    goong[(i- birthday + start) % 9].month_days += " " + i.ToString();
+                    //}
+                    for (i = 1; i <= endofmonth; i++)
+                    {
+                        goong[(90 + i - birthday + start) % 9].month_days += " " + i.ToString();
+                    }
+                }
+                else
+                {
+                    //for (i = birthday; i < 31; i++)
+                    //{
+                    //    goong[(90-(i - birthday) + start) % 9].month_days += " " + i.ToString();
+                    //}
+                    for (i = 1; i <= endofmonth; i++)
+                    {
+                        goong[(90 - (i - birthday) + start) % 9].month_days += " " + i.ToString();
+                    }
+                }
+                //goong[i].month_days = (string)i.ToString();
+                //goong[i].month_days = toSixSin(goong[i].six_sin[1]);
             }
         }
 
@@ -2236,7 +2422,7 @@ namespace WindowsFormsApp1
                 c.AppendText("               " + toHongNumLvl(goong[i].hongNumlvl[0]) + Environment.NewLine);
 
                 //4줄 팔문, 천반 홍국수(강약), 천반천간, 구성, 유년, 육신 
-                if (i == 4) c.AppendText(setBatangguk(goong));
+                if (i == 4) c.AppendText(setBatangguk1(goong));
                 c.AppendText(setParkJeHwaUi(i) + " " + to8Mun(goong[i].eightmun) + " " + toNum(goong[i].hongNum[0]) + " " + toYookSam(goong[i].yooksam[0]) + " " + toGooSung(goong[i].goosung) + " " + goong[i].yoo_age[0] + "~");
                 if (goong[i].hongNum[0] == 10) c.AppendText((goong[i].yoo_age[0] + t1 - 1).ToString());
                 else c.AppendText((goong[i].yoo_age[0] + goong[i].hongNum[0] - 1).ToString());
@@ -2306,7 +2492,7 @@ namespace WindowsFormsApp1
                 c.AppendText("               " + toHongNumLvl(goong[i].hongNumlvl[0]) + Environment.NewLine);
 
                 //4줄 팔문, 천반 홍국수(강약), 천반천간, 구성, 유년, 육신 
-                //if (i == 4) c.AppendText(setBatangguk(goong));
+                if (i == 4) c.AppendText(setBatangguk1(goong));
                 c.AppendText(toNum(goong[i].hongNum[0]) + "     " + goong[i].yoo_age[0] + "~");
                 if (goong[i].hongNum[0] == 10) c.AppendText((goong[i].yoo_age[0] + t1 - 1).ToString());
                 else c.AppendText((goong[i].yoo_age[0] + goong[i].hongNum[0] - 1).ToString());
@@ -2374,11 +2560,13 @@ namespace WindowsFormsApp1
 
                 //3줄 홍국수강약
                 if (i == Hyear - 1)
-                    c.AppendText("               " + toHongNumLvl(goong[i].hongNumlvl[0]) + "     行年宮" + Environment.NewLine);
+                    c.AppendText("                     " + toHongNumLvl(goong[i].hongNumlvl[0]) + "     行年宮" + Environment.NewLine);
+                else if ( i == 4)
+                    c.AppendText("                       " + toHongNumLvl(goong[i].hongNumlvl[0]) + Environment.NewLine);
                 else
-                    c.AppendText("               " + toHongNumLvl(goong[i].hongNumlvl[0]) + Environment.NewLine);
+                    c.AppendText("                     " + toHongNumLvl(goong[i].hongNumlvl[0]) + Environment.NewLine);
                 //4줄 팔문, 천반 홍국수(강약), 천반천간, 구성, 유년, 육신 
-                if (i == 4) c.AppendText(setBatangguk(goong));
+                if (i == 4) c.AppendText(setBatangguk1(goong));
                 c.AppendText(setParkJeHwaUi(i) + " " + to8Mun(goong[i].eightmun) + " " + toNum(goong[i].hongNum[0]) + " " + toYookSam(goong[i].yooksam[0]) + " " + toGooSung(goong[i].goosung));
                 c.Text += " " + toSixSin(goong[i].six_sin[0]);
                 c.Text += "      ㅤ";
@@ -2393,15 +2581,20 @@ namespace WindowsFormsApp1
 
                 //6줄 홍국수강약
                 //                c.AppendText("               " + toHongNumLvl(goong[i].hongNumlvl[1]) + Environment.NewLine);
-                c.AppendText("               " + toHongNumLvl(goong[i].hongNumlvl[1]) + "          " + toTaeulGusung(goong[i].taeulgusung) + Environment.NewLine);
+                if ( i == 4)
+                    c.AppendText("                     " + to8Mun2(goong[i].timeeightmun) + "  " + toHongNumLvl(goong[i].hongNumlvl[1]) + "          " + toTaeulGusung(goong[i].taeulgusung) + Environment.NewLine);
+                else 
+                    c.AppendText("              " + to8Mun2(goong[i].timeeightmun) + "  " + toHongNumLvl(goong[i].hongNumlvl[1]) + "          " + toTaeulGusung(goong[i].taeulgusung) + Environment.NewLine);
 
 
                 //7줄 격국
                 c.AppendText(goong[i].kyukkuk + Environment.NewLine);
 
                 //8쭐 문왕, 공망, 운성, 유년
-                c.Text += " (" + toMunWang(i) + ") " + goong[i].gongmang + " " + goong[i].eunsung + " ";
+                c.Text += " (" + toMunWang(i) + ") " + goong[i].gongmang + " " + goong[i].eunsung + " " + Environment.NewLine;
 
+                //9줄 월국 날짜
+                if(radioButton1.Checked) c.Text += goong[i].month_days;
             }
             label19.Text = toNum(goong[4].hongNum[0]);
             label20.Text = toNum(goong[4].hongNum[1]);
@@ -3439,6 +3632,97 @@ namespace WindowsFormsApp1
 
         }
 
+        private void radioButton2_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButton9.Checked)
+            {
+                DateTime original_dt = f1.solar_dt;
+                ToLunarDate(original_dt, out ly, out lunar_year, out lunar_month, out lunar_day); // 양력->음력 변환
+                dateTimePicker1.Value = new DateTime(lunar_year, lunar_month, lunar_day, f1.solar_dt.Hour, f1.solar_dt.Minute, f1.solar_dt.Second);
+                dateTimePicker1.CustomFormat = "yyyy년";
+            }
+            else
+            {
+                dateTimePicker1.Value = f1.solar_dt;
+                dateTimePicker1.CustomFormat = "yyyy년";
+            }            
+        }
+        
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButton9.Checked)
+            {
+                DateTime original_dt = f1.solar_dt;
+                ToLunarDate(original_dt, out ly, out lunar_year, out lunar_month, out lunar_day); // 양력->음력 변환
+                dateTimePicker1.Value = new DateTime(lunar_year, lunar_month, lunar_day, f1.solar_dt.Hour, f1.solar_dt.Minute, f1.solar_dt.Second);
+                dateTimePicker1.CustomFormat = "yyyy년 MM월                             dd일";   // 날짜가 안보이게 하기 위한꼼수
+            }
+            else
+            {
+                dateTimePicker1.Value = f1.solar_dt;
+                dateTimePicker1.CustomFormat = "yyyy년 MM월                             dd일";   // 날짜가 안보이게 하기 위한꼼수
+            }
+        }
+
+        private void radioButton3_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButton9.Checked)
+            {
+                DateTime original_dt = f1.solar_dt;
+                ToLunarDate(original_dt, out ly, out lunar_year, out lunar_month, out lunar_day); // 양력->음력 변환
+                dateTimePicker1.Value = new DateTime(lunar_year, lunar_month, lunar_day, f1.solar_dt.Hour, f1.solar_dt.Minute, f1.solar_dt.Second);
+                dateTimePicker1.CustomFormat = "yyyy년 MM월 dd일";
+            }
+            else
+            {
+                dateTimePicker1.Value = f1.solar_dt;
+                dateTimePicker1.CustomFormat = "yyyy년 MM월 dd일";
+            }
+        }
+
+        private void radioButton6_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButton9.Checked)
+            {
+                DateTime original_dt = f1.solar_dt;
+                ToLunarDate(original_dt, out ly, out lunar_year, out lunar_month, out lunar_day); // 양력->음력 변환
+                dateTimePicker1.Value = new DateTime(lunar_year, lunar_month, lunar_day, f1.solar_dt.Hour, f1.solar_dt.Minute, f1.solar_dt.Second);
+                dateTimePicker1.CustomFormat = "yyyy년 MM월 dd일 HH시 mm분";
+            }
+            else
+            {
+                dateTimePicker1.Value = f1.solar_dt;
+                dateTimePicker1.CustomFormat = "yyyy년 MM월 dd일 HH시 mm분";
+            }
+        }
+
+        private void radioButton9_CheckedChanged(object sender, EventArgs e)
+        {
+            DateTime original_dt = f1.solar_dt;
+            ToLunarDate(original_dt, out ly, out lunar_year, out lunar_month, out lunar_day); // 양력->음력 변환
+            dateTimePicker1.Value = new DateTime(lunar_year,lunar_month, lunar_day,f1.solar_dt.Hour, f1.solar_dt.Minute, f1.solar_dt.Second);
+
+            label14.Text = "양력 " +  f1.solar_dt.Year + "년 " + f1.solar_dt.Month + "월 " + f1.solar_dt.Day + "일 " + f1.solar_dt.Hour.ToString() + ":" + f1.solar_dt.Minute.ToString("00");
+        }
+
+        private void radioButton10_CheckedChanged(object sender, EventArgs e)
+        {
+            dateTimePicker1.Value = f1.solar_dt;
+
+            DateTime original_dt = f1.solar_dt;
+            ToLunarDate(original_dt, out ly, out lunar_year, out lunar_month, out lunar_day); // 양력->음력 변환
+
+            if (ly == false)
+                label14.Text = "음력 " + lunar_year + "년 " + lunar_month.ToString("00") + "월 " + lunar_day.ToString("00") + "일 " + f1.solar_dt.Hour.ToString("00") + ":" + f1.solar_dt.Minute.ToString("00");
+            else
+                label14.Text = "음력 " + lunar_year + "년 " + lunar_month.ToString("00") + "월(윤달) " + lunar_day.ToString("00") + "일 " + f1.solar_dt.Hour.ToString() + ":" + f1.solar_dt.Minute.ToString("00"); ;
+            //syear.Text = lunar_year + " 년";
+            //if (ly == false) smonth.Text = lunar_month + " 월";
+            //else smonth.Text = lunar_month + "월(윤달)";
+            //sday.Text = lunar_day + " 일";
+            //shour.Text = dt.Hour.ToString() + ":" + dt.Minute.ToString();            
+        }
+
         public Form4()
         {
             InitializeComponent();
@@ -3449,9 +3733,17 @@ namespace WindowsFormsApp1
         {
             InitializeComponent();
             f1 = form;
-            dateTimePicker1.Value = f1.dateTimePicker1.Value;
+            //dateTimePicker1.Value = f1.dateTimePicker1.Value;
+            
+            DateTime original_dt = f1.solar_dt;
+            ToLunarDate(original_dt, out ly, out lunar_year, out lunar_month, out lunar_day); // 양력->음력 변환
+            dateTimePicker1.Value = new DateTime(lunar_year, lunar_month, lunar_day, f1.solar_dt.Hour, f1.solar_dt.Minute, f1.solar_dt.Second);
+
+            //dateTimePicker1.Value = f1.solar_dt;
             printDocument1.PrintPage += new PrintPageEventHandler(printDocument1_PrintPage);
             radioButton8.Checked = true;
+            radioButton2.Checked = true;
+            radioButton9.Checked = true;
             if (f1.radioButton4.Checked) radioButton4.Checked = true;
             if (f1.radioButton5.Checked) radioButton5.Checked = true;
             textBox6.Text = f1.textBox6.Text;
@@ -3473,7 +3765,8 @@ namespace WindowsFormsApp1
                 real_dt = dateTimePicker1.Value;
                 dt = dateTimePicker1.Value;
 
-                int age = dt.Year - f1.dateTimePicker1.Value.Year + 1;
+                //int age = dt.Year - dateTimePicker1.Value.Year + 1;
+                int age = dt.Year - f1.solar_dt.Year + 1;
                 if (gender == 1)
                 {
                     int[] HyearRR = { 7, 6, 1, 8, 3, 4, 9, 2 };
@@ -3486,12 +3779,12 @@ namespace WindowsFormsApp1
                     if (age == 1) Hyear = 1;
                     else Hyear = HyearRR[(age + 6) % 8];
                 }
-                if (f1.radioButton1.Checked)
+                if (radioButton10.Checked)
                 {
                     solar_dt = dt;
                     ToLunarDate(dt, out ly, out lunar_year, out lunar_month, out lunar_day); // 양력->음력 변환
                 }
-                else if (f1.radioButton2.Checked)
+                else if (radioButton9.Checked)
                 {
                     //lunar_dt = dt;
                     ly = false;
@@ -3505,9 +3798,9 @@ namespace WindowsFormsApp1
                 }
 
                 //양력 표시
-                if (f1.radioButton2.Checked || f1.radioButton3.Checked)
+                if (radioButton9.Checked)
                 {
-                    label14.Text = "양력 " + solar_dt.Year + "년 " + solar_dt.Month + "월 " + solar_dt.Day + "일 " + dt.Hour.ToString() + ":" + dt.Minute.ToString();
+                    label14.Text = "양력 " + solar_dt.Year + "년 " + solar_dt.Month + "월 " + solar_dt.Day + "일 " + dt.Hour.ToString() + ":" + dt.Minute.ToString("00");
                     //syear.Text = solar_dt.Year + " 년";
                     //smonth.Text = solar_dt.Month + " 월";
                     //sday.Text = solar_dt.Day + " 일";
@@ -3577,6 +3870,9 @@ namespace WindowsFormsApp1
                 //팔문 붙이기
                 set8mun(goong, sjGanzi, direction);
 
+                //시가팔문 붙이기
+                settime8mun(goong, sjGanzi, direction);
+
                 //팔괴 붙이기
                 set8goe(goong);
 
@@ -3606,6 +3902,8 @@ namespace WindowsFormsApp1
 
                 //태을구성법
                 setTaeulGusung(goong, sjGanzi, direction);
+
+                if (radioButton1.Checked) setMonthDays(goong, direction);
 
                 //결과물 구궁에 출력
                 showGoongLabelText_Sinsoo(goong, eunboksu1, eunboksu2);

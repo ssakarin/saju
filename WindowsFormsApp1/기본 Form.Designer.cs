@@ -88,7 +88,6 @@
             this.button4 = new System.Windows.Forms.Button();
             this.label19 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.richTextBox2 = new System.Windows.Forms.RichTextBox();
@@ -195,9 +194,9 @@
             // 
             this.gimundungab.BackColor = System.Drawing.Color.Khaki;
             this.gimundungab.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.gimundungab.Location = new System.Drawing.Point(281, 56);
+            this.gimundungab.Location = new System.Drawing.Point(281, 58);
             this.gimundungab.Name = "gimundungab";
-            this.gimundungab.Size = new System.Drawing.Size(75, 23);
+            this.gimundungab.Size = new System.Drawing.Size(85, 23);
             this.gimundungab.TabIndex = 0;
             this.gimundungab.Text = "조회";
             this.gimundungab.UseVisualStyleBackColor = false;
@@ -469,9 +468,9 @@
             // 
             this.button1.BackColor = System.Drawing.Color.Khaki;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button1.Location = new System.Drawing.Point(281, 172);
+            this.button1.Location = new System.Drawing.Point(281, 190);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(85, 23);
             this.button1.TabIndex = 70;
             this.button1.Text = "불러오기";
             this.button1.UseVisualStyleBackColor = false;
@@ -481,9 +480,9 @@
             // 
             this.button2.BackColor = System.Drawing.Color.Khaki;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button2.Location = new System.Drawing.Point(281, 201);
+            this.button2.Location = new System.Drawing.Point(281, 223);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.Size = new System.Drawing.Size(85, 23);
             this.button2.TabIndex = 71;
             this.button2.Text = "저장";
             this.button2.UseVisualStyleBackColor = false;
@@ -929,9 +928,9 @@
             // 
             this.button4.BackColor = System.Drawing.Color.Khaki;
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button4.Location = new System.Drawing.Point(281, 230);
+            this.button4.Location = new System.Drawing.Point(281, 256);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
+            this.button4.Size = new System.Drawing.Size(85, 23);
             this.button4.TabIndex = 98;
             this.button4.Text = "프린트";
             this.button4.UseVisualStyleBackColor = false;
@@ -959,26 +958,13 @@
             this.label20.Text = "지";
             this.label20.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // button3
-            // 
-            this.button3.BackColor = System.Drawing.Color.Khaki;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button3.Location = new System.Drawing.Point(281, 259);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 110;
-            this.button3.Text = "통기도";
-            this.button3.UseVisualStyleBackColor = false;
-            this.button3.Visible = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
             // button5
             // 
             this.button5.BackColor = System.Drawing.Color.Khaki;
             this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button5.Location = new System.Drawing.Point(281, 85);
+            this.button5.Location = new System.Drawing.Point(281, 91);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(75, 23);
+            this.button5.Size = new System.Drawing.Size(85, 23);
             this.button5.TabIndex = 111;
             this.button5.Text = "유년소운";
             this.button5.UseVisualStyleBackColor = false;
@@ -1107,11 +1093,11 @@
             // 
             this.button6.BackColor = System.Drawing.Color.Khaki;
             this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button6.Location = new System.Drawing.Point(281, 143);
+            this.button6.Location = new System.Drawing.Point(281, 157);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(75, 23);
+            this.button6.Size = new System.Drawing.Size(85, 23);
             this.button6.TabIndex = 124;
-            this.button6.Text = "신수운";
+            this.button6.Text = "변국";
             this.button6.UseVisualStyleBackColor = false;
             this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
@@ -1235,9 +1221,9 @@
             // 
             this.button7.BackColor = System.Drawing.Color.Khaki;
             this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button7.Location = new System.Drawing.Point(281, 114);
+            this.button7.Location = new System.Drawing.Point(281, 124);
             this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(75, 23);
+            this.button7.Size = new System.Drawing.Size(85, 23);
             this.button7.TabIndex = 135;
             this.button7.Text = "홍국기문";
             this.button7.UseVisualStyleBackColor = false;
@@ -1440,7 +1426,7 @@
             // 
             this.groupBox5.Controls.Add(this.radioButton7);
             this.groupBox5.Controls.Add(this.radioButton8);
-            this.groupBox5.Location = new System.Drawing.Point(266, 272);
+            this.groupBox5.Location = new System.Drawing.Point(266, 289);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(100, 41);
             this.groupBox5.TabIndex = 80;
@@ -1493,7 +1479,7 @@
             // 
             // pictureBox3
             // 
-            this.pictureBox3.Image = global::GimunMyungRi.Properties.Resources.tongi;
+            this.pictureBox3.Image = global::GimunMyungRi.Properties.Resources.tongi_1;
             this.pictureBox3.InitialImage = null;
             this.pictureBox3.Location = new System.Drawing.Point(11, 333);
             this.pictureBox3.Name = "pictureBox3";
@@ -2165,7 +2151,6 @@
             this.Controls.Add(this.label25);
             this.Controls.Add(this.label24);
             this.Controls.Add(this.label23);
-            this.Controls.Add(this.button3);
             this.Controls.Add(this.label21);
             this.Controls.Add(this.button7);
             this.Controls.Add(this.button6);
@@ -2307,7 +2292,6 @@
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label20;
         public System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.RichTextBox richTextBox2;

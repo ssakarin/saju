@@ -61,6 +61,7 @@ namespace WindowsFormsApp1
             public int[] hongNumlvl = new int[2];   //홍국수 강약
             public int[] yooksam = new int[2];      //육의삼기
             public int eightmun;                    //팔문
+            public int timeeightmun;                //시가    팔문
             public int eightgoe;                    //팔괴
             public int goosung;                     //구성
             public string eightjang;                //팔장
@@ -247,6 +248,19 @@ namespace WindowsFormsApp1
             else if (num == 6) return "開";
             else if (num == 7) return "休";
             else  return "";
+        } // 팔문
+
+        public string to8Mun2(int num)
+        {
+            if (num == 0) return "生門";
+            else if (num == 1) return "傷門";
+            else if (num == 2) return "杜門";
+            else if (num == 3) return "景門";
+            else if (num == 4) return "死門";
+            else if (num == 5) return "驚門";
+            else if (num == 6) return "開門";
+            else if (num == 7) return "休門";
+            else return "";
         } // 팔문
 
         public string to8Goe(int num)  //팔괘
@@ -1227,6 +1241,44 @@ namespace WindowsFormsApp1
             goong[4].eightmun = 8;
         } // 팔문 붙이기
 
+        public void settime8mun(Goong[] goong, int[,] sjGanzi, bool direction)  
+        {
+            String[,] day = { { "甲子", "乙丑", "丙寅", "丁卯", "戊辰", "己巳", "庚午", "辛未", "壬申", "癸酉","甲戌", "乙亥"},
+                            { "丙子", "丁丑", "戊寅", "己卯", "庚辰", "辛巳", "壬午", "癸未", "甲申", "乙酉", "丙戌", "丁亥"},
+                            { "戊子", "己丑", "庚寅", "辛卯", "壬辰", "癸巳", "甲午", "乙未", "丙申", "丁酉", "戊戌", "己亥"},
+                            { "庚子", "辛丑", "壬寅", "癸卯", "甲辰", "乙巳", "丙午", "丁未", "戊申", "己酉", "庚戌", "辛亥"},
+                            { "壬子", "癸丑", "甲寅", "乙卯", "丙辰", "丁巳", "戊午", "己未", "庚申", "辛酉", "壬戌", "癸亥"}};
+            int[] foward_direction = { 8, 7, 4, 9, 1, 6, 3, 2 };
+            int[] backward_direction = { 8, 2, 3, 6, 1, 9, 4, 7 };
+
+            int i = 0, j = 0, k = 0;
+            string temp = toGan(sjGanzi[3, 0]) + toZi(sjGanzi[3, 1]); // 시주
+
+            //시주 오자원 찾기
+            for (i = 0; i < 5; i++)
+                for (j = 0; j < 12; j++)
+                {
+                    if (day[i, j] == temp) goto EXIT_FOR;
+                }
+            EXIT_FOR:
+
+            if (i == 1 || i == 3) j += 4;
+
+            for (k = 0; k < 8; k++)
+            {
+                if (direction)
+                {
+                    goong[foward_direction[(j + k) % 8] - 1].timeeightmun = k;
+                }
+                else
+                {
+                    goong[backward_direction[(j + k) % 8] - 1].timeeightmun = k;
+                }
+            }
+            goong[4].timeeightmun = 8;
+        } // 시가팔문 붙이기
+
+
         public void set8goe(Goong[] goong) // 팔괘 붙이기
         {
             int[,] goe = { { 0, 1, 0 }, { 0, 0, 0 }, { 0, 0, 1 }, { 1, 1, 0 }, { 1, 1, 0 }, { 1, 1, 1 }, { 0, 1, 1 }, { 1, 0, 0 }, { 1, 0, 1 } };
@@ -1709,11 +1761,17 @@ namespace WindowsFormsApp1
                 if (goong[i].yooksam[0] == 6 && goong[i].eightmun == 0) goong[i].kyukkuk += " 玉女守門";
                 
                 //흉격
-                if (toYookSam(goong[i].yooksam[1]) == toGan(sjGanzi[0, 0]) && (goong[i].yooksam[0] == 7 || goong[i].yooksam[1] == 7)) goong[i].kyukkuk += " 悖亂";
+                if ((toYookSam(goong[i].yooksam[1]) == toGan(sjGanzi[0, 0]) && goong[i].yooksam[0] == 7) || (toYookSam(goong[i].yooksam[0]) == toGan(sjGanzi[0, 0]) && goong[i].yooksam[1] == 7)) goong[i].kyukkuk += " 悖亂";
+                else if ((toYookSam(goong[i].yooksam[1]) == toGan(sjGanzi[1, 0]) && goong[i].yooksam[0] == 7) || (toYookSam(goong[i].yooksam[0]) == toGan(sjGanzi[1, 0]) && goong[i].yooksam[1] == 7)) goong[i].kyukkuk += " 悖亂";
+                else if ((toYookSam(goong[i].yooksam[1]) == toGan(sjGanzi[2, 0]) && goong[i].yooksam[0] == 7) || (toYookSam(goong[i].yooksam[0]) == toGan(sjGanzi[2, 0]) && goong[i].yooksam[1] == 7)) goong[i].kyukkuk += " 悖亂";
+                else if ((toYookSam(goong[i].yooksam[1]) == toGan(sjGanzi[3, 0]) && goong[i].yooksam[0] == 7) || (toYookSam(goong[i].yooksam[0]) == toGan(sjGanzi[3, 0]) && goong[i].yooksam[1] == 7)) goong[i].kyukkuk += " 悖亂";
+                else if (i == 4 && goong[i].yooksam[1] == 7 && goong[1].yooksam[0] == 7 ) goong[i].kyukkuk += " 悖亂";
+
+/*                if (toYookSam(goong[i].yooksam[1]) == toGan(sjGanzi[0, 0]) && (goong[i].yooksam[0] == 7 || goong[i].yooksam[1] == 7)) goong[i].kyukkuk += " 悖亂";
                 else if (toYookSam(goong[i].yooksam[1]) == toGan(sjGanzi[1, 0]) && (goong[i].yooksam[0] == 7 || goong[i].yooksam[1] == 7)) goong[i].kyukkuk += " 悖亂";
                 else if (toYookSam(goong[i].yooksam[1]) == toGan(sjGanzi[2, 0]) && (goong[i].yooksam[0] == 7 || goong[i].yooksam[1] == 7)) goong[i].kyukkuk += " 悖亂";
                 else if (toYookSam(goong[i].yooksam[1]) == toGan(sjGanzi[3, 0]) && (goong[i].yooksam[0] == 7 || goong[i].yooksam[1] == 7)) goong[i].kyukkuk += " 悖亂";
-                else if (toYookSam(goong[i].yooksam[1]) == "直" && (goong[i].yooksam[0] == 7 || goong[i].yooksam[1] == 7)) goong[i].kyukkuk += " 悖亂";
+                else if (toYookSam(goong[i].yooksam[1]) == "直" && (goong[i].yooksam[0] == 7 || goong[i].yooksam[1] == 7)) goong[i].kyukkuk += " 悖亂";*/
 
                 if (toYookSam(goong[i].yooksam[1]) == toGan(sjGanzi[0, 0]) && (goong[i].yooksam[0] == 5 || goong[i].yooksam[1] == 5)) goong[i].kyukkuk += " 天網四張";
                 else if (toYookSam(goong[i].yooksam[1]) == toGan(sjGanzi[1, 0]) && (goong[i].yooksam[0] == 5 || goong[i].yooksam[1] == 5)) goong[i].kyukkuk += " 天網四張";
@@ -1913,11 +1971,18 @@ namespace WindowsFormsApp1
                     if (goong[i].yooksam[0] == 6 && goong[i].eightmun == 0) goong[i].kyukkuk += " 玉女守門";
 
                     //흉격
-                    if (toYookSam(goong[i].yooksam[1]) == toGan(sjGanzi[0, 0]) && (goong[i].yooksam[0] == 7 || goong[i].yooksam[1] == 7)) goong[i].kyukkuk += " 悖亂";
+
+                    if ((toYookSam(goong[i].yooksam[1]) == toGan(sjGanzi[0, 0]) && goong[i].yooksam[0] == 7) || (toYookSam(goong[i].yooksam[0]) == toGan(sjGanzi[0, 0]) && goong[i].yooksam[1] == 7)) goong[i].kyukkuk += " 悖亂";
+                    else if ((toYookSam(goong[i].yooksam[1]) == toGan(sjGanzi[1, 0]) && goong[i].yooksam[0] == 7) || (toYookSam(goong[i].yooksam[0]) == toGan(sjGanzi[1, 0]) && goong[i].yooksam[1] == 7)) goong[i].kyukkuk += " 悖亂";
+                    else if ((toYookSam(goong[i].yooksam[1]) == toGan(sjGanzi[2, 0]) && goong[i].yooksam[0] == 7) || (toYookSam(goong[i].yooksam[0]) == toGan(sjGanzi[2, 0]) && goong[i].yooksam[1] == 7)) goong[i].kyukkuk += " 悖亂";
+                    else if ((toYookSam(goong[i].yooksam[1]) == toGan(sjGanzi[3, 0]) && goong[i].yooksam[0] == 7) || (toYookSam(goong[i].yooksam[0]) == toGan(sjGanzi[3, 0]) && goong[i].yooksam[1] == 7)) goong[i].kyukkuk += " 悖亂";
+                    else if (i == 4 && goong[i].yooksam[1] == 7 && goong[1].yooksam[0] == 7) goong[i].kyukkuk += " 悖亂";
+
+/*                    if (toYookSam(goong[i].yooksam[1]) == toGan(sjGanzi[0, 0]) && (goong[i].yooksam[0] == 7 || goong[i].yooksam[1] == 7)) goong[i].kyukkuk += " 悖亂";
                     else if (toYookSam(goong[i].yooksam[1]) == toGan(sjGanzi[1, 0]) && (goong[i].yooksam[0] == 7 || goong[i].yooksam[1] == 7)) goong[i].kyukkuk += " 悖亂";
                     else if (toYookSam(goong[i].yooksam[1]) == toGan(sjGanzi[2, 0]) && (goong[i].yooksam[0] == 7 || goong[i].yooksam[1] == 7)) goong[i].kyukkuk += " 悖亂";
                     else if (toYookSam(goong[i].yooksam[1]) == toGan(sjGanzi[3, 0]) && (goong[i].yooksam[0] == 7 || goong[i].yooksam[1] == 7)) goong[i].kyukkuk += " 悖亂";
-                    else if (toYookSam(goong[i].yooksam[1]) == "直" && (goong[i].yooksam[0] == 7 || goong[i].yooksam[1] == 7)) goong[i].kyukkuk += " 悖亂";
+                    else if (toYookSam(goong[i].yooksam[1]) == "直" && (goong[i].yooksam[0] == 7 || goong[i].yooksam[1] == 7)) goong[i].kyukkuk += " 悖亂";*/
 
                     if (toYookSam(goong[i].yooksam[1]) == toGan(sjGanzi[0, 0]) && (goong[i].yooksam[0] == 5 || goong[i].yooksam[1] == 5)) goong[i].kyukkuk += " 天網四張";
                     else if (toYookSam(goong[i].yooksam[1]) == toGan(sjGanzi[1, 0]) && (goong[i].yooksam[0] == 5 || goong[i].yooksam[1] == 5)) goong[i].kyukkuk += " 天網四張";
@@ -1977,6 +2042,26 @@ namespace WindowsFormsApp1
                 return "怨嗔局";
             else if ((goong[4].hongNum[0] + goong[4].hongNum[1])% 10 == 5)
                 return "刑破害局";
+            else return "";
+        }   // 바탕국
+
+        public string setBatangguk1(Goong[] goong)
+        {
+            if (goong[4].hongNum[0] == 3 && goong[4].hongNum[1] == 5) return "戰";
+            else if (goong[4].hongNum[0] == 2 && goong[4].hongNum[1] == 5) return "沖";
+            else if (goong[4].hongNum[0] == 8 && goong[4].hongNum[1] == 5) return "沖";
+            else if (goong[4].hongNum[0] == 7 && goong[4].hongNum[1] == 5) return "怨";
+            else if (goong[4].hongNum[0] == 5 && goong[4].hongNum[1] == 5) return "破";
+            else if ((goong[4].hongNum[0] + goong[4].hongNum[1]) % 10 == 4 || (goong[4].hongNum[0] + goong[4].hongNum[1]) % 10 == 9 || (goong[4].hongNum[0] + goong[4].hongNum[1]) % 10 == 0)
+                return "和";
+            else if ((goong[4].hongNum[0] + goong[4].hongNum[1]) % 10 == 1 || (goong[4].hongNum[0] + goong[4].hongNum[1]) % 10 == 3 || (goong[4].hongNum[0] + goong[4].hongNum[1]) % 10 == 6)
+                return "戰";
+            else if ((goong[4].hongNum[0] + goong[4].hongNum[1]) % 10 == 2 || (goong[4].hongNum[0] + goong[4].hongNum[1]) % 10 == 8)
+                return "沖";
+            else if ((goong[4].hongNum[0] + goong[4].hongNum[1]) % 10 == 7)
+                return "怨";
+            else if ((goong[4].hongNum[0] + goong[4].hongNum[1]) % 10 == 5)
+                return "破";
             else return "";
         }   // 바탕국
 
@@ -2325,11 +2410,14 @@ namespace WindowsFormsApp1
                 c.AppendText(bokgankyuk(i) + " "+ goong[i].sinsal + " " + goong[i].josang + Environment.NewLine);
 
                 //3줄 홍국수강약
-                c.AppendText("               " + toHongNumLvl(goong[i].hongNumlvl[0]) + Environment.NewLine);
+                if (i == 4)
+                    c.AppendText("                   " + toHongNumLvl(goong[i].hongNumlvl[0]) + Environment.NewLine);
+                else
+                    c.AppendText("               " + toHongNumLvl(goong[i].hongNumlvl[0]) + Environment.NewLine);
 
                 //4줄 팔문, 천반 홍국수(강약), 천반천간, 구성, 유년, 육신 
                 //if (i == 4) c.AppendText("test");
-                if (i == 4) c.AppendText(setBatangguk(goong));
+                if (i == 4) c.AppendText(setBatangguk1(goong));
                 c.AppendText(setParkJeHwaUi(i) + " " + to8Mun(goong[i].eightmun) + " " + toNum(goong[i].hongNum[0]) + " " + toYookSam(goong[i].yooksam[0]) + " " + toGooSung(goong[i].goosung) + " " + goong[i].yoo_age[0] + "~");
                 if (goong[i].hongNum[0] == 10) c.AppendText((goong[i].yoo_age[0] + t1 - 1).ToString());
                 else c.AppendText((goong[i].yoo_age[0] + goong[i].hongNum[0]-1).ToString());
@@ -2346,8 +2434,11 @@ namespace WindowsFormsApp1
                 c.Text += "ㅤ";
                 c.Text += "\n";
 
-                //6줄 홍국수강약
-                c.AppendText("               " + toHongNumLvl(goong[i].hongNumlvl[1]) + "          " + toTaeulGusung(goong[i].taeulgusung) +  Environment.NewLine );
+                //6줄 시가팔문 , 홍국수강약
+                if (i == 4)
+                    c.AppendText("                 " + to8Mun2(goong[i].timeeightmun) + "  " + toHongNumLvl(goong[i].hongNumlvl[1]) + "          " + toTaeulGusung(goong[i].taeulgusung) + Environment.NewLine);
+                else
+                    c.AppendText("        " + to8Mun2(goong[i].timeeightmun) + "  " + toHongNumLvl(goong[i].hongNumlvl[1]) + "          " + toTaeulGusung(goong[i].taeulgusung) +  Environment.NewLine );
 
                 //7줄 격국
                 c.AppendText(goong[i].kyukkuk + Environment.NewLine);
@@ -2399,7 +2490,7 @@ namespace WindowsFormsApp1
                 c.AppendText("               " + toHongNumLvl(goong[i].hongNumlvl[0]) + Environment.NewLine);
 
                 //4줄 팔문, 천반 홍국수(강약), 천반천간, 구성, 유년, 육신 
-                //if (i == 4) c.AppendText(setBatangguk(goong));
+                if (i == 4) c.AppendText(setBatangguk1(goong));
                 c.AppendText(toNum(goong[i].hongNum[0]) + "     " + goong[i].yoo_age[0] + "~");
                 if (goong[i].hongNum[0] == 10) c.AppendText((goong[i].yoo_age[0] + t1 - 1).ToString());
                 else c.AppendText((goong[i].yoo_age[0] + goong[i].hongNum[0] - 1).ToString());
@@ -2471,7 +2562,7 @@ namespace WindowsFormsApp1
                 else 
                     c.AppendText("               " + toHongNumLvl(goong[i].hongNumlvl[0]) + Environment.NewLine);
                 //4줄 팔문, 천반 홍국수(강약), 천반천간, 구성, 유년, 육신 
-                if (i == 4) c.AppendText(setBatangguk(goong));
+                if (i == 4) c.AppendText(setBatangguk1(goong));
                 c.AppendText(setParkJeHwaUi(i) + " " + to8Mun(goong[i].eightmun) + " " + toNum(goong[i].hongNum[0]) + " " + toYookSam(goong[i].yooksam[0]) + " " + toGooSung(goong[i].goosung));
                 c.Text += " " + toSixSin(goong[i].six_sin[0]);
                 c.Text += "      ㅤ";
@@ -3744,28 +3835,21 @@ namespace WindowsFormsApp1
 
         private bool b_trial()
         {
-            //DateTime today = DateTime.Now;
+            DateTime today = DateTime.Now;
+            DateTime expiredate = new DateTime(2024, 9, 1);
 
-            //if (today.Year >= 2024)
-            //{
-            //    MessageBox.Show("교육기한이 만료되었습니다.");
-            //    return false;
-            //}
-            //else return true;
-            
-            return true;
+            if (today >= expiredate)
+            {
+                MessageBox.Show("사용기한이 만료되었습니다.");
+                return false;
+            }
+            else return true;
+
+            //return true;
         }
         private void button1_Click(object sender, EventArgs e)  // 실행 부분
         {
-            //DateTime today = DateTime.Now;
-
-            //if (today.Year >= 2024)
-            ////if (today.Hour >= 10)
-            //{
-            //    MessageBox.Show("교육기한이 만료되었습니다.");
-            //}
-            //else
-            if(b_trial())
+            if (b_trial())
             { 
                 for(int i = 0; i <9; i++) goong[i] = new Goong();
 
@@ -3908,6 +3992,9 @@ namespace WindowsFormsApp1
 
                     //팔문 붙이기
                     set8mun(goong, sjGanzi, direction);
+
+                    //시가팔문 붙이기
+                    settime8mun(goong, sjGanzi, direction);
 
                     //팔괴 붙이기
                     set8goe(goong);
