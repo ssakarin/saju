@@ -4000,7 +4000,7 @@ namespace WindowsFormsApp1
 
                         p_year = 1924 + (sjGanzi[0, 0] - 1) * 6 + (sjGanzi[0, 1] - 1);
                         p_month = sjGanzi[1, 1];
-                        p_day = 2;
+                        p_day = 22;
                         p_time = (sjGanzi[3, 1]-1)*2;
                         direction = false;
                         if (comboBox9.SelectedIndex+1 == 24 || comboBox9.SelectedIndex+1 <= 11) direction = true;
