@@ -22,6 +22,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.Tab;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using System.Security.Cryptography.X509Certificates;
 using System.Net.NetworkInformation;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
 
 namespace WindowsFormsApp1
 {
@@ -376,9 +377,10 @@ namespace WindowsFormsApp1
             string cmp = "";
             string temp = "";
             cmp = toGan(sjGanzi[2, 0]);
-            if (toYookSam(goong[num].yooksam[1]) == cmp && toYookSam(goong[num].yooksam[0]) == "庚")  temp += "伏干格";
-            else if (toYookSam(goong[num].yooksam[0]) == cmp && toYookSam(goong[num].yooksam[1]) == "庚") temp += "伏干格";
-            else if (toYookSam(goong[num].yooksam[0]) == "庚" && toYookSam(goong[num].yooksam[1]) == "庚") temp += "伏干格";
+            if (toYookSam(goong[num].yooksam[0]) == "庚" && toYookSam(goong[num].yooksam[1]) == "庚") temp = "";
+            else if (toYookSam(goong[num].yooksam[1]) == cmp && toYookSam(goong[num].yooksam[0]) == "庚") temp += "伏干格";
+            else if (toYookSam(goong[num].yooksam[0]) == cmp && toYookSam(goong[num].yooksam[1]) == "庚") temp += "飛干格";
+            //else if (toYookSam(goong[num].yooksam[0]) == "庚" && toYookSam(goong[num].yooksam[1]) == "庚") temp += "伏干格";
             return temp;
         }   
 
@@ -502,7 +504,7 @@ namespace WindowsFormsApp1
         {
             int year = dt.Year;
 
-            if (dt.Hour == 23 && dt.Minute >= 30)
+            if (dt.Hour == 23 && dt.Minute >= 30)  /// 23시 30분 이후는 다음날 자시(첫번째 시간)로 간주 사주에서 시간 보는 방식이라고 함
                 dt = dt.AddHours(1);
 
             year -= 1900;
@@ -1759,13 +1761,14 @@ namespace WindowsFormsApp1
                 if (goong[i].yooksam[0] == 6 && (goong[i].eightmun == 6 || goong[i].eightmun == 7 || goong[i].eightmun == 0)) goong[i].kyukkuk += " 丁奇上吉門";
 
                 if (goong[i].yooksam[0] == 6 && goong[i].eightmun == 0) goong[i].kyukkuk += " 玉女守門";
-                
+
                 //흉격
-                if ((toYookSam(goong[i].yooksam[1]) == toGan(sjGanzi[0, 0]) && goong[i].yooksam[0] == 7) || (toYookSam(goong[i].yooksam[0]) == toGan(sjGanzi[0, 0]) && goong[i].yooksam[1] == 7)) goong[i].kyukkuk += " 悖亂";
+                if (goong[i].yooksam[1] == 7 && goong[i].yooksam[0] == 7) goong[i].kyukkuk += "";
+                else if ((toYookSam(goong[i].yooksam[1]) == toGan(sjGanzi[0, 0]) && goong[i].yooksam[0] == 7) || (toYookSam(goong[i].yooksam[0]) == toGan(sjGanzi[0, 0]) && goong[i].yooksam[1] == 7)) goong[i].kyukkuk += " 悖亂";
                 else if ((toYookSam(goong[i].yooksam[1]) == toGan(sjGanzi[1, 0]) && goong[i].yooksam[0] == 7) || (toYookSam(goong[i].yooksam[0]) == toGan(sjGanzi[1, 0]) && goong[i].yooksam[1] == 7)) goong[i].kyukkuk += " 悖亂";
                 else if ((toYookSam(goong[i].yooksam[1]) == toGan(sjGanzi[2, 0]) && goong[i].yooksam[0] == 7) || (toYookSam(goong[i].yooksam[0]) == toGan(sjGanzi[2, 0]) && goong[i].yooksam[1] == 7)) goong[i].kyukkuk += " 悖亂";
                 else if ((toYookSam(goong[i].yooksam[1]) == toGan(sjGanzi[3, 0]) && goong[i].yooksam[0] == 7) || (toYookSam(goong[i].yooksam[0]) == toGan(sjGanzi[3, 0]) && goong[i].yooksam[1] == 7)) goong[i].kyukkuk += " 悖亂";
-                else if (i == 4 && goong[i].yooksam[1] == 7 && goong[1].yooksam[0] == 7 ) goong[i].kyukkuk += " 悖亂";
+                //else if (i == 4 && goong[i].yooksam[1] == 7 && goong[1].yooksam[0] == 7 ) goong[i].kyukkuk += " 悖亂";
 
 /*                if (toYookSam(goong[i].yooksam[1]) == toGan(sjGanzi[0, 0]) && (goong[i].yooksam[0] == 7 || goong[i].yooksam[1] == 7)) goong[i].kyukkuk += " 悖亂";
                 else if (toYookSam(goong[i].yooksam[1]) == toGan(sjGanzi[1, 0]) && (goong[i].yooksam[0] == 7 || goong[i].yooksam[1] == 7)) goong[i].kyukkuk += " 悖亂";
@@ -1773,19 +1776,27 @@ namespace WindowsFormsApp1
                 else if (toYookSam(goong[i].yooksam[1]) == toGan(sjGanzi[3, 0]) && (goong[i].yooksam[0] == 7 || goong[i].yooksam[1] == 7)) goong[i].kyukkuk += " 悖亂";
                 else if (toYookSam(goong[i].yooksam[1]) == "直" && (goong[i].yooksam[0] == 7 || goong[i].yooksam[1] == 7)) goong[i].kyukkuk += " 悖亂";*/
 
-                if (toYookSam(goong[i].yooksam[1]) == toGan(sjGanzi[0, 0]) && (goong[i].yooksam[0] == 5 || goong[i].yooksam[1] == 5)) goong[i].kyukkuk += " 天網四張";
-                else if (toYookSam(goong[i].yooksam[1]) == toGan(sjGanzi[1, 0]) && (goong[i].yooksam[0] == 5 || goong[i].yooksam[1] == 5)) goong[i].kyukkuk += " 天網四張";
-                else if (toYookSam(goong[i].yooksam[1]) == toGan(sjGanzi[2, 0]) && (goong[i].yooksam[0] == 5 || goong[i].yooksam[1] == 5)) goong[i].kyukkuk += " 天網四張";
-                else if (toYookSam(goong[i].yooksam[1]) == toGan(sjGanzi[3, 0]) && (goong[i].yooksam[0] == 5 || goong[i].yooksam[1] == 5)) goong[i].kyukkuk += " 天網四張";
+                if      ((toYookSam(goong[i].yooksam[1]) == toGan(sjGanzi[0, 0]) && goong[i].yooksam[0] == 5) || 
+                         (toYookSam(goong[i].yooksam[0]) == toGan(sjGanzi[0, 0]) && goong[i].yooksam[1] == 5)) goong[i].kyukkuk += " 天網四張";
+                else if ((toYookSam(goong[i].yooksam[1]) == toGan(sjGanzi[1, 0]) && goong[i].yooksam[0] == 5) ||
+                         (toYookSam(goong[i].yooksam[0]) == toGan(sjGanzi[1, 0]) && goong[i].yooksam[1] == 5)) goong[i].kyukkuk += " 天網四張";
+                else if ((toYookSam(goong[i].yooksam[1]) == toGan(sjGanzi[2, 0]) && goong[i].yooksam[0] == 5) ||
+                         (toYookSam(goong[i].yooksam[0]) == toGan(sjGanzi[2, 0]) && goong[i].yooksam[1] == 5)) goong[i].kyukkuk += " 天網四張";
+                else if ((toYookSam(goong[i].yooksam[1]) == toGan(sjGanzi[3, 0]) && goong[i].yooksam[0] == 5) ||
+                         (toYookSam(goong[i].yooksam[0]) == toGan(sjGanzi[3, 0]) && goong[i].yooksam[1] == 5)) goong[i].kyukkuk += " 天網四張";
 
-                if (toYookSam(goong[i].yooksam[1]) == toGan(sjGanzi[0, 0]) && (goong[i].yooksam[0] == 4 || goong[i].yooksam[1] == 4)) goong[i].kyukkuk += " 地網遮蔽";
-                else if (toYookSam(goong[i].yooksam[1]) == toGan(sjGanzi[1, 0]) && (goong[i].yooksam[0] == 4 || goong[i].yooksam[1] == 4)) goong[i].kyukkuk += " 地網遮蔽";
-                else if (toYookSam(goong[i].yooksam[1]) == toGan(sjGanzi[2, 0]) && (goong[i].yooksam[0] == 4 || goong[i].yooksam[1] == 4)) goong[i].kyukkuk += " 地網遮蔽";
-                else if (toYookSam(goong[i].yooksam[1]) == toGan(sjGanzi[3, 0]) && (goong[i].yooksam[0] == 4 || goong[i].yooksam[1] == 4)) goong[i].kyukkuk += " 地網遮蔽";
-                else if (goong[i].eightjang == "直" && (goong[i].yooksam[0] == 4 || goong[i].yooksam[1] == 4)) goong[i].kyukkuk += " 地網遮蔽";
+                if      ((toYookSam(goong[i].yooksam[1]) == toGan(sjGanzi[0, 0]) && goong[i].yooksam[0] == 4) || 
+                         (toYookSam(goong[i].yooksam[0]) == toGan(sjGanzi[0, 0]) && goong[i].yooksam[1] == 4)) goong[i].kyukkuk += " 地網遮蔽";
+                else if ((toYookSam(goong[i].yooksam[1]) == toGan(sjGanzi[1, 0]) && goong[i].yooksam[0] == 4) ||
+                         (toYookSam(goong[i].yooksam[0]) == toGan(sjGanzi[1, 0]) && goong[i].yooksam[1] == 4)) goong[i].kyukkuk += " 地網遮蔽";
+                else if ((toYookSam(goong[i].yooksam[1]) == toGan(sjGanzi[2, 0]) && goong[i].yooksam[0] == 4) ||
+                         (toYookSam(goong[i].yooksam[0]) == toGan(sjGanzi[2, 0]) && goong[i].yooksam[1] == 4)) goong[i].kyukkuk += " 地網遮蔽";
+                else if ((toYookSam(goong[i].yooksam[1]) == toGan(sjGanzi[3, 0]) && goong[i].yooksam[0] == 4) ||
+                         (toYookSam(goong[i].yooksam[0]) == toGan(sjGanzi[3, 0]) && goong[i].yooksam[1] == 4)) goong[i].kyukkuk += " 地網遮蔽";
+                //else if (goong[i].eightjang == "直" && (goong[i].yooksam[0] == 4 || goong[i].yooksam[1] == 4)) goong[i].kyukkuk += " 地網遮蔽";
 
-                if ((goong[i].b_gan[2] == true  || goong[i].b_gan[3] == true) && goong[i].yooksam[0] == 2) goong[i].kyukkuk += " 伏干";
-                if ((goong[i].b_gan[2] == true || goong[i].b_gan[3] == true)  && goong[i].yooksam[1] == 2) goong[i].kyukkuk += " 飛干";
+                //if ((goong[i].b_gan[2] == true  || goong[i].b_gan[3] == true) && goong[i].yooksam[0] == 2) goong[i].kyukkuk += " 伏干";
+                //if ((goong[i].b_gan[2] == true || goong[i].b_gan[3] == true)  && goong[i].yooksam[1] == 2) goong[i].kyukkuk += " 飛干";
 
                 if (i == 3 && (goong[i].yooksam[0] == 4 || goong[i].yooksam[0] == 5)) goong[i].kyukkuk += " 六儀擊形";
                 else if (i == 8 && (goong[i].yooksam[0] == 3)) goong[i].kyukkuk += " 六儀擊形";
@@ -1971,32 +1982,40 @@ namespace WindowsFormsApp1
                     if (goong[i].yooksam[0] == 6 && goong[i].eightmun == 0) goong[i].kyukkuk += " 玉女守門";
 
                     //흉격
-
-                    if ((toYookSam(goong[i].yooksam[1]) == toGan(sjGanzi[0, 0]) && goong[i].yooksam[0] == 7) || (toYookSam(goong[i].yooksam[0]) == toGan(sjGanzi[0, 0]) && goong[i].yooksam[1] == 7)) goong[i].kyukkuk += " 悖亂";
+                    if (goong[i].yooksam[1] == 7 && goong[i].yooksam[0] == 7) goong[i].kyukkuk += "";
+                    else if ((toYookSam(goong[i].yooksam[1]) == toGan(sjGanzi[0, 0]) && goong[i].yooksam[0] == 7) || (toYookSam(goong[i].yooksam[0]) == toGan(sjGanzi[0, 0]) && goong[i].yooksam[1] == 7)) goong[i].kyukkuk += " 悖亂";
                     else if ((toYookSam(goong[i].yooksam[1]) == toGan(sjGanzi[1, 0]) && goong[i].yooksam[0] == 7) || (toYookSam(goong[i].yooksam[0]) == toGan(sjGanzi[1, 0]) && goong[i].yooksam[1] == 7)) goong[i].kyukkuk += " 悖亂";
                     else if ((toYookSam(goong[i].yooksam[1]) == toGan(sjGanzi[2, 0]) && goong[i].yooksam[0] == 7) || (toYookSam(goong[i].yooksam[0]) == toGan(sjGanzi[2, 0]) && goong[i].yooksam[1] == 7)) goong[i].kyukkuk += " 悖亂";
                     else if ((toYookSam(goong[i].yooksam[1]) == toGan(sjGanzi[3, 0]) && goong[i].yooksam[0] == 7) || (toYookSam(goong[i].yooksam[0]) == toGan(sjGanzi[3, 0]) && goong[i].yooksam[1] == 7)) goong[i].kyukkuk += " 悖亂";
-                    else if (i == 4 && goong[i].yooksam[1] == 7 && goong[1].yooksam[0] == 7) goong[i].kyukkuk += " 悖亂";
+                    //else if (i == 4 && goong[i].yooksam[1] == 7 && goong[1].yooksam[0] == 7) goong[i].kyukkuk += " 悖亂";
 
-/*                    if (toYookSam(goong[i].yooksam[1]) == toGan(sjGanzi[0, 0]) && (goong[i].yooksam[0] == 7 || goong[i].yooksam[1] == 7)) goong[i].kyukkuk += " 悖亂";
-                    else if (toYookSam(goong[i].yooksam[1]) == toGan(sjGanzi[1, 0]) && (goong[i].yooksam[0] == 7 || goong[i].yooksam[1] == 7)) goong[i].kyukkuk += " 悖亂";
-                    else if (toYookSam(goong[i].yooksam[1]) == toGan(sjGanzi[2, 0]) && (goong[i].yooksam[0] == 7 || goong[i].yooksam[1] == 7)) goong[i].kyukkuk += " 悖亂";
-                    else if (toYookSam(goong[i].yooksam[1]) == toGan(sjGanzi[3, 0]) && (goong[i].yooksam[0] == 7 || goong[i].yooksam[1] == 7)) goong[i].kyukkuk += " 悖亂";
-                    else if (toYookSam(goong[i].yooksam[1]) == "直" && (goong[i].yooksam[0] == 7 || goong[i].yooksam[1] == 7)) goong[i].kyukkuk += " 悖亂";*/
+                    /*                    if (toYookSam(goong[i].yooksam[1]) == toGan(sjGanzi[0, 0]) && (goong[i].yooksam[0] == 7 || goong[i].yooksam[1] == 7)) goong[i].kyukkuk += " 悖亂";
+                                        else if (toYookSam(goong[i].yooksam[1]) == toGan(sjGanzi[1, 0]) && (goong[i].yooksam[0] == 7 || goong[i].yooksam[1] == 7)) goong[i].kyukkuk += " 悖亂";
+                                        else if (toYookSam(goong[i].yooksam[1]) == toGan(sjGanzi[2, 0]) && (goong[i].yooksam[0] == 7 || goong[i].yooksam[1] == 7)) goong[i].kyukkuk += " 悖亂";
+                                        else if (toYookSam(goong[i].yooksam[1]) == toGan(sjGanzi[3, 0]) && (goong[i].yooksam[0] == 7 || goong[i].yooksam[1] == 7)) goong[i].kyukkuk += " 悖亂";
+                                        else if (toYookSam(goong[i].yooksam[1]) == "直" && (goong[i].yooksam[0] == 7 || goong[i].yooksam[1] == 7)) goong[i].kyukkuk += " 悖亂";*/
 
-                    if (toYookSam(goong[i].yooksam[1]) == toGan(sjGanzi[0, 0]) && (goong[i].yooksam[0] == 5 || goong[i].yooksam[1] == 5)) goong[i].kyukkuk += " 天網四張";
-                    else if (toYookSam(goong[i].yooksam[1]) == toGan(sjGanzi[1, 0]) && (goong[i].yooksam[0] == 5 || goong[i].yooksam[1] == 5)) goong[i].kyukkuk += " 天網四張";
-                    else if (toYookSam(goong[i].yooksam[1]) == toGan(sjGanzi[2, 0]) && (goong[i].yooksam[0] == 5 || goong[i].yooksam[1] == 5)) goong[i].kyukkuk += " 天網四張";
-                    else if (toYookSam(goong[i].yooksam[1]) == toGan(sjGanzi[3, 0]) && (goong[i].yooksam[0] == 5 || goong[i].yooksam[1] == 5)) goong[i].kyukkuk += " 天網四張";
+                    if ((toYookSam(goong[i].yooksam[1]) == toGan(sjGanzi[0, 0]) && goong[i].yooksam[0] == 5) ||
+                             (toYookSam(goong[i].yooksam[0]) == toGan(sjGanzi[0, 0]) && goong[i].yooksam[1] == 5)) goong[i].kyukkuk += " 天網四張";
+                    else if ((toYookSam(goong[i].yooksam[1]) == toGan(sjGanzi[1, 0]) && goong[i].yooksam[0] == 5) ||
+                             (toYookSam(goong[i].yooksam[0]) == toGan(sjGanzi[1, 0]) && goong[i].yooksam[1] == 5)) goong[i].kyukkuk += " 天網四張";
+                    else if ((toYookSam(goong[i].yooksam[1]) == toGan(sjGanzi[2, 0]) && goong[i].yooksam[0] == 5) ||
+                             (toYookSam(goong[i].yooksam[0]) == toGan(sjGanzi[2, 0]) && goong[i].yooksam[1] == 5)) goong[i].kyukkuk += " 天網四張";
+                    else if ((toYookSam(goong[i].yooksam[1]) == toGan(sjGanzi[3, 0]) && goong[i].yooksam[0] == 5) ||
+                             (toYookSam(goong[i].yooksam[0]) == toGan(sjGanzi[3, 0]) && goong[i].yooksam[1] == 5)) goong[i].kyukkuk += " 天網四張";
 
-                    if (toYookSam(goong[i].yooksam[1]) == toGan(sjGanzi[0, 0]) && (goong[i].yooksam[0] == 4 || goong[i].yooksam[1] == 4)) goong[i].kyukkuk += " 地網遮蔽";
-                    else if (toYookSam(goong[i].yooksam[1]) == toGan(sjGanzi[1, 0]) && (goong[i].yooksam[0] == 4 || goong[i].yooksam[1] == 4)) goong[i].kyukkuk += " 地網遮蔽";
-                    else if (toYookSam(goong[i].yooksam[1]) == toGan(sjGanzi[2, 0]) && (goong[i].yooksam[0] == 4 || goong[i].yooksam[1] == 4)) goong[i].kyukkuk += " 地網遮蔽";
-                    else if (toYookSam(goong[i].yooksam[1]) == toGan(sjGanzi[3, 0]) && (goong[i].yooksam[0] == 4 || goong[i].yooksam[1] == 4)) goong[i].kyukkuk += " 地網遮蔽";
-                    else if (goong[i].eightjang == "直" && (goong[i].yooksam[0] == 4 || goong[i].yooksam[1] == 4)) goong[i].kyukkuk += " 地網遮蔽";
+                    if ((toYookSam(goong[i].yooksam[1]) == toGan(sjGanzi[0, 0]) && goong[i].yooksam[0] == 4) ||
+                             (toYookSam(goong[i].yooksam[0]) == toGan(sjGanzi[0, 0]) && goong[i].yooksam[1] == 4)) goong[i].kyukkuk += " 地網遮蔽";
+                    else if ((toYookSam(goong[i].yooksam[1]) == toGan(sjGanzi[1, 0]) && goong[i].yooksam[0] == 4) ||
+                             (toYookSam(goong[i].yooksam[0]) == toGan(sjGanzi[1, 0]) && goong[i].yooksam[1] == 4)) goong[i].kyukkuk += " 地網遮蔽";
+                    else if ((toYookSam(goong[i].yooksam[1]) == toGan(sjGanzi[2, 0]) && goong[i].yooksam[0] == 4) ||
+                             (toYookSam(goong[i].yooksam[0]) == toGan(sjGanzi[2, 0]) && goong[i].yooksam[1] == 4)) goong[i].kyukkuk += " 地網遮蔽";
+                    else if ((toYookSam(goong[i].yooksam[1]) == toGan(sjGanzi[3, 0]) && goong[i].yooksam[0] == 4) ||
+                             (toYookSam(goong[i].yooksam[0]) == toGan(sjGanzi[3, 0]) && goong[i].yooksam[1] == 4)) goong[i].kyukkuk += " 地網遮蔽";
+                    //else if (goong[i].eightjang == "直" && (goong[i].yooksam[0] == 4 || goong[i].yooksam[1] == 4)) goong[i].kyukkuk += " 地網遮蔽";
 
-                    if ((goong[i].b_gan[2] == true || goong[i].b_gan[3] == true) && goong[i].yooksam[0] == 2) goong[i].kyukkuk += " 伏干";
-                    if ((goong[i].b_gan[2] == true || goong[i].b_gan[3] == true) && goong[i].yooksam[1] == 2) goong[i].kyukkuk += " 飛干";
+                    //if ((goong[i].b_gan[2] == true || goong[i].b_gan[3] == true) && goong[i].yooksam[0] == 2) goong[i].kyukkuk += " 伏干";
+                    //if ((goong[i].b_gan[2] == true || goong[i].b_gan[3] == true) && goong[i].yooksam[1] == 2) goong[i].kyukkuk += " 飛干";
 
                     if (i == 3 && (goong[i].yooksam[0] == 4 || goong[i].yooksam[0] == 5)) goong[i].kyukkuk += " 六儀擊形";
                     else if (i == 8 && (goong[i].yooksam[0] == 3)) goong[i].kyukkuk += " 六儀擊形";
@@ -2177,26 +2196,26 @@ namespace WindowsFormsApp1
                         { "甲午", "乙未", "丙申", "丁酉", "戊戌", "己亥", "庚子", "辛丑", "壬寅", "癸卯" },
                         { "甲辰", "乙巳", "丙午", "丁未", "戊申", "己酉", "庚戌", "辛亥", "壬子", "癸丑" },
                         { "甲寅", "乙卯", "丙辰", "丁巳", "戊午", "己未", "庚申", "辛酉", "壬戌", "癸亥" } };
-            int i, j, start, age;
+            int i, j, k,  start, age, t_age = 0;
             string temp;
-            int[] t_age = { 1924, 1984, 2044, 2104 };
+            //int[] t_age = { 1924, 1984, 2044, 2104 };
 
             temp = toGan(sjGanzi[0, 0]) + toZi(sjGanzi[0, 1]);
-            for (i = 0; i < 60 && day[i / 10, i % 10] != temp; i++) ;
-            start = ((i / 10) + (i % 10)) % 9;
+            for (k = 0; k < 60 && day[k / 10, k % 10] != temp; k++) ;
+            start = ((k / 10) + (k % 10)) % 9;
             //textBox5.AppendText(toYookSam(start));
             for (i = 0; i < 9 && goong[i].yooksam[1] != start; i++) ;
             start = i;
 
-            for (i = 0; i < 4; i++) t_age[i] -= solar_dt.Year;
-            for (i = 0, j = 0; i < 4; i++)
-            {
-                if (t_age[i] > 0 && t_age[i] <= 120)
-                {
-                    t_age[j] = t_age[i];
-                    j += 1;
-                }
-            }
+            //for (i = 0; i < 4; i++) t_age[i] -= solar_dt.Year;
+            //for (i = 0, j = 0; i < 4; i++)
+            //{
+            //    if (t_age[i] > 0 && t_age[i] <= 120)
+            //    {
+            //        t_age[j] = t_age[i];
+            //        j += 1;
+            //    }
+            //}
 
             for (i = 0; i < 9; i++)
             {
@@ -2210,7 +2229,13 @@ namespace WindowsFormsApp1
                         age = i * 9 + j % 9 + 1;
                         if (i != 0) c.Text += ", ";
                         c.Text += age.ToString();
-                        if (age >= t_age[0]) goto EXIT1;
+                        if (age + k == 60)
+                        {
+                            t_age = age;
+                            goto EXIT1;
+                        }
+
+                        //if (age >= t_age[0]) goto EXIT1;
                     }
                     else
                     {
@@ -2220,7 +2245,12 @@ namespace WindowsFormsApp1
                         age = i * 9 + j % 9 + 1;
                         if (i != 0) c.Text += ", ";
                         c.Text += age.ToString();
-                        if (age >= t_age[0]) goto EXIT1;
+                        if (age + k == 60)
+                        {
+                            t_age = age;
+                            goto EXIT1;
+                        }
+                        //if (age >= t_age[0]) goto EXIT1;
                     }
                 }
             }
@@ -2236,20 +2266,26 @@ namespace WindowsFormsApp1
                         String name = "richTextBox" + ((j + start) % 9 + 1);
                         Control ct = this.Controls[name];
                         RichTextBox c = ct as RichTextBox;
-                        age = t_age[0] + i * 9 + j % 9 + 1;
+                        age = i * 9 + j % 9 + 1 + t_age;
                         c.Text += ", " + age.ToString();
-                        if (age > 90) goto EXIT;
-                        if (age >= t_age[1] + 1) goto EXIT2;
+                        if (age + k == 120)
+                        {
+                            t_age = age;
+                            goto EXIT2;
+                        }
                     }
                     else
                     {
                         String name = "richTextBox" + ((start + 9 - j) % 9 + 1);
                         Control ct = this.Controls[name];
                         RichTextBox c = ct as RichTextBox;
-                        age = t_age[0] + i * 9 + j % 9 + 1;
+                        age = i * 9 + j % 9 + 1+ t_age;
                         c.Text += ", " + age.ToString();
-                        if (age > 90) goto EXIT;
-                        if (age >= t_age[1] + 1) goto EXIT2;
+                        if (age + k == 120)
+                        {
+                            t_age = age;
+                            goto EXIT2;
+                        }
                     }
                 }
             }
@@ -2265,7 +2301,7 @@ namespace WindowsFormsApp1
                         String name = "richTextBox" + ((j + start) % 9 + 1);
                         Control ct = this.Controls[name];
                         RichTextBox c = ct as RichTextBox;
-                        age = t_age[1] + i * 9 + j % 9 + 1;
+                        age = t_age + i * 9 + j % 9 + 1;
                         if (age > 90) goto EXIT;
                         c.Text += ", " + age.ToString();
                     }
@@ -2275,7 +2311,7 @@ namespace WindowsFormsApp1
                         String name = "richTextBox" + ((start + 9 - j) % 9 + 1);
                         Control ct = this.Controls[name];
                         RichTextBox c = ct as RichTextBox;
-                        age = t_age[1] + i * 9 + j % 9 + 1;
+                        age = t_age + i * 9 + j % 9 + 1;
                         if (age > 90) goto EXIT;
                         c.Text += ", " + age.ToString();
                     }
@@ -3783,22 +3819,41 @@ namespace WindowsFormsApp1
         {
             int jogaek, sangmun;
             int jogaek_hongNumber, sangmun_hongNumber;
+            bool isjogaek, issangmun;
 
             jogaek = sjGanzi[0, 1] - 2;
             if (jogaek < 0) jogaek = 12 + jogaek;
             sangmun = sjGanzi[0, 1] + 2;
             if (sangmun > 11) sangmun = sangmun - 12;
 
+            if (sjGanzi[1, 1] == jogaek || sjGanzi[2, 1] == jogaek || sjGanzi[3, 1] == jogaek) isjogaek = true;
+            else isjogaek = false;
+            if (sjGanzi[1, 1] == sangmun || sjGanzi[2, 1] == sangmun || sjGanzi[3, 1] == sangmun) issangmun = true;
+            else issangmun = false;
+
             jogaek_hongNumber = zi2Goong(jogaek); // 오행 받아오기
             sangmun_hongNumber = zi2Goong(sangmun); // 오행 받아오기
 
             for (int i = 0; i < 9; i++)
             {
-                if (goong[i].hongNum[1] == jogaek_hongNumber)
-                    goong[i].josang = "弔客";  // 조객
-                else if (goong[i].hongNum[1] == sangmun_hongNumber)
-                    goong[i].josang = "喪門";  // 상문
-                else goong[i].josang = "";  // 
+                if (isjogaek)
+                { 
+                    if (goong[i].hongNum[1] == jogaek_hongNumber)
+                        goong[i].josang = "弔客";  // 조객
+                    else if (i == 4)
+                    {
+                        if(goong[i].hongNum[1] + 5 == jogaek_hongNumber || goong[i].hongNum[1] - 5 == jogaek_hongNumber) goong[i].josang = "(弔客)";
+                    }
+                }
+                if (issangmun)
+                {
+                    if (goong[i].hongNum[1] == sangmun_hongNumber)
+                        goong[i].josang = "喪門";  // 상문
+                    else if (i == 4)
+                    {
+                        if (goong[i].hongNum[1] + 5 == sangmun_hongNumber || goong[i].hongNum[1] - 5 == sangmun_hongNumber) goong[i].josang = "(喪門)";
+                    }
+                }
             }
         }
 
@@ -3933,17 +3988,25 @@ namespace WindowsFormsApp1
                     }
                     else
                     {
+                        int p_year, p_month, p_day, p_time;
                         sjGanzi[0, 0] = comboBox4.SelectedIndex+1;
                         sjGanzi[0, 1] = comboBox8.SelectedIndex+1;
-                        sjGanzi[1, 0] = comboBox3.SelectedIndex+1;
-                        sjGanzi[1, 1] = comboBox7.SelectedIndex+1;
-                        sjGanzi[2, 0] = comboBox2.SelectedIndex+1;
-                        sjGanzi[2, 1] = comboBox6.SelectedIndex+1;
-                        sjGanzi[3, 0] = comboBox1.SelectedIndex+1;
-                        sjGanzi[3, 1] = comboBox5.SelectedIndex+1;
+                        sjGanzi[1, 0] = comboBox3.SelectedIndex + 1;
+                        sjGanzi[1, 1] = comboBox7.SelectedIndex + 1;
+                        sjGanzi[2, 0] = comboBox2.SelectedIndex + 1;
+                        sjGanzi[2, 1] = comboBox6.SelectedIndex + 1;
+                        sjGanzi[3, 0] = comboBox1.SelectedIndex + 1;
+                        sjGanzi[3, 1] = comboBox5.SelectedIndex + 1;
 
+                        p_year = 1924 + (sjGanzi[0, 0] - 1) * 6 + (sjGanzi[0, 1] - 1);
+                        p_month = sjGanzi[1, 1];
+                        p_day = 2;
+                        p_time = (sjGanzi[3, 1]-1)*2;
                         direction = false;
                         if (comboBox9.SelectedIndex+1 == 24 || comboBox9.SelectedIndex+1 <= 11) direction = true;
+
+                        dateTimePicker1.Value = new DateTime(p_year,p_month, p_day, p_time, 0, 0);
+                        groupBox3.Visible = false;
                     }
 
                     //년월일시 간지 표시
@@ -4280,6 +4343,15 @@ namespace WindowsFormsApp1
 
         private void radioButton6_CheckedChanged(object sender, EventArgs e)
         {
+            comboBox4.SelectedIndex = 0;
+            comboBox8.SelectedIndex = 0;
+            comboBox3.SelectedIndex = 0;
+            comboBox7.SelectedIndex = 0;
+            comboBox2.SelectedIndex = 0;
+            comboBox6.SelectedIndex = 0;
+            comboBox1.SelectedIndex = 0;
+            comboBox5.SelectedIndex = 0;
+            comboBox9.SelectedIndex = 0;
             groupBox3.Visible = true;
         }
 
