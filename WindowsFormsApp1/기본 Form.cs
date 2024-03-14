@@ -23,6 +23,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using System.Security.Cryptography.X509Certificates;
 using System.Net.NetworkInformation;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
+using System.ComponentModel.Design;
 
 namespace WindowsFormsApp1
 {
@@ -42,6 +43,8 @@ namespace WindowsFormsApp1
         public int lunar_year, lunar_month, lunar_day;   // 음력
         public DateTime solar_dt; // 양력
         private PrintDocument printDocument1 = new PrintDocument();
+        private DateTime[] dt_palja;  // 사주팔자->생시파악용
+        private bool[] b_palja = new bool[2]; // 사주팔자->생시파악용
         Bitmap memoryImage;
         Bitmap subImage;
         bool bProcess = false;
@@ -1145,9 +1148,9 @@ namespace WindowsFormsApp1
             //if (j == 24 || j <= 10) direction = true;
             start = jeolgi[(term + 23) % 24, i / 20];   // 지반 戊 시작하는 궁 위치
 
-            if (comboBox9.SelectedIndex != -1)
+            //if (comboBox9.SelectedIndex != -1)
                 label56.Text = toBirthJeolgi(term-1, i, start);
-            else label56.Text = "";
+            //else label56.Text = "";
             //textBox5.AppendText(hterms[i] + $"{terms[i]}" + Environment.NewLine);
 
 
@@ -3891,7 +3894,7 @@ namespace WindowsFormsApp1
         private bool b_trial()
         {
             DateTime today = DateTime.Now;
-            DateTime expiredate = new DateTime(2024, 9, 1);
+            DateTime expiredate = new DateTime(2025, 1, 1);
 
             if (today >= expiredate)
             {
@@ -3902,6 +3905,61 @@ namespace WindowsFormsApp1
 
             //return true;
         }
+
+        public bool getdatefromsaju(int start_year, out DateTime birthdate )
+        {
+            // 사주팔자로 실제 생시 계산하기
+            int p_year, day, sjGanDay, sjZiDay, i, j, p_time;
+
+            // 시주 -> 생시 계산
+            p_time = (sjGanzi[3, 1] - 1) * 2;
+
+            int[,] sixties = new int[60, 2];
+            for (i = 0, j = 0; i < 60; i++)
+            {
+                sixties[i, 0] = i % 10 + 1;
+                sixties[i, 1] = i % 12 + 1;
+                if (sixties[i, 0] == sjGanzi[0, 0] && sixties[i, 1] == sjGanzi[0, 1])
+                    j = i;
+            }
+            // 년주 -> 생년 계산
+            p_year = start_year + j;
+
+            // 일주 -> 생일 계산
+            DateTime temp_date = new DateTime(p_year, 6, 1, 12, 00, 00);  // 해당 년도의 절기 계산
+            terms = get24Terms(temp_date);
+            DateTime[] terms_ = new DateTime[24];
+            terms_ = get24Terms(temp_date.AddYears(1));
+            //temp_date = new DateTime(terms[2].Year, terms[2].Month, terms[2].Day, p_time, 0, 0); // 입춘절 날짜, 시간만 변경
+            temp_date = new DateTime(terms[2].Year, terms[2].Month, terms[2].Day, p_time, 0, 0); // 입춘절 날짜, 시간만 변경
+
+            for (i = 0, j = -1; i < 365 && j == -1; i++)
+            {
+                day = (p_year - 1900) * 5 + (int)((p_year - 1901) / 4) + temp_date.DayOfYear - 1;
+                day += i;
+                sjGanDay = day % 10 + 1;
+                sjZiDay = (day + 10) % 12 + 1;
+
+                if (sjGanDay == sjGanzi[2, 0] && sjZiDay == sjGanzi[2, 1])
+                {
+                    int temp_gan, temp_zi;
+                    if(temp_date.AddDays(i).Year == temp_date.Year)
+                        ToSajuMonth(temp_date.AddDays(i), terms, sjGanzi[0, 0], out temp_gan, out temp_zi);
+                    else
+                        ToSajuMonth(temp_date.AddDays(i), terms_, sjGanzi[0, 0], out temp_gan, out temp_zi);
+                    if (temp_gan == sjGanzi[1, 0] && temp_zi == sjGanzi[1, 1])
+                    {
+                        ToSajuTime(temp_date.AddDays(i), sjGanzi[2, 0], out temp_gan, out temp_zi);
+                        if (temp_gan == sjGanzi[3, 0] && temp_zi == sjGanzi[3, 1]) j = i;
+                    }
+                }
+            }
+
+            birthdate = temp_date.AddDays(j);
+            if (j == -1) return false;
+            else return true;
+        }
+
         private void button1_Click(object sender, EventArgs e)  // 실행 부분
         {
             if (b_trial())
@@ -3986,9 +4044,8 @@ namespace WindowsFormsApp1
                         comboBox1.SelectedIndex = sjGanzi[3, 0] - 1;
                         comboBox5.SelectedIndex = sjGanzi[3, 1] - 1;
                     }
-                    else
-                    {
-                        int p_year, p_month, p_day, p_time;
+                    else if (groupBox6.Visible == false)// 콤보박스에 사주팔자 값 가져오기     
+                    {                                           
                         sjGanzi[0, 0] = comboBox4.SelectedIndex+1;
                         sjGanzi[0, 1] = comboBox8.SelectedIndex+1;
                         sjGanzi[1, 0] = comboBox3.SelectedIndex + 1;
@@ -3998,15 +4055,34 @@ namespace WindowsFormsApp1
                         sjGanzi[3, 0] = comboBox1.SelectedIndex + 1;
                         sjGanzi[3, 1] = comboBox5.SelectedIndex + 1;
 
-                        p_year = 1924 + (sjGanzi[0, 0] - 1) * 6 + (sjGanzi[0, 1] - 1);
-                        p_month = sjGanzi[1, 1];
-                        p_day = 2;
-                        p_time = (sjGanzi[3, 1]-1)*2;
-                        direction = false;
-                        if (comboBox9.SelectedIndex+1 == 24 || comboBox9.SelectedIndex+1 <= 11) direction = true;
+                        DateTime[] dt_palja_temp = new DateTime[2];
+                        b_palja[0] = getdatefromsaju(1924, out dt_palja_temp[0]);
+                        b_palja[1] = getdatefromsaju(1984, out dt_palja_temp[1]);
 
-                        dateTimePicker1.Value = new DateTime(p_year,p_month, p_day, p_time, 0, 0);
-                        groupBox3.Visible = false;
+                        groupBox6.Visible = true;
+                        List<string> termsList = new List<string>();
+                        List<DateTime> dt_palja_ = new List<DateTime>();
+
+                        // 1924,1984 기준(1924년부터 2044년까지 후보 찾아보기)
+                        for (int i = 0; i < 2; i++)
+                        {
+                            if (b_palja[i])
+                            {
+                                termsList.Add(dt_palja_temp[i].ToLongDateString());
+                                dt_palja_.Add(dt_palja_temp[i]);
+                            }
+                        }
+                        comboBox9.Items.Clear();
+                        comboBox9.Items.AddRange(termsList.ToArray());
+                        dt_palja = dt_palja_.ToArray();
+                    }
+                    else // 사주팔자 -> 생시, 선택한 날짜 반영
+                    {
+                        real_dt = dt_palja[comboBox9.SelectedIndex];
+                        dateTimePicker1.Value = real_dt;
+                        radioButton1.Checked = true;
+                        groupBox6.Visible = false;
+                        gimundungab.PerformClick();
                     }
 
                     //년월일시 간지 표시
@@ -4042,9 +4118,9 @@ namespace WindowsFormsApp1
                     setHonglvl(goong, sjGanzi[1, 1], real_dt);
 
                     //육의삼기 붙이기
-                    if (radioButton6.Checked)
-                        sisunsoo = setYookSamSaJu(goong, sjGanzi, comboBox9.SelectedIndex + 1, direction); 
-                    else
+ //                   if (radioButton6.Checked)
+ //                       sisunsoo = setYookSamSaJu(goong, sjGanzi, comboBox9.SelectedIndex + 1, direction); 
+ //                   else
                         sisunsoo = setYookSam(goong, sjGanzi, real_dt, terms, direction);
 
                     //사간 계산
@@ -4093,13 +4169,13 @@ namespace WindowsFormsApp1
                     set10Daeun(terms, sjGanzi, gender, real_dt);
 
                     //결과물 구궁에 출력
-                    if (comboBox9.SelectedIndex == -1 && radioButton6.Checked)
-                    {
-                        comboBox9.SelectedIndex = 0;
-                        showGoongLabelText(goong, eunboksu1, eunboksu2);
-                    }
+                    //if (comboBox9.SelectedIndex == -1 && radioButton6.Checked)
+                    //{
+                    //    comboBox9.SelectedIndex = 0;
+                    //    showGoongLabelText(goong, eunboksu1, eunboksu2);
+                    //}
                     
-                    else
+                    //else
                         showGoongLabelText(goong, eunboksu1, eunboksu2);
 
                     //통기도 출력
@@ -4343,16 +4419,17 @@ namespace WindowsFormsApp1
 
         private void radioButton6_CheckedChanged(object sender, EventArgs e)
         {
-            comboBox4.SelectedIndex = 0;
-            comboBox8.SelectedIndex = 0;
-            comboBox3.SelectedIndex = 0;
-            comboBox7.SelectedIndex = 0;
-            comboBox2.SelectedIndex = 0;
-            comboBox6.SelectedIndex = 0;
-            comboBox1.SelectedIndex = 0;
-            comboBox5.SelectedIndex = 0;
-            comboBox9.SelectedIndex = 0;
+            //comboBox4.SelectedIndex = 0;
+            //comboBox8.SelectedIndex = 0;
+            //comboBox3.SelectedIndex = 0;
+            //comboBox7.SelectedIndex = 0;
+            //comboBox2.SelectedIndex = 0;
+            //comboBox6.SelectedIndex = 0;
+            //comboBox1.SelectedIndex = 0;
+            //comboBox5.SelectedIndex = 0;
+            //comboBox9.SelectedIndex = 0;
             groupBox3.Visible = true;
+            groupBox6.Visible = false;
         }
 
         private void button7_Click(object sender, EventArgs e)
@@ -4474,6 +4551,11 @@ namespace WindowsFormsApp1
 
             }
             MessageBox.Show(j_term);
+        }
+
+        private void label22_Click(object sender, EventArgs e)
+        {
+
         }
 
         private void button6_Click(object sender, EventArgs e)

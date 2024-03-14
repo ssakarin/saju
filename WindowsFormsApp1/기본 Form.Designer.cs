@@ -67,11 +67,10 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.radioButton6 = new System.Windows.Forms.RadioButton();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.label56 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.comboBox9 = new System.Windows.Forms.ComboBox();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.label22 = new System.Windows.Forms.Label();
+            this.comboBox9 = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.comboBox8 = new System.Windows.Forms.ComboBox();
@@ -84,6 +83,8 @@
             this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.label56 = new System.Windows.Forms.Label();
             this.label51 = new System.Windows.Forms.Label();
             this.button4 = new System.Windows.Forms.Button();
             this.label19 = new System.Windows.Forms.Label();
@@ -183,6 +184,7 @@
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            this.groupBox6.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -601,30 +603,9 @@
             this.radioButton6.UseVisualStyleBackColor = true;
             this.radioButton6.CheckedChanged += new System.EventHandler(this.radioButton6_CheckedChanged);
             // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.CustomFormat = "yyyy년 MM월 dd일 HH시 mm분";
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker1.Location = new System.Drawing.Point(15, 38);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 21);
-            this.dateTimePicker1.TabIndex = 111;
-            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
-            // 
-            // label56
-            // 
-            this.label56.AutoSize = true;
-            this.label56.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label56.Location = new System.Drawing.Point(13, 96);
-            this.label56.Name = "label56";
-            this.label56.Size = new System.Drawing.Size(63, 13);
-            this.label56.TabIndex = 77;
-            this.label56.Text = "생일 절기";
-            // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.comboBox9);
-            this.groupBox3.Controls.Add(this.label22);
+            this.groupBox3.Controls.Add(this.groupBox6);
             this.groupBox3.Controls.Add(this.label2);
             this.groupBox3.Controls.Add(this.label3);
             this.groupBox3.Controls.Add(this.comboBox8);
@@ -643,6 +624,29 @@
             this.groupBox3.TabIndex = 137;
             this.groupBox3.TabStop = false;
             // 
+            // groupBox6
+            // 
+            this.groupBox6.Controls.Add(this.label22);
+            this.groupBox6.Controls.Add(this.comboBox9);
+            this.groupBox6.Location = new System.Drawing.Point(0, 0);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(233, 85);
+            this.groupBox6.TabIndex = 182;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Visible = false;
+            // 
+            // label22
+            // 
+            this.label22.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label22.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label22.Location = new System.Drawing.Point(1, 11);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(231, 15);
+            this.label22.TabIndex = 142;
+            this.label22.Text = "동일 사주 중 선택";
+            this.label22.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label22.Click += new System.EventHandler(this.label22_Click);
+            // 
             // comboBox9
             // 
             this.comboBox9.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -650,52 +654,16 @@
             this.comboBox9.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.comboBox9.FormattingEnabled = true;
             this.comboBox9.ItemHeight = 13;
-            this.comboBox9.Items.AddRange(new object[] {
-            "小寒",
-            "大寒",
-            "立春",
-            "雨水",
-            "驚蟄",
-            "春分",
-            "淸明",
-            "穀雨",
-            "立夏",
-            "小滿",
-            "芒種",
-            "夏至",
-            "小暑",
-            "大暑",
-            "立秋",
-            "處暑",
-            "白露",
-            "秋分",
-            "寒露",
-            "霜降",
-            "立冬",
-            "小雪",
-            "大雪",
-            "冬至"});
-            this.comboBox9.Location = new System.Drawing.Point(177, 30);
+            this.comboBox9.Location = new System.Drawing.Point(1, 34);
             this.comboBox9.Name = "comboBox9";
-            this.comboBox9.Size = new System.Drawing.Size(53, 21);
+            this.comboBox9.Size = new System.Drawing.Size(231, 21);
             this.comboBox9.TabIndex = 143;
-            // 
-            // label22
-            // 
-            this.label22.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label22.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label22.Location = new System.Drawing.Point(177, 12);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(54, 15);
-            this.label22.TabIndex = 142;
-            this.label22.Text = "節氣";
-            this.label22.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label2
             // 
             this.label2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label2.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label2.Location = new System.Drawing.Point(6, 12);
+            this.label2.Location = new System.Drawing.Point(31, 12);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(41, 15);
             this.label2.TabIndex = 141;
@@ -706,7 +674,7 @@
             // 
             this.label3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label3.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label3.Location = new System.Drawing.Point(49, 12);
+            this.label3.Location = new System.Drawing.Point(74, 12);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(41, 15);
             this.label3.TabIndex = 140;
@@ -731,7 +699,7 @@
             "酉",
             "戌",
             "亥"});
-            this.comboBox8.Location = new System.Drawing.Point(134, 57);
+            this.comboBox8.Location = new System.Drawing.Point(159, 57);
             this.comboBox8.Name = "comboBox8";
             this.comboBox8.Size = new System.Drawing.Size(41, 25);
             this.comboBox8.TabIndex = 132;
@@ -740,7 +708,7 @@
             // 
             this.label4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label4.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label4.Location = new System.Drawing.Point(92, 12);
+            this.label4.Location = new System.Drawing.Point(117, 12);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(41, 15);
             this.label4.TabIndex = 139;
@@ -765,7 +733,7 @@
             "酉",
             "戌",
             "亥"});
-            this.comboBox7.Location = new System.Drawing.Point(92, 57);
+            this.comboBox7.Location = new System.Drawing.Point(117, 57);
             this.comboBox7.Name = "comboBox7";
             this.comboBox7.Size = new System.Drawing.Size(41, 25);
             this.comboBox7.TabIndex = 131;
@@ -774,7 +742,7 @@
             // 
             this.label13.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label13.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label13.Location = new System.Drawing.Point(134, 12);
+            this.label13.Location = new System.Drawing.Point(159, 12);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(41, 15);
             this.label13.TabIndex = 138;
@@ -799,7 +767,7 @@
             "酉",
             "戌",
             "亥"});
-            this.comboBox6.Location = new System.Drawing.Point(49, 57);
+            this.comboBox6.Location = new System.Drawing.Point(74, 57);
             this.comboBox6.Name = "comboBox6";
             this.comboBox6.Size = new System.Drawing.Size(41, 25);
             this.comboBox6.TabIndex = 130;
@@ -822,7 +790,7 @@
             "酉",
             "戌",
             "亥"});
-            this.comboBox5.Location = new System.Drawing.Point(6, 57);
+            this.comboBox5.Location = new System.Drawing.Point(31, 57);
             this.comboBox5.Name = "comboBox5";
             this.comboBox5.Size = new System.Drawing.Size(41, 25);
             this.comboBox5.TabIndex = 129;
@@ -843,7 +811,7 @@
             "辛",
             "壬",
             "癸"});
-            this.comboBox4.Location = new System.Drawing.Point(134, 30);
+            this.comboBox4.Location = new System.Drawing.Point(159, 30);
             this.comboBox4.Name = "comboBox4";
             this.comboBox4.Size = new System.Drawing.Size(41, 25);
             this.comboBox4.TabIndex = 128;
@@ -864,7 +832,7 @@
             "辛",
             "壬",
             "癸"});
-            this.comboBox3.Location = new System.Drawing.Point(92, 30);
+            this.comboBox3.Location = new System.Drawing.Point(117, 30);
             this.comboBox3.Name = "comboBox3";
             this.comboBox3.Size = new System.Drawing.Size(41, 25);
             this.comboBox3.TabIndex = 127;
@@ -885,7 +853,7 @@
             "辛",
             "壬",
             "癸"});
-            this.comboBox2.Location = new System.Drawing.Point(49, 30);
+            this.comboBox2.Location = new System.Drawing.Point(74, 30);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(41, 25);
             this.comboBox2.TabIndex = 126;
@@ -906,10 +874,30 @@
             "辛",
             "壬",
             "癸"});
-            this.comboBox1.Location = new System.Drawing.Point(6, 30);
+            this.comboBox1.Location = new System.Drawing.Point(31, 30);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(41, 25);
             this.comboBox1.TabIndex = 125;
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.CustomFormat = "yyyy년 MM월 dd일 HH시 mm분";
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePicker1.Location = new System.Drawing.Point(15, 38);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(200, 21);
+            this.dateTimePicker1.TabIndex = 111;
+            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
+            // 
+            // label56
+            // 
+            this.label56.AutoSize = true;
+            this.label56.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label56.Location = new System.Drawing.Point(13, 96);
+            this.label56.Name = "label56";
+            this.label56.Size = new System.Drawing.Size(63, 13);
+            this.label56.TabIndex = 77;
+            this.label56.Text = "생일 절기";
             // 
             // label51
             // 
@@ -1479,7 +1467,7 @@
             // 
             // pictureBox3
             // 
-            this.pictureBox3.Image = global::GimunMyungRi.Properties.Resources.tongi_1;
+            this.pictureBox3.Image = global::GimunMyungRi.Properties.Resources.tongi_raw;
             this.pictureBox3.InitialImage = null;
             this.pictureBox3.Location = new System.Drawing.Point(11, 333);
             this.pictureBox3.Name = "pictureBox3";
@@ -2234,6 +2222,7 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
+            this.groupBox6.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             this.groupBox5.ResumeLayout(false);
@@ -2399,6 +2388,7 @@
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Button button8;
         private LabelX label59;
+        private System.Windows.Forms.GroupBox groupBox6;
         //private System.Drawing.Printing.PrintDocument printDocument1;
     }
 }
