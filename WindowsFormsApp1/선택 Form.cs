@@ -41,7 +41,7 @@ namespace WindowsFormsApp1
             listView1.Columns.Add(listview_columnTitle[1], -2, HorizontalAlignment.Center);
             listView1.Columns.Add(listview_columnTitle[2], -2, HorizontalAlignment.Center);
             listView1.Columns.Add(listview_columnTitle[3], -2, HorizontalAlignment.Center);
-            listView1.Columns.Add(listview_columnTitle[4], -2, HorizontalAlignment.Center);
+            listView1.Columns.Add(listview_columnTitle[4], -2, HorizontalAlignment.Left);
         }
 
         public Form2(Form1 form)

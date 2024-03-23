@@ -3893,17 +3893,17 @@ namespace WindowsFormsApp1
 
         private bool b_trial()
         {
-            DateTime today = DateTime.Now;
-            DateTime expiredate = new DateTime(2025, 1, 1);
+            //DateTime today = DateTime.Now;
+            //DateTime expiredate = new DateTime(2025, 1, 1);
 
-            if (today >= expiredate)
-            {
-                MessageBox.Show("사용기한이 만료되었습니다.");
-                return false;
-            }
-            else return true;
+            //if (today >= expiredate)
+            //{
+            //    MessageBox.Show("사용기한이 만료되었습니다.");
+            //    return false;
+            //}
+            //else return true;
 
-            //return true;
+            return true;
         }
 
         public bool getdatefromsaju(int start_year, out DateTime birthdate )
@@ -4082,7 +4082,36 @@ namespace WindowsFormsApp1
                         dateTimePicker1.Value = real_dt;
                         radioButton1.Checked = true;
                         groupBox6.Visible = false;
-                        gimundungab.PerformClick();
+                        //gimundungab.PerformClick();
+                        solar_dt = real_dt;
+                        ToLunarDate(real_dt, out ly, out lunar_year, out lunar_month, out lunar_day); // 양력->음력 변환
+                        if (ly == false)
+                            label14.Text = "음력 " + lunar_year + "년 " + lunar_month.ToString("00") + "월 " + lunar_day.ToString("00") + "일 " + dt.Hour.ToString("00") + ":" + dt.Minute.ToString("00");
+                        else
+                            label14.Text = "음력 " + lunar_year + "년 " + lunar_month.ToString("00") + "월(윤달) " + lunar_day.ToString("00") + "일 " + dt.Hour.ToString() + ":" + dt.Minute.ToString("00"); ;
+                        
+                        real_dt = dateAdjust(solar_dt);  // 서머타임 동경시 등 보정
+
+                        // 24절기 계산
+                        terms = get24Terms(real_dt);
+
+                        //양둔, 음둔 계산
+                        direction = getDirection(real_dt, terms);
+
+                        //년월일시 간지 계산 
+                        ToSajuYear(real_dt, terms[2], out sjGanzi[0, 0], out sjGanzi[0, 1]);
+                        ToSajuMonth(real_dt, terms, sjGanzi[0, 0], out sjGanzi[1, 0], out sjGanzi[1, 1]);
+                        ToSajuDay(real_dt, out sjGanzi[2, 0], out sjGanzi[2, 1]);
+                        ToSajuTime(real_dt, sjGanzi[2, 0], out sjGanzi[3, 0], out sjGanzi[3, 1]);
+
+                        comboBox4.SelectedIndex = sjGanzi[0, 0] - 1;
+                        comboBox8.SelectedIndex = sjGanzi[0, 1] - 1;
+                        comboBox3.SelectedIndex = sjGanzi[1, 0] - 1;
+                        comboBox7.SelectedIndex = sjGanzi[1, 1] - 1;
+                        comboBox2.SelectedIndex = sjGanzi[2, 0] - 1;
+                        comboBox6.SelectedIndex = sjGanzi[2, 1] - 1;
+                        comboBox1.SelectedIndex = sjGanzi[3, 0] - 1;
+                        comboBox5.SelectedIndex = sjGanzi[3, 1] - 1;
                     }
 
                     //년월일시 간지 표시
